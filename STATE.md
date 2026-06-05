@@ -1,7 +1,7 @@
 # State
 
 ## Current Task
-Fix the commentary lookup so chapters 2 through 4 render the right-panel ODT commentary body correctly.
+Completed: fixed the commentary lookup so chapters 2 through 4 render the right-panel ODT commentary body correctly.
 
 ## Route
 Route A
@@ -26,7 +26,7 @@ Reason for Route A:
 Wegener
 
 ## Last Update
-2026-06-05 22:32:58 +09:00 - Restored ODT-derived right-panel commentary, recovered the missing ODT sources, and verified `generate:commentary`, typecheck, and tests.
+2026-06-05 22:51:27 +09:00 - Fixed the commentary lookup to use chapter-local verse ordering for chapters 2 and 3, verified typecheck, and confirmed the key mapping matches the generated data.
 
 ## Open Review Item
 - None.

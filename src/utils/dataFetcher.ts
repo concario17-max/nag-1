@@ -60,13 +60,13 @@ const commentaryByChapter: Record<number, Record<string, CommentaryBlock[]>> = {
     4: chapter4Commentary,
 };
 
-const getCommentaryBlocks = (chapterNum: number, paragraphId: string, paragraphNumber: number) => {
+const getCommentaryBlocks = (chapterNum: number, paragraphId: string, paragraphNumber: number, paragraphIndex: number) => {
     const chapterCommentary = commentaryByChapter[chapterNum];
     if (!chapterCommentary) {
         return undefined;
     }
 
-    const fallbackKeys = [paragraphId, String(paragraphNumber), `${chapterNum}.${paragraphNumber}`];
+    const fallbackKeys = [paragraphId, String(paragraphIndex + 1), String(paragraphNumber), `${chapterNum}.${paragraphNumber}`];
     for (const key of fallbackKeys) {
         const blocks = chapterCommentary[key];
         if (blocks?.length) {
@@ -82,9 +82,13 @@ const toNumber = (value: string | number | undefined, fallback = 0) => {
     return Number.isFinite(numeric) ? numeric : fallback;
 };
 
-const normalizeParagraph = (chapterNum: number, paragraph: ReadingSnapshot[number]['paragraphs'][number]): YogaSutra => {
+const normalizeParagraph = (
+    chapterNum: number,
+    paragraph: ReadingSnapshot[number]['paragraphs'][number],
+    paragraphIndex: number,
+): YogaSutra => {
     const sourceText = paragraph.text ?? { tibetan: '', pronunciation: '', english: '', korean: '' };
-    const chapterCommentary = getCommentaryBlocks(chapterNum, paragraph.id, paragraph.paragraphNumber);
+    const chapterCommentary = getCommentaryBlocks(chapterNum, paragraph.id, paragraph.paragraphNumber, paragraphIndex);
 
     return {
         id: paragraph.id,
@@ -104,7 +108,7 @@ const normalizeParagraph = (chapterNum: number, paragraph: ReadingSnapshot[numbe
 
 const normalizeChapter = (chapter: ReadingSnapshot[number]): YogaChapter => {
     const chapterNum = toNumber(chapter.id);
-    const sutras = chapter.paragraphs.map((paragraph) => normalizeParagraph(chapterNum, paragraph));
+    const sutras = chapter.paragraphs.map((paragraph, index) => normalizeParagraph(chapterNum, paragraph, index));
 
     return {
         chapter: chapterNum,
