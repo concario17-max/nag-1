@@ -20,3 +20,8 @@
 - Route B activated for Three Bodies reading snapshot synchronization.
 - Worker and reviewer delegation used to align the runtime data source with `public/reading-snapshot.json`.
 - `npm.cmd run typecheck`, `npm.cmd run test -- --run`, and `npm.cmd run build` all passed after the final fixes.
+
+## 2026-06-05
+- Route B reactivated for restoring the right-panel commentary content from `1.odt` through `4.odt`.
+- Current working tree does not have all four ODT sources locally, so history recovery may be needed before regeneration.
+- `2.odt`, `3.odt`, and `4.odt` were recovered from repository history, and `npm.cmd run generate:commentary` now succeeds for all four chapters.

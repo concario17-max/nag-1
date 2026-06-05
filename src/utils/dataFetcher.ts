@@ -1,4 +1,7 @@
 import { chapter1Commentary, type CommentaryBlock } from '../data/chapter1Commentary';
+import { chapter2Commentary } from '../data/chapter2Commentary';
+import { chapter3Commentary } from '../data/chapter3Commentary';
+import { chapter4Commentary } from '../data/chapter4Commentary';
 import { ReadingSnapshot, YogaChapter, YogaSutra } from '../types';
 
 let cachedData: Record<number, YogaChapter> | null = null;
@@ -50,6 +53,13 @@ const serializeCommentaryBlocks = (blocks?: CommentaryBlock[]) => {
         .join('\n\n');
 };
 
+const commentaryByChapter: Record<number, Record<string, CommentaryBlock[]>> = {
+    1: chapter1Commentary,
+    2: chapter2Commentary,
+    3: chapter3Commentary,
+    4: chapter4Commentary,
+};
+
 const toNumber = (value: string | number | undefined, fallback = 0) => {
     const numeric = typeof value === 'number' ? value : Number.parseInt(String(value ?? ''), 10);
     return Number.isFinite(numeric) ? numeric : fallback;
@@ -57,7 +67,7 @@ const toNumber = (value: string | number | undefined, fallback = 0) => {
 
 const normalizeParagraph = (chapterNum: number, paragraph: ReadingSnapshot[number]['paragraphs'][number]): YogaSutra => {
     const sourceText = paragraph.text ?? { tibetan: '', pronunciation: '', english: '', korean: '' };
-    const chapterOneCommentary = chapterNum === 1 ? serializeCommentaryBlocks(chapter1Commentary[paragraph.id as keyof typeof chapter1Commentary]) : undefined;
+    const chapterCommentary = commentaryByChapter[chapterNum]?.[paragraph.id];
 
     return {
         id: paragraph.id,
@@ -69,7 +79,7 @@ const normalizeParagraph = (chapterNum: number, paragraph: ReadingSnapshot[numbe
         pronunciation_kr: '',
         translation_en: sourceText.english || undefined,
         translation_ham: sourceText.korean || undefined,
-        commentary_en: chapterOneCommentary || undefined,
+        commentary_en: serializeCommentaryBlocks(chapterCommentary) || undefined,
         '2.english': sourceText.english || undefined,
         '3.korean-1': sourceText.korean || undefined,
     };

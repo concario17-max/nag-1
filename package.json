@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "generate:commentary": "python scripts/export-commentary-from-odt.py",
     "preview": "vite preview",
     "test": "vitest",
     "typecheck": "tsc --noEmit",
