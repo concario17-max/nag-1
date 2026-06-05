@@ -1,0 +1,3114 @@
+{
+  "chapter": 3,
+  "title": "Vibhūti Pāda",
+  "sutras": [
+    {
+      "sutra": 1,
+      "iast": "deśa-bandhaś cittasya dhāraṇā",
+      "tokens": [
+        {
+          "id": "3-1-1",
+          "surface": "cittasya",
+          "lemma": "cittasya",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "마음(의), 의식(의)",
+          "etymology_ko": "cit 의식하다"
+        },
+        {
+          "id": "3-1-2",
+          "surface": "dharana",
+          "lemma": "dharana",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "집중, 붙들어 고정함",
+          "etymology_ko": "dhr 붙들다"
+        },
+        {
+          "id": "3-1-3",
+          "surface": "desa",
+          "lemma": "desa",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "장소, 영역"
+        },
+        {
+          "id": "3-1-4",
+          "surface": "bandhah",
+          "lemma": "bandhah",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "결속, 묶음",
+          "etymology_ko": "bandh 묶다"
+        }
+      ]
+    },
+    {
+      "sutra": 2,
+      "iast": "tatra pratyayaikatānatā dhyānam",
+      "tokens": [
+        {
+          "id": "3-2-1",
+          "surface": "dhyanam",
+          "lemma": "dhyanam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "명상",
+          "etymology_ko": "dhyai 사유하다/명상하다"
+        },
+        {
+          "id": "3-2-2",
+          "surface": "ekatanata",
+          "lemma": "ekatanata",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "한 흐름으로 이어짐, 단일 연속",
+          "etymology_ko": "eka 하나 + tan 연장/늘이다"
+        },
+        {
+          "id": "3-2-3",
+          "surface": "tatra",
+          "lemma": "tatra",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "거기서, 그 안에서"
+        },
+        {
+          "id": "3-2-4",
+          "surface": "pratyaya",
+          "lemma": "pratyaya",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "인식내용, 관념"
+        }
+      ]
+    },
+    {
+      "sutra": 3,
+      "iast": "tad evārtha-mātra-nirbhāsaṃ svarūpa-śūnyam iva samādhiḥ",
+      "tokens": [
+        {
+          "id": "3-3-1",
+          "surface": "tad",
+          "lemma": "tad",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "그(것)"
+        },
+        {
+          "id": "3-3-2",
+          "surface": "sunyam",
+          "lemma": "sunyam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "비어 있음, 없음"
+        },
+        {
+          "id": "3-3-3",
+          "surface": "nirbhasam",
+          "lemma": "nirbhasam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "(…만) 비추어 드러남, 반사됨",
+          "etymology_ko": "nir- 밖으로 + bhas 빛나다"
+        },
+        {
+          "id": "3-3-4",
+          "surface": "iva",
+          "lemma": "iva",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "마치 ~처럼"
+        },
+        {
+          "id": "3-3-5",
+          "surface": "artha",
+          "lemma": "artha",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "대상, 의미"
+        },
+        {
+          "id": "3-3-6",
+          "surface": "samadhih",
+          "lemma": "samadhih",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "삼매, 완전한 몰입",
+          "etymology_ko": "sam 함께 + a + dha 두다"
+        },
+        {
+          "id": "3-3-7",
+          "surface": "svarupa",
+          "lemma": "svarupa",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "자기 본성, 본래 모습",
+          "etymology_ko": "sva 자기 + rupa 모습"
+        },
+        {
+          "id": "3-3-8",
+          "surface": "eva",
+          "lemma": "eva",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "바로, 오직"
+        },
+        {
+          "id": "3-3-9",
+          "surface": "matra",
+          "lemma": "matra",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "오직 ~만"
+        }
+      ]
+    },
+    {
+      "sutra": 4,
+      "iast": "trayam ekatra saṃyamaḥ",
+      "tokens": [
+        {
+          "id": "3-4-1",
+          "surface": "ekatra",
+          "lemma": "ekatra",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "한곳에서, 하나로"
+        },
+        {
+          "id": "3-4-2",
+          "surface": "trayam",
+          "lemma": "trayam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "셋(세 가지)"
+        },
+        {
+          "id": "3-4-3",
+          "surface": "samyamah",
+          "lemma": "samyamah",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "삼야마(통합적 수행: 다라나·디야나·사마디의 결합)",
+          "etymology_ko": "sam 함께 + yam 다스리다/제어하다"
+        }
+      ]
+    },
+    {
+      "sutra": 5,
+      "iast": "taj-jayāt prajñā-lokaḥ",
+      "tokens": [
+        {
+          "id": "3-5-1",
+          "surface": "jayat",
+          "lemma": "jayat",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "승리로부터, 정복으로부터",
+          "etymology_ko": "ji 이기다"
+        },
+        {
+          "id": "3-5-2",
+          "surface": "alokah",
+          "lemma": "alokah",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "빛, 밝힘, 조명",
+          "etymology_ko": "a + lok 보다/비추다"
+        },
+        {
+          "id": "3-5-3",
+          "surface": "tat",
+          "lemma": "tat",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "그것(의)"
+        },
+        {
+          "id": "3-5-4",
+          "surface": "prajna",
+          "lemma": "prajna",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "지혜, 통찰"
+        }
+      ]
+    },
+    {
+      "sutra": 6,
+      "iast": "tasya bhūmiṣu viniyogaḥ",
+      "tokens": [
+        {
+          "id": "3-6-1",
+          "surface": "tasya",
+          "lemma": "tasya",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "그것(삼야마)의"
+        },
+        {
+          "id": "3-6-2",
+          "surface": "bhumisu",
+          "lemma": "bhumisu",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "단계들에서, 경지들에서",
+          "etymology_ko": "bhumi 토대/단계"
+        },
+        {
+          "id": "3-6-3",
+          "surface": "viniyogah",
+          "lemma": "viniyogah",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "적용, 배치, 사용",
+          "etymology_ko": "vi- 분리/특정 + ni 아래로 + yuj 연결/쓰다"
+        }
+      ]
+    },
+    {
+      "sutra": 7,
+      "iast": "trayam antaraṅgaṃ pūrvebhyaḥ",
+      "tokens": [
+        {
+          "id": "3-7-1",
+          "surface": "antarangam",
+          "lemma": "antarangam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "내부의 지체, 내적(수행)",
+          "etymology_ko": "antar 안 + anga 지체"
+        },
+        {
+          "id": "3-7-2",
+          "surface": "trayam",
+          "lemma": "trayam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "셋(세 가지)"
+        },
+        {
+          "id": "3-7-3",
+          "surface": "purvebhyah",
+          "lemma": "purvebhyah",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "이전(의 것들)보다, 앞선 것들보다"
+        }
+      ]
+    },
+    {
+      "sutra": 8,
+      "iast": "tad api bahiraṅgaṃ nirbījasya",
+      "tokens": [
+        {
+          "id": "3-8-1",
+          "surface": "nirvijasya",
+          "lemma": "nirvijasya",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "무종자(삼매)의, 씨(대상)가 없는",
+          "etymology_ko": "nir- 없음 + bija 씨앗"
+        },
+        {
+          "id": "3-8-2",
+          "surface": "bahirangam",
+          "lemma": "bahirangam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "외적 지체, 바깥(수행)",
+          "etymology_ko": "bahir 밖 + anga 지체"
+        },
+        {
+          "id": "3-8-3",
+          "surface": "tad",
+          "lemma": "tad",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "api 그것도 또한"
+        }
+      ]
+    },
+    {
+      "sutra": 9,
+      "iast": "vyutthāna-nirodha-saṃskārayor abhibhava-prādurbhāvau nirodha-kṣaṇa-cittānvayo nirodha-pariṇāmaḥ",
+      "tokens": [
+        {
+          "id": "3-9-1",
+          "surface": "samskarayoh",
+          "lemma": "samskarayoh",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "(두) 잠재인상(의)",
+          "etymology_ko": "samskara 습기/인상"
+        },
+        {
+          "id": "3-9-2",
+          "surface": "parinamah",
+          "lemma": "parinamah",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "변화, 전변(으로서)",
+          "etymology_ko": "pari 둘레로 + nam 변하다"
+        },
+        {
+          "id": "3-9-3",
+          "surface": "vyutthana",
+          "lemma": "vyutthana",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "산란, 밖으로 일어남(평상심의 분출)",
+          "etymology_ko": "vi- 분리 + ut + stha 일어서다"
+        },
+        {
+          "id": "3-9-4",
+          "surface": "anvayah",
+          "lemma": "anvayah",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "연속, 이어짐",
+          "etymology_ko": "anu 따라 + i 가다"
+        },
+        {
+          "id": "3-9-5",
+          "surface": "nirodha-ksana",
+          "lemma": "nirodha-ksana",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "억제의 순간",
+          "etymology_ko": "ksana 순간"
+        },
+        {
+          "id": "3-9-6",
+          "surface": "pradurbhavau",
+          "lemma": "pradurbhavau",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "드러남, 발현(쌍)",
+          "etymology_ko": "pra + dur 밖으로 + bhav 나타나다"
+        },
+        {
+          "id": "3-9-7",
+          "surface": "abhibhava",
+          "lemma": "abhibhava",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "눌러 이김, 지배, 잠재움",
+          "etymology_ko": "abhi 위로 + bhav 압도/지배"
+        },
+        {
+          "id": "3-9-8",
+          "surface": "nirodha",
+          "lemma": "nirodha",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "억제"
+        },
+        {
+          "id": "3-9-9",
+          "surface": "citta",
+          "lemma": "citta",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "마음, 의식"
+        }
+      ]
+    },
+    {
+      "sutra": 10,
+      "iast": "tasya praśānta-vāhitā saṃskārāt",
+      "tokens": [
+        {
+          "id": "3-10-1",
+          "surface": "tasya",
+          "lemma": "tasya",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "그(변화)의"
+        },
+        {
+          "id": "3-10-2",
+          "surface": "vahita",
+          "lemma": "vahita",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "흐름, 이어 흘러감(상태)",
+          "etymology_ko": "vah 흐르다/운반하다"
+        },
+        {
+          "id": "3-10-3",
+          "surface": "samskarat",
+          "lemma": "samskarat",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "잠재인상으로부터"
+        },
+        {
+          "id": "3-10-4",
+          "surface": "prasanta",
+          "lemma": "prasanta",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "고요해진, 잠잠해진",
+          "etymology_ko": "pra + sam 고요"
+        }
+      ]
+    },
+    {
+      "sutra": 11,
+      "iast": "sarvārthatāikāgratayoḥ kṣayodayau cittasya samādhi-pariṇāmaḥ",
+      "tokens": [
+        {
+          "id": "3-11-1",
+          "surface": "cittasya",
+          "lemma": "cittasya",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "마음의"
+        },
+        {
+          "id": "3-11-2",
+          "surface": "parinamah",
+          "lemma": "parinamah",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "변화, 전변"
+        },
+        {
+          "id": "3-11-3",
+          "surface": "ta",
+          "lemma": "ta",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "(…의) 상태/성질"
+        },
+        {
+          "id": "3-11-4",
+          "surface": "ekagrata",
+          "lemma": "ekagrata",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "일점집중, 한 점에 모임",
+          "etymology_ko": "eka 하나 + agra 끝/첨단"
+        },
+        {
+          "id": "3-11-5",
+          "surface": "artha",
+          "lemma": "artha",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "대상, 의미"
+        },
+        {
+          "id": "3-11-6",
+          "surface": "sarva",
+          "lemma": "sarva",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "모든"
+        },
+        {
+          "id": "3-11-7",
+          "surface": "udayau",
+          "lemma": "udayau",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "발생, 솟아남(쌍)",
+          "etymology_ko": "ud + i 올라가다"
+        },
+        {
+          "id": "3-11-8",
+          "surface": "ksaya",
+          "lemma": "ksaya",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "소멸, 감소",
+          "etymology_ko": "ksi 소멸하다"
+        },
+        {
+          "id": "3-11-9",
+          "surface": "yoh",
+          "lemma": "yoh",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "둘의(쌍수 속격)"
+        },
+        {
+          "id": "3-11-10",
+          "surface": "samadhi",
+          "lemma": "samadhi",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "몰입(삼매)"
+        }
+      ]
+    },
+    {
+      "sutra": 12,
+      "iast": "tataḥ punaḥ śāntoditau tulya-pratyayau cittasyaikāgratā-pariṇāmaḥ",
+      "tokens": [
+        {
+          "id": "3-12-1",
+          "surface": "uditau",
+          "lemma": "uditau",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "일어난, 솟아난(쌍)",
+          "etymology_ko": "ud + i"
+        },
+        {
+          "id": "3-12-2",
+          "surface": "cittasya",
+          "lemma": "cittasya",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "마음의"
+        },
+        {
+          "id": "3-12-3",
+          "surface": "parinamah",
+          "lemma": "parinamah",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "변화"
+        },
+        {
+          "id": "3-12-4",
+          "surface": "santa",
+          "lemma": "santa",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "가라앉은, 잠잠한"
+        },
+        {
+          "id": "3-12-5",
+          "surface": "ekagrata",
+          "lemma": "ekagrata",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "일점집중"
+        },
+        {
+          "id": "3-12-6",
+          "surface": "tatah",
+          "lemma": "tatah",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "그로부터"
+        },
+        {
+          "id": "3-12-7",
+          "surface": "punah",
+          "lemma": "punah",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "다시"
+        },
+        {
+          "id": "3-12-8",
+          "surface": "pratyayau",
+          "lemma": "pratyayau",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "인식내용들(쌍)"
+        },
+        {
+          "id": "3-12-9",
+          "surface": "tulya",
+          "lemma": "tulya",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "같은"
+        }
+      ]
+    },
+    {
+      "sutra": 13,
+      "iast": "etena bhūtendriyeṣu dharma-lakṣaṇāvasthā-pariṇāmā vyākhyātāḥ",
+      "tokens": [
+        {
+          "id": "3-13-1",
+          "surface": "laksana",
+          "lemma": "laksana",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "표지, 특징",
+          "etymology_ko": "laks 표시"
+        },
+        {
+          "id": "3-13-2",
+          "surface": "etena",
+          "lemma": "etena",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "이것으로(이것에 의해)"
+        },
+        {
+          "id": "3-13-3",
+          "surface": "parinamah",
+          "lemma": "parinamah",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "변화들"
+        },
+        {
+          "id": "3-13-4",
+          "surface": "vyakhyatah",
+          "lemma": "vyakhyatah",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "설명되었다, 해명되었다",
+          "etymology_ko": "vi + a + khya 밝히다/말하다"
+        },
+        {
+          "id": "3-13-5",
+          "surface": "indriyesu",
+          "lemma": "indriyesu",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "감각기관들에서/에"
+        },
+        {
+          "id": "3-13-6",
+          "surface": "dharma",
+          "lemma": "dharma",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "성질, 법, 특성"
+        },
+        {
+          "id": "3-13-7",
+          "surface": "bhuta",
+          "lemma": "bhuta",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "원소들, 존재(오대)"
+        },
+        {
+          "id": "3-13-8",
+          "surface": "avastha",
+          "lemma": "avastha",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "상태, 단계"
+        }
+      ]
+    },
+    {
+      "sutra": 14,
+      "iast": "śāntoditāvyapadeśya-dharmānupātī dharmī",
+      "tokens": [
+        {
+          "id": "3-14-1",
+          "surface": "dharmi",
+          "lemma": "dharmi",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "성질(법)을 지닌 것, ‘담지자’"
+        },
+        {
+          "id": "3-14-2",
+          "surface": "santa",
+          "lemma": "santa",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "가라앉은"
+        },
+        {
+          "id": "3-14-3",
+          "surface": "avyapadesya",
+          "lemma": "avyapadesya",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "명명할 수 없는, 규정하기 어려운",
+          "etymology_ko": "a- 부정 + vyapadesa 명명/지시"
+        },
+        {
+          "id": "3-14-4",
+          "surface": "anupati",
+          "lemma": "anupati",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "뒤따라 따르는",
+          "etymology_ko": "anu 따라 + pat 떨어지다/따르다"
+        },
+        {
+          "id": "3-14-5",
+          "surface": "dharma",
+          "lemma": "dharma",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "성질/법"
+        },
+        {
+          "id": "3-14-6",
+          "surface": "udita",
+          "lemma": "udita",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "일어난"
+        }
+      ]
+    },
+    {
+      "sutra": 15,
+      "iast": "kramānyatvaṃ pariṇāmānyatve hetuḥ",
+      "tokens": [
+        {
+          "id": "3-15-1",
+          "surface": "anyatve",
+          "lemma": "anyatve",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "변화(그 자체)의 차이에"
+        },
+        {
+          "id": "3-15-2",
+          "surface": "hetuh",
+          "lemma": "hetuh",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "원인"
+        },
+        {
+          "id": "3-15-3",
+          "surface": "krama",
+          "lemma": "krama",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "순서, 단계"
+        },
+        {
+          "id": "3-15-4",
+          "surface": "parinama",
+          "lemma": "parinama",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "변화"
+        },
+        {
+          "id": "3-15-5",
+          "surface": "anyatvam",
+          "lemma": "anyatvam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "다름, 차이"
+        }
+      ]
+    },
+    {
+      "sutra": 16,
+      "iast": "pariṇāma-traya-saṃyamād atītānāgata-jñānam",
+      "tokens": [
+        {
+          "id": "3-16-1",
+          "surface": "anagata",
+          "lemma": "anagata",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "오지 않은, 미래의",
+          "etymology_ko": "an- 부정 + gata 간/온"
+        },
+        {
+          "id": "3-16-2",
+          "surface": "samyamat",
+          "lemma": "samyamat",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "삼야마로부터(삼야마를 통해)"
+        },
+        {
+          "id": "3-16-3",
+          "surface": "atita",
+          "lemma": "atita",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "지나간, 과거의",
+          "etymology_ko": "a + i 지나가다"
+        },
+        {
+          "id": "3-16-4",
+          "surface": "traya",
+          "lemma": "traya",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "셋"
+        },
+        {
+          "id": "3-16-5",
+          "surface": "jnanam",
+          "lemma": "jnanam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "앎, 지식",
+          "etymology_ko": "jna 알다"
+        },
+        {
+          "id": "3-16-6",
+          "surface": "parinama",
+          "lemma": "parinama",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "변화"
+        }
+      ]
+    },
+    {
+      "sutra": 17,
+      "iast": "śabdārtha-pratyayānām itaretarādhyāsāt saṅkaras tat-pravibhāga-saṃyamāt sarva-bhūta-ruta-jñānam",
+      "tokens": [
+        {
+          "id": "3-17-1",
+          "surface": "sankarah",
+          "lemma": "sankarah",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "혼합, 뒤섞임"
+        },
+        {
+          "id": "3-17-2",
+          "surface": "pravibhaga",
+          "lemma": "pravibhaga",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "구분, 분별",
+          "etymology_ko": "pra + vi + bhaj 나누다"
+        },
+        {
+          "id": "3-17-3",
+          "surface": "sabda",
+          "lemma": "sabda",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "소리, 말(단어)"
+        },
+        {
+          "id": "3-17-4",
+          "surface": "tat",
+          "lemma": "tat",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "그것(들의)"
+        },
+        {
+          "id": "3-17-5",
+          "surface": "itaretara",
+          "lemma": "itaretara",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "서로서로"
+        },
+        {
+          "id": "3-17-6",
+          "surface": "artha",
+          "lemma": "artha",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "의미, 대상"
+        },
+        {
+          "id": "3-17-7",
+          "surface": "samyamat",
+          "lemma": "samyamat",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "삼야마로부터"
+        },
+        {
+          "id": "3-17-8",
+          "surface": "pratyayanam",
+          "lemma": "pratyayanam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "인식(관념)들의"
+        },
+        {
+          "id": "3-17-9",
+          "surface": "bhuta",
+          "lemma": "bhuta",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "존재(생명/존재자)"
+        },
+        {
+          "id": "3-17-10",
+          "surface": "sarva",
+          "lemma": "sarva",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "모든"
+        },
+        {
+          "id": "3-17-11",
+          "surface": "jnanam",
+          "lemma": "jnanam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "앎"
+        },
+        {
+          "id": "3-17-12",
+          "surface": "adhyasat",
+          "lemma": "adhyasat",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "겹쳐놓음/오인으로부터",
+          "etymology_ko": "adhi 위에 + as 던지다(겹치다)"
+        },
+        {
+          "id": "3-17-13",
+          "surface": "ruta",
+          "lemma": "ruta",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "소리, 울음, 말소리"
+        }
+      ]
+    },
+    {
+      "sutra": 18,
+      "iast": "saṃskāra-sākṣāt-karaṇāt pūrva-jāti-jñānam",
+      "tokens": [
+        {
+          "id": "3-18-1",
+          "surface": "saksatkaranat",
+          "lemma": "saksatkaranat",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "직접지각/직접깨달음으로부터",
+          "etymology_ko": "sakshat 눈앞에 + kr 하다"
+        },
+        {
+          "id": "3-18-2",
+          "surface": "purva",
+          "lemma": "purva",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "이전의"
+        },
+        {
+          "id": "3-18-3",
+          "surface": "jnanam",
+          "lemma": "jnanam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "앎"
+        },
+        {
+          "id": "3-18-4",
+          "surface": "samskara",
+          "lemma": "samskara",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "잠재인상"
+        },
+        {
+          "id": "3-18-5",
+          "surface": "jati",
+          "lemma": "jati",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "출생, 생(생애)"
+        }
+      ]
+    },
+    {
+      "sutra": 19,
+      "iast": "pratyayasya paracitta-jñānam",
+      "tokens": [
+        {
+          "id": "3-19-1",
+          "surface": "jnanam",
+          "lemma": "jnanam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "앎"
+        },
+        {
+          "id": "3-19-2",
+          "surface": "pratyayasya",
+          "lemma": "pratyayasya",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "인식(관념)의"
+        },
+        {
+          "id": "3-19-3",
+          "surface": "paracitta",
+          "lemma": "paracitta",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "타인의 마음",
+          "etymology_ko": "para 남/타자 + citta 마음"
+        }
+      ]
+    },
+    {
+      "sutra": 20,
+      "iast": "na ca tat sālambanaṃ tasyāviṣayībhūtatvāt",
+      "tokens": [
+        {
+          "id": "3-20-1",
+          "surface": "na",
+          "lemma": "na",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "ca 그리고 또한 ~아니다"
+        },
+        {
+          "id": "3-20-2",
+          "surface": "salambanam",
+          "lemma": "salambanam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "지지/대상(알람바나)을 가진, ‘대상을 바탕으로 한’",
+          "etymology_ko": "sa- 함께 + alambana 지지/대상"
+        },
+        {
+          "id": "3-20-3",
+          "surface": "tasya",
+          "lemma": "tasya",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "그것(대상)의"
+        },
+        {
+          "id": "3-20-4",
+          "surface": "tat",
+          "lemma": "tat",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "그것(은)"
+        },
+        {
+          "id": "3-20-5",
+          "surface": "avisayibhutatvat",
+          "lemma": "avisayibhutatvat",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "대상이 되지 않음(때문에)",
+          "etymology_ko": "a- 부정 + visaya 대상 + bhuta 됨 + -tvat ~때문에"
+        }
+      ]
+    },
+    {
+      "sutra": 21,
+      "iast": "kāya-rūpa-saṃyamāt tad-grāhya-śakti-stambhe cakṣuḥ-prakāśāsamprayoge’ntardhānam",
+      "tokens": [
+        {
+          "id": "3-21-1",
+          "surface": "kaya",
+          "lemma": "kaya",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "몸",
+          "etymology_ko": "kaya 몸"
+        },
+        {
+          "id": "3-21-2",
+          "surface": "rupa",
+          "lemma": "rupa",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "형상, 모습",
+          "etymology_ko": "rupa 형태"
+        },
+        {
+          "id": "3-21-3",
+          "surface": "caksuh",
+          "lemma": "caksuh",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "눈, 시각",
+          "etymology_ko": "caksus 눈"
+        },
+        {
+          "id": "3-21-4",
+          "surface": "sakti",
+          "lemma": "sakti",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "힘, 능력"
+        },
+        {
+          "id": "3-21-5",
+          "surface": "asamprayoge",
+          "lemma": "asamprayoge",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "결합/접촉 없음에서",
+          "etymology_ko": "a- 부정 + samprayoga 결합"
+        },
+        {
+          "id": "3-21-6",
+          "surface": "samyamat",
+          "lemma": "samyamat",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "삼야마로부터(삼야마로)",
+          "etymology_ko": "samyama"
+        },
+        {
+          "id": "3-21-7",
+          "surface": "grahya",
+          "lemma": "grahya",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "grasp될/인지될, ‘대상으로 잡힐’",
+          "etymology_ko": "grah 잡다"
+        },
+        {
+          "id": "3-21-8",
+          "surface": "stambhe",
+          "lemma": "stambhe",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "정지, 멈춤(에서)",
+          "etymology_ko": "stambh 멈추다/굳히다"
+        },
+        {
+          "id": "3-21-9",
+          "surface": "prakasa",
+          "lemma": "prakasa",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "빛, 드러남"
+        },
+        {
+          "id": "3-21-10",
+          "surface": "tat",
+          "lemma": "tat",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "그(것)의"
+        },
+        {
+          "id": "3-21-11",
+          "surface": "antardhanam",
+          "lemma": "antardhanam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "사라짐, 은닉, 보이지 않음",
+          "etymology_ko": "antar 안 + dha 두다(감추다)"
+        }
+      ]
+    },
+    {
+      "sutra": 22,
+      "iast": "etena śabdādy-antardhānam uktam",
+      "tokens": [
+        {
+          "id": "3-22-1",
+          "surface": "etena",
+          "lemma": "etena",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "이것에 의해, 이로써"
+        },
+        {
+          "id": "3-22-2",
+          "surface": "adi",
+          "lemma": "adi",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "등등(소리 등)"
+        },
+        {
+          "id": "3-22-3",
+          "surface": "sabda",
+          "lemma": "sabda",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "소리, 말"
+        },
+        {
+          "id": "3-22-4",
+          "surface": "uktam",
+          "lemma": "uktam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "말해졌다, 설명되었다",
+          "etymology_ko": "vac 말하다"
+        },
+        {
+          "id": "3-22-5",
+          "surface": "antardhanam",
+          "lemma": "antardhanam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "은닉, 사라짐"
+        }
+      ]
+    },
+    {
+      "sutra": 23,
+      "iast": "sopakramaṃ nirupakramaṃ ca karma tat-saṃyamād aparānta-jñānam ariṣṭebhyo vā",
+      "tokens": [
+        {
+          "id": "3-23-1",
+          "surface": "aparanta",
+          "lemma": "aparanta",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "끝이 다가옴, ‘최후의’",
+          "etymology_ko": "a + para + anta 끝"
+        },
+        {
+          "id": "3-23-2",
+          "surface": "ca",
+          "lemma": "ca",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "그리고"
+        },
+        {
+          "id": "3-23-3",
+          "surface": "karma",
+          "lemma": "karma",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "업, 행위"
+        },
+        {
+          "id": "3-23-4",
+          "surface": "samyamat",
+          "lemma": "samyamat",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "삼야마로부터"
+        },
+        {
+          "id": "3-23-5",
+          "surface": "aristhabhyo",
+          "lemma": "aristhabhyo",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "불길한 징조들로부터, 죽음의 징표들로부터",
+          "etymology_ko": "arishta 불길함"
+        },
+        {
+          "id": "3-23-6",
+          "surface": "va",
+          "lemma": "va",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "또는"
+        },
+        {
+          "id": "3-23-7",
+          "surface": "jnanam",
+          "lemma": "jnanam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "앎"
+        },
+        {
+          "id": "3-23-8",
+          "surface": "sopakrama",
+          "lemma": "sopakrama",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "시작(원인)을 가진, ‘시작이 있는’",
+          "etymology_ko": "sa- 함께 + upakrama 시작"
+        },
+        {
+          "id": "3-23-9",
+          "surface": "tat",
+          "lemma": "tat",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "그것(업)에"
+        },
+        {
+          "id": "3-23-10",
+          "surface": "nirupakrama",
+          "lemma": "nirupakrama",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "시작(원인)이 없는, ‘갑자기 오는’",
+          "etymology_ko": "nir- 없음 + upakrama"
+        }
+      ]
+    },
+    {
+      "sutra": 24,
+      "iast": "maitryādiṣu balāni",
+      "tokens": [
+        {
+          "id": "3-24-1",
+          "surface": "balani",
+          "lemma": "balani",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "힘들, 능력들",
+          "etymology_ko": "bala 힘"
+        },
+        {
+          "id": "3-24-2",
+          "surface": "adisu",
+          "lemma": "adisu",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "등(…등에서)"
+        },
+        {
+          "id": "3-24-3",
+          "surface": "maitri",
+          "lemma": "maitri",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "자애, 우정(마이트리)"
+        }
+      ]
+    },
+    {
+      "sutra": 25,
+      "iast": "baleṣu hastibalādīni",
+      "tokens": [
+        {
+          "id": "3-25-1",
+          "surface": "balesu",
+          "lemma": "balesu",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "힘들에(대하여)"
+        },
+        {
+          "id": "3-25-2",
+          "surface": "baladini",
+          "lemma": "baladini",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "등, 등등",
+          "etymology_ko": "bala 힘 + adi 등"
+        },
+        {
+          "id": "3-25-3",
+          "surface": "hasti",
+          "lemma": "hasti",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "코끼리"
+        },
+        {
+          "id": "3-25-4",
+          "surface": "bala",
+          "lemma": "bala",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "힘"
+        }
+      ]
+    },
+    {
+      "sutra": 26,
+      "iast": "pravṛtty-āloka-nyāsāt sūkṣma-vyavahita-viprakṛṣṭa-jñānam",
+      "tokens": [
+        {
+          "id": "3-26-1",
+          "surface": "aloka",
+          "lemma": "aloka",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "빛, 밝음"
+        },
+        {
+          "id": "3-26-2",
+          "surface": "pravrtti",
+          "lemma": "pravrtti",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "활동, 작용, 작동",
+          "etymology_ko": "pra + vrt 돌다/작동하다"
+        },
+        {
+          "id": "3-26-3",
+          "surface": "suksma",
+          "lemma": "suksma",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "미세한"
+        },
+        {
+          "id": "3-26-4",
+          "surface": "jnanam",
+          "lemma": "jnanam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "앎"
+        },
+        {
+          "id": "3-26-5",
+          "surface": "viprakrsta",
+          "lemma": "viprakrsta",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "아주 먼, 멀리 떨어진",
+          "etymology_ko": "vi + pra + krs 끌다(멀어짐)"
+        },
+        {
+          "id": "3-26-6",
+          "surface": "vyavahita",
+          "lemma": "vyavahita",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "가로막힌, 멀리 떨어져 끼어 있는",
+          "etymology_ko": "vi + ava + dha 두다(사이에 놓임)"
+        },
+        {
+          "id": "3-26-7",
+          "surface": "nyasat",
+          "lemma": "nyasat",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "두기/적용으로부터",
+          "etymology_ko": "ni + as 두다"
+        }
+      ]
+    },
+    {
+      "sutra": 27,
+      "iast": "bhuvana-jñānaṃ sūrye saṃyamāt",
+      "tokens": [
+        {
+          "id": "3-27-1",
+          "surface": "surye",
+          "lemma": "surye",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "태양에서/에"
+        },
+        {
+          "id": "3-27-2",
+          "surface": "bhuvana",
+          "lemma": "bhuvana",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "세계(들), 우주 영역",
+          "etymology_ko": "bhu 존재"
+        },
+        {
+          "id": "3-27-3",
+          "surface": "jnanam",
+          "lemma": "jnanam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "앎"
+        },
+        {
+          "id": "3-27-4",
+          "surface": "samyamat",
+          "lemma": "samyamat",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "삼야마로부터"
+        }
+      ]
+    },
+    {
+      "sutra": 28,
+      "iast": "candre tārā-vyūha-jñānam",
+      "tokens": [
+        {
+          "id": "3-28-1",
+          "surface": "vyuha",
+          "lemma": "vyuha",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "무리, 배열, 진(陣)"
+        },
+        {
+          "id": "3-28-2",
+          "surface": "candre",
+          "lemma": "candre",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "달에서/에"
+        },
+        {
+          "id": "3-28-3",
+          "surface": "jnanam",
+          "lemma": "jnanam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "앎"
+        },
+        {
+          "id": "3-28-4",
+          "surface": "tara",
+          "lemma": "tara",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "별"
+        }
+      ]
+    },
+    {
+      "sutra": 29,
+      "iast": "dhruve tad-gati-jñānam",
+      "tokens": [
+        {
+          "id": "3-29-1",
+          "surface": "gati",
+          "lemma": "gati",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "움직임, 진행, 궤도"
+        },
+        {
+          "id": "3-29-2",
+          "surface": "jnanam",
+          "lemma": "jnanam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "앎"
+        },
+        {
+          "id": "3-29-3",
+          "surface": "dhruve",
+          "lemma": "dhruve",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "북극성/고정점에서/에",
+          "etymology_ko": "dhruva 고정된"
+        },
+        {
+          "id": "3-29-4",
+          "surface": "tad",
+          "lemma": "tad",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "그(것의)"
+        }
+      ]
+    },
+    {
+      "sutra": 30,
+      "iast": "nābhi-cakre kāya-vyūha-jñānam",
+      "tokens": [
+        {
+          "id": "3-30-1",
+          "surface": "vyuha",
+          "lemma": "vyuha",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "구조, 배열, 구성(체계)"
+        },
+        {
+          "id": "3-30-2",
+          "surface": "kaya",
+          "lemma": "kaya",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "몸"
+        },
+        {
+          "id": "3-30-3",
+          "surface": "nabhi",
+          "lemma": "nabhi",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "배꼽"
+        },
+        {
+          "id": "3-30-4",
+          "surface": "cakre",
+          "lemma": "cakre",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "윤(輪), 바퀴(차크라)에서/에",
+          "etymology_ko": "cakra 바퀴"
+        },
+        {
+          "id": "3-30-5",
+          "surface": "jnanam",
+          "lemma": "jnanam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "앎"
+        }
+      ]
+    },
+    {
+      "sutra": 31,
+      "iast": "kaṇṭha-kūpe kṣut-pipāsā-nivṛttiḥ",
+      "tokens": [
+        {
+          "id": "3-31-1",
+          "surface": "ksut",
+          "lemma": "ksut",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "배고픔",
+          "etymology_ko": "ksudh 굶주리다"
+        },
+        {
+          "id": "3-31-2",
+          "surface": "kantha",
+          "lemma": "kantha",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "목, 인후"
+        },
+        {
+          "id": "3-31-3",
+          "surface": "nivrttih",
+          "lemma": "nivrttih",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "소멸, 그침, 멈춤",
+          "etymology_ko": "ni + vrt 돌아가다/멈추다"
+        },
+        {
+          "id": "3-31-4",
+          "surface": "pipasa",
+          "lemma": "pipasa",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "갈증",
+          "etymology_ko": "pipas 목마름"
+        },
+        {
+          "id": "3-31-5",
+          "surface": "kupe",
+          "lemma": "kupe",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "우물(같은 곳), 구멍(에서)",
+          "etymology_ko": "kupa 우물/구멍"
+        }
+      ]
+    },
+    {
+      "sutra": 32,
+      "iast": "kūrma-nāḍyāṃ sthairyam",
+      "tokens": [
+        {
+          "id": "3-32-1",
+          "surface": "kurma",
+          "lemma": "kurma",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "거북"
+        },
+        {
+          "id": "3-32-2",
+          "surface": "sthairyam",
+          "lemma": "sthairyam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "안정, 견고함",
+          "etymology_ko": "sthira 견고"
+        },
+        {
+          "id": "3-32-3",
+          "surface": "nadyam",
+          "lemma": "nadyam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "관(管), ‘나디(에너지 통로)’에서/에",
+          "etymology_ko": "nadi 통로"
+        }
+      ]
+    },
+    {
+      "sutra": 33,
+      "iast": "mūrdha-jyotiṣi siddha-darśanam",
+      "tokens": [
+        {
+          "id": "3-33-1",
+          "surface": "murdha",
+          "lemma": "murdha",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "머리, 정수리"
+        },
+        {
+          "id": "3-33-2",
+          "surface": "darsanam",
+          "lemma": "darsanam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "봄, 관조, 직견",
+          "etymology_ko": "drs 보다"
+        },
+        {
+          "id": "3-33-3",
+          "surface": "siddha",
+          "lemma": "siddha",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "성취자, 완성자"
+        },
+        {
+          "id": "3-33-4",
+          "surface": "jyotisi",
+          "lemma": "jyotisi",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "빛(나는 것)에서/에",
+          "etymology_ko": "jyotis 광명"
+        }
+      ]
+    },
+    {
+      "sutra": 34,
+      "iast": "prātibhād vā sarvam",
+      "tokens": [
+        {
+          "id": "3-34-1",
+          "surface": "sarvam",
+          "lemma": "sarvam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "모든 것(에 대한 앎)"
+        },
+        {
+          "id": "3-34-2",
+          "surface": "pratibhat",
+          "lemma": "pratibhat",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "직관(의 빛)으로부터",
+          "etymology_ko": "prati + bha 비치다/떠오르다"
+        },
+        {
+          "id": "3-34-3",
+          "surface": "va",
+          "lemma": "va",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "또는"
+        }
+      ]
+    },
+    {
+      "sutra": 35,
+      "iast": "hṛdaye citta-saṃvit",
+      "tokens": [
+        {
+          "id": "3-35-1",
+          "surface": "hrdaye",
+          "lemma": "hrdaye",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "심장, 마음자리에서/에",
+          "etymology_ko": "hrdaya 심장"
+        },
+        {
+          "id": "3-35-2",
+          "surface": "citta",
+          "lemma": "citta",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "마음, 의식"
+        },
+        {
+          "id": "3-35-3",
+          "surface": "samvit",
+          "lemma": "samvit",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "완전한 앎, 자각",
+          "etymology_ko": "sam + vid 알다"
+        }
+      ]
+    },
+    {
+      "sutra": 36,
+      "iast": "sattva-puruṣayor atyantāsaṅkīrṇayoḥ pratyayāviśeṣo bhogaḥ parārthatvāt svārtha-saṃyamāt puruṣa-jñānam",
+      "tokens": [
+        {
+          "id": "3-36-1",
+          "surface": "purusayoh",
+          "lemma": "purusayoh",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "푸루샤(순수의식)들의/의(쌍수 속격)"
+        },
+        {
+          "id": "3-36-2",
+          "surface": "pratyaya",
+          "lemma": "pratyaya",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "인식내용, 관념"
+        },
+        {
+          "id": "3-36-3",
+          "surface": "samyamat",
+          "lemma": "samyamat",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "삼야마로부터"
+        },
+        {
+          "id": "3-36-4",
+          "surface": "pararthatvat",
+          "lemma": "pararthatvat",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "타(他)의 목적이기 때문에",
+          "etymology_ko": "para 타자 + artha 목적 + -tvat"
+        },
+        {
+          "id": "3-36-5",
+          "surface": "svartha",
+          "lemma": "svartha",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "자기 목적, 자기 이익",
+          "etymology_ko": "sva 자기 + artha 목적"
+        },
+        {
+          "id": "3-36-6",
+          "surface": "atyanta",
+          "lemma": "atyanta",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "완전히, 극도로"
+        },
+        {
+          "id": "3-36-7",
+          "surface": "avisesah",
+          "lemma": "avisesah",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "구분 없음, 분별되지 않음",
+          "etymology_ko": "a- 부정 + visesa 구별"
+        },
+        {
+          "id": "3-36-8",
+          "surface": "purusa",
+          "lemma": "purusa",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "푸루샤(순수의식)"
+        },
+        {
+          "id": "3-36-9",
+          "surface": "asankirnayoh",
+          "lemma": "asankirnayoh",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "섞이지 않은 둘의",
+          "etymology_ko": "a- 부정 + sankirna 혼합"
+        },
+        {
+          "id": "3-36-10",
+          "surface": "bhogah",
+          "lemma": "bhogah",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "향유, 경험",
+          "etymology_ko": "bhuj 누리다"
+        },
+        {
+          "id": "3-36-11",
+          "surface": "jnanam",
+          "lemma": "jnanam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "앎"
+        },
+        {
+          "id": "3-36-12",
+          "surface": "sattva",
+          "lemma": "sattva",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "사트바, 맑음의 성질"
+        }
+      ]
+    },
+    {
+      "sutra": 37,
+      "iast": "te samādhāv upasargā vyutthāne siddhayaḥ",
+      "tokens": [
+        {
+          "id": "3-37-1",
+          "surface": "siddhayah",
+          "lemma": "siddhayah",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "성취들, 신통들",
+          "etymology_ko": "siddhi 성취"
+        },
+        {
+          "id": "3-37-2",
+          "surface": "upasargah",
+          "lemma": "upasargah",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "방해, 장애, 부수적 현상",
+          "etymology_ko": "upa 가까이 + sarga 흘러듦"
+        },
+        {
+          "id": "3-37-3",
+          "surface": "te",
+          "lemma": "te",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "그것들(능력들)"
+        },
+        {
+          "id": "3-37-4",
+          "surface": "samadhau",
+          "lemma": "samadhau",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "삼매에서/에는"
+        },
+        {
+          "id": "3-37-5",
+          "surface": "vyutthane",
+          "lemma": "vyutthane",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "깨어남/산란 상태에서는",
+          "etymology_ko": "vyutthana 산란"
+        }
+      ]
+    },
+    {
+      "sutra": 38,
+      "iast": "bandha-kāraṇa-śaithilyāt pracāra-saṃvedanāc ca cittasya para-śarīrāveśaḥ",
+      "tokens": [
+        {
+          "id": "3-38-1",
+          "surface": "bandha",
+          "lemma": "bandha",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "결속, 속박"
+        },
+        {
+          "id": "3-38-2",
+          "surface": "cittasya",
+          "lemma": "cittasya",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "마음의"
+        },
+        {
+          "id": "3-38-3",
+          "surface": "ca",
+          "lemma": "ca",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "그리고"
+        },
+        {
+          "id": "3-38-4",
+          "surface": "pracara",
+          "lemma": "pracara",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "움직임, 이동, 확장",
+          "etymology_ko": "pra + car 걷다/움직이다"
+        },
+        {
+          "id": "3-38-5",
+          "surface": "karana",
+          "lemma": "karana",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "원인"
+        },
+        {
+          "id": "3-38-6",
+          "surface": "saithilyat",
+          "lemma": "saithilyat",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "느슨해짐으로부터",
+          "etymology_ko": "saithilya 이완"
+        },
+        {
+          "id": "3-38-7",
+          "surface": "sarira",
+          "lemma": "sarira",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "몸"
+        },
+        {
+          "id": "3-38-8",
+          "surface": "avesah",
+          "lemma": "avesah",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "들어감, 빙의/진입",
+          "etymology_ko": "a + vis 들어가다"
+        },
+        {
+          "id": "3-38-9",
+          "surface": "para",
+          "lemma": "para",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "다른"
+        },
+        {
+          "id": "3-38-10",
+          "surface": "samvedanat",
+          "lemma": "samvedanat",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "체험/감지로부터",
+          "etymology_ko": "sam + vid 알다/느끼다"
+        }
+      ]
+    },
+    {
+      "sutra": 39,
+      "iast": "udāna-jayāj jala-paṅka-kaṇṭakādiṣv asaṅga utkrāntiś ca",
+      "tokens": [
+        {
+          "id": "3-39-1",
+          "surface": "kantaka",
+          "lemma": "kantaka",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "가시"
+        },
+        {
+          "id": "3-39-2",
+          "surface": "asangah",
+          "lemma": "asangah",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "집착/접촉 없음, 걸림없음",
+          "etymology_ko": "a- 부정 + sanga 붙음"
+        },
+        {
+          "id": "3-39-3",
+          "surface": "panka",
+          "lemma": "panka",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "진흙"
+        },
+        {
+          "id": "3-39-4",
+          "surface": "ca",
+          "lemma": "ca",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "그리고"
+        },
+        {
+          "id": "3-39-5",
+          "surface": "utkrantih",
+          "lemma": "utkrantih",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "떠남, 이탈, ‘몸을 벗어남’",
+          "etymology_ko": "ut + kram 나아가다"
+        },
+        {
+          "id": "3-39-6",
+          "surface": "jayat",
+          "lemma": "jayat",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "정복으로부터",
+          "etymology_ko": "ji 이기다"
+        },
+        {
+          "id": "3-39-7",
+          "surface": "adisu",
+          "lemma": "adisu",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "등(물·진흙·가시 등)"
+        },
+        {
+          "id": "3-39-8",
+          "surface": "udana",
+          "lemma": "udana",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "우다나(상승 기류의 프라나)"
+        },
+        {
+          "id": "3-39-9",
+          "surface": "jala",
+          "lemma": "jala",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "물"
+        }
+      ]
+    },
+    {
+      "sutra": 40,
+      "iast": "samāna-jayāj jvalanam",
+      "tokens": [
+        {
+          "id": "3-40-1",
+          "surface": "jvalanam",
+          "lemma": "jvalanam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "불꽃, 빛남, 발광",
+          "etymology_ko": "jval 타오르다"
+        },
+        {
+          "id": "3-40-2",
+          "surface": "jayat",
+          "lemma": "jayat",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "정복으로부터"
+        },
+        {
+          "id": "3-40-3",
+          "surface": "samana",
+          "lemma": "samana",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "사마나(소화/균형의 프라나)"
+        }
+      ]
+    },
+    {
+      "sutra": 41,
+      "iast": "śrotrākāśayoḥ sambandha-saṃyamād divyaṃ śrotram",
+      "tokens": [
+        {
+          "id": "3-41-1",
+          "surface": "srotram",
+          "lemma": "srotram",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "초월적 청각, 신이(神耳)"
+        },
+        {
+          "id": "3-41-2",
+          "surface": "samyamat",
+          "lemma": "samyamat",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "삼야마로부터"
+        },
+        {
+          "id": "3-41-3",
+          "surface": "srotra",
+          "lemma": "srotra",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "귀(청각)",
+          "etymology_ko": "srotra 귀"
+        },
+        {
+          "id": "3-41-4",
+          "surface": "akasa",
+          "lemma": "akasa",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "허공, 공간(에테르)",
+          "etymology_ko": "akasa 공간"
+        },
+        {
+          "id": "3-41-5",
+          "surface": "divyam",
+          "lemma": "divyam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "신적인, 초월적"
+        },
+        {
+          "id": "3-41-6",
+          "surface": "sambandha",
+          "lemma": "sambandha",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "관계, 결합",
+          "etymology_ko": "sam + bandh 묶다"
+        }
+      ]
+    },
+    {
+      "sutra": 42,
+      "iast": "kāyākāśayoḥ sambandha-saṃyamāl laghu-tūla-samāpatteś cākāśa-gamanam",
+      "tokens": [
+        {
+          "id": "3-42-1",
+          "surface": "kaya",
+          "lemma": "kaya",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "몸"
+        },
+        {
+          "id": "3-42-2",
+          "surface": "ca",
+          "lemma": "ca",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "그리고"
+        },
+        {
+          "id": "3-42-3",
+          "surface": "samyamat",
+          "lemma": "samyamat",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "삼야마로부터"
+        },
+        {
+          "id": "3-42-4",
+          "surface": "samapatteh",
+          "lemma": "samapatteh",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "몰입/합일(사마파티)의"
+        },
+        {
+          "id": "3-42-5",
+          "surface": "laghu",
+          "lemma": "laghu",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "가벼움"
+        },
+        {
+          "id": "3-42-6",
+          "surface": "tula",
+          "lemma": "tula",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "면화솜(같이)",
+          "etymology_ko": "tula 솜"
+        },
+        {
+          "id": "3-42-7",
+          "surface": "akasa",
+          "lemma": "akasa",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "허공/공간"
+        },
+        {
+          "id": "3-42-8",
+          "surface": "akasa-gamanam",
+          "lemma": "akasa-gamanam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "공중 이동, 허공을 감",
+          "etymology_ko": "akasa 공간 + gam 가다"
+        },
+        {
+          "id": "3-42-9",
+          "surface": "sambandha",
+          "lemma": "sambandha",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "관계"
+        }
+      ]
+    },
+    {
+      "sutra": 43,
+      "iast": "bahir-akalpitā vṛttir mahā-videhā tataḥ prakāśāvaraṇa-kṣayaḥ",
+      "tokens": [
+        {
+          "id": "3-43-1",
+          "surface": "vrttih",
+          "lemma": "vrttih",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "작용(마음의 변형)"
+        },
+        {
+          "id": "3-43-2",
+          "surface": "bahih",
+          "lemma": "bahih",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "밖으로"
+        },
+        {
+          "id": "3-43-3",
+          "surface": "akalpita",
+          "lemma": "akalpita",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "상상/구상되지 않은, ‘의도적 구성 없이’",
+          "etymology_ko": "a- 부정 + kalp 구상하다"
+        },
+        {
+          "id": "3-43-4",
+          "surface": "tatah",
+          "lemma": "tatah",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "그로부터"
+        },
+        {
+          "id": "3-43-5",
+          "surface": "mahavideha",
+          "lemma": "mahavideha",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "대무체(大無體), ‘큰 무신(無身) 상태’",
+          "etymology_ko": "maha 큰 + videha 무체"
+        },
+        {
+          "id": "3-43-6",
+          "surface": "prakasa",
+          "lemma": "prakasa",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "빛"
+        },
+        {
+          "id": "3-43-7",
+          "surface": "avarana",
+          "lemma": "avarana",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "가림, 덮개"
+        },
+        {
+          "id": "3-43-8",
+          "surface": "ksayah",
+          "lemma": "ksayah",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "소멸",
+          "etymology_ko": "ksi 소멸하다"
+        }
+      ]
+    },
+    {
+      "sutra": 44,
+      "iast": "sthūla-svarūpa-sūkṣmānvayārthavattva-saṃyamād bhūta-jayaḥ",
+      "tokens": [
+        {
+          "id": "3-44-1",
+          "surface": "samyamat",
+          "lemma": "samyamat",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "삼야마로부터"
+        },
+        {
+          "id": "3-44-2",
+          "surface": "suksma",
+          "lemma": "suksma",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "미세한"
+        },
+        {
+          "id": "3-44-3",
+          "surface": "bhuta-jayah",
+          "lemma": "bhuta-jayah",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "원소(오대)의 정복",
+          "etymology_ko": "bhuta 원소 + jaya 승리"
+        },
+        {
+          "id": "3-44-4",
+          "surface": "sthula",
+          "lemma": "sthula",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "거친, 조대한"
+        },
+        {
+          "id": "3-44-5",
+          "surface": "arthavatva",
+          "lemma": "arthavatva",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "목적/의미를 지님(…됨)",
+          "etymology_ko": "artha 목적 + -vat 지닌"
+        },
+        {
+          "id": "3-44-6",
+          "surface": "anvaya",
+          "lemma": "anvaya",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "연속, 연관",
+          "etymology_ko": "anu 따라 + i 가다"
+        },
+        {
+          "id": "3-44-7",
+          "surface": "svarupa",
+          "lemma": "svarupa",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "자성, 본모습"
+        }
+      ]
+    },
+    {
+      "sutra": 45,
+      "iast": "tato’ṇimādi-prādurbhāvaḥ kāya-sampat tad-dharmānabhighātaś ca",
+      "tokens": [
+        {
+          "id": "3-45-1",
+          "surface": "pradurbhavah",
+          "lemma": "pradurbhavah",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "발현",
+          "etymology_ko": "pra + dur + bhav"
+        },
+        {
+          "id": "3-45-2",
+          "surface": "ca",
+          "lemma": "ca",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "그리고"
+        },
+        {
+          "id": "3-45-3",
+          "surface": "animadi",
+          "lemma": "animadi",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "‘아니마’ 등(미세해짐 등의 신통)",
+          "etymology_ko": "anima 미세화 + adi 등"
+        },
+        {
+          "id": "3-45-4",
+          "surface": "tatah",
+          "lemma": "tatah",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "그로부터"
+        },
+        {
+          "id": "3-45-5",
+          "surface": "anabhighatah",
+          "lemma": "anabhighatah",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "침해/타격이 없음",
+          "etymology_ko": "an- 부정 + abhighata 타격"
+        },
+        {
+          "id": "3-45-6",
+          "surface": "tad-dharma",
+          "lemma": "tad-dharma",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "그(몸)의 성질/법"
+        },
+        {
+          "id": "3-45-7",
+          "surface": "kaya-sampat",
+          "lemma": "kaya-sampat",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "몸의 완전성/완성",
+          "etymology_ko": "kaya 몸 + sampat 성취/완전"
+        }
+      ]
+    },
+    {
+      "sutra": 46,
+      "iast": "rūpa-lāvaṇya-bala-vajra-saṃhanana-tvānī kāya-sampat",
+      "tokens": [
+        {
+          "id": "3-46-1",
+          "surface": "vajra-samhananani",
+          "lemma": "vajra-samhananani",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "금강 같은 결구/견고함(복수)",
+          "etymology_ko": "vajra 금강 + samhanana 결구/조직"
+        },
+        {
+          "id": "3-46-2",
+          "surface": "lavanya",
+          "lemma": "lavanya",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "아름다움, 빛남",
+          "etymology_ko": "lavanya 광채"
+        },
+        {
+          "id": "3-46-3",
+          "surface": "bala",
+          "lemma": "bala",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "힘"
+        },
+        {
+          "id": "3-46-4",
+          "surface": "rupа",
+          "lemma": "rupа",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "형상, 모습"
+        },
+        {
+          "id": "3-46-5",
+          "surface": "kayasampat",
+          "lemma": "kayasampat",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "몸의 완전성",
+          "etymology_ko": "kaya 몸 + sampat 성취"
+        }
+      ]
+    },
+    {
+      "sutra": 47,
+      "iast": "grahaṇa-svarūpāsmitānvayārthavattva-saṃyamād indriya-jayaḥ",
+      "tokens": [
+        {
+          "id": "3-47-1",
+          "surface": "asmita",
+          "lemma": "asmita",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "아상, ‘나됨’"
+        },
+        {
+          "id": "3-47-2",
+          "surface": "samyamat",
+          "lemma": "samyamat",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "삼야마로부터"
+        },
+        {
+          "id": "3-47-3",
+          "surface": "indriya-jayah",
+          "lemma": "indriya-jayah",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "감각의 정복",
+          "etymology_ko": "indriya 감각 + jaya 승리"
+        },
+        {
+          "id": "3-47-4",
+          "surface": "grahana",
+          "lemma": "grahana",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "잡음, 지각(‘잡아들이기’)",
+          "etymology_ko": "grah 잡다"
+        },
+        {
+          "id": "3-47-5",
+          "surface": "svarupa",
+          "lemma": "svarupa",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "자성, 본모습"
+        },
+        {
+          "id": "3-47-6",
+          "surface": "artha-vattva",
+          "lemma": "artha-vattva",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "목적/의미를 지님"
+        },
+        {
+          "id": "3-47-7",
+          "surface": "anvaya",
+          "lemma": "anvaya",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "연속/연관"
+        }
+      ]
+    },
+    {
+      "sutra": 48,
+      "iast": "tato mano-javitvaṃ vikaraṇa-bhāvaḥ pradhāna-jayaś ca",
+      "tokens": [
+        {
+          "id": "3-48-1",
+          "surface": "manah-javitva",
+          "lemma": "manah-javitva",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "마음처럼 빠름, 마음의 신속성",
+          "etymology_ko": "manas 마음 + javitva 빠름"
+        },
+        {
+          "id": "3-48-2",
+          "surface": "pradhana-jayah",
+          "lemma": "pradhana-jayah",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "프라다나(근원자연)의 정복",
+          "etymology_ko": "pradhana 근원 + jaya 승리"
+        },
+        {
+          "id": "3-48-3",
+          "surface": "ca",
+          "lemma": "ca",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "그리고"
+        },
+        {
+          "id": "3-48-4",
+          "surface": "vikarana-bhavah",
+          "lemma": "vikarana-bhavah",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "기관(감각)의 작용 없음/초월",
+          "etymology_ko": "vi- 분리 + karana 기관 + bhava 상태"
+        },
+        {
+          "id": "3-48-5",
+          "surface": "tatah",
+          "lemma": "tatah",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "그로부터"
+        }
+      ]
+    },
+    {
+      "sutra": 49,
+      "iast": "sattva-puruṣānyatā-khyāti-mātrasya sarva-bhāvādhiṣṭhātṛtvaṃ sarva-jñātṛtvaṃ ca",
+      "tokens": [
+        {
+          "id": "3-49-1",
+          "surface": "purusa",
+          "lemma": "purusa",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "다른 두 원리(사트바/푸루샤)의"
+        },
+        {
+          "id": "3-49-2",
+          "surface": "anyata-khyatim",
+          "lemma": "anyata-khyatim",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "둘의 다름(차이)에 대한 확증된 앎"
+        },
+        {
+          "id": "3-49-3",
+          "surface": "sarva-jnatrtvam",
+          "lemma": "sarva-jnatrtvam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "전지성",
+          "etymology_ko": "sarva 모두 + jnatrtva 앎/아는 성질"
+        },
+        {
+          "id": "3-49-4",
+          "surface": "sarva-bhava-adisthatrtvam",
+          "lemma": "sarva-bhava-adisthatrtvam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "모든 존재 상태에 대한 주재(지배/통솔)",
+          "etymology_ko": "sarva 모두 + bhava 존재 + adhisthatr 주재자"
+        },
+        {
+          "id": "3-49-5",
+          "surface": "ca",
+          "lemma": "ca",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "그리고"
+        },
+        {
+          "id": "3-49-6",
+          "surface": "matrasya",
+          "lemma": "matrasya",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "오직 그것만인(사트바의)",
+          "etymology_ko": "matra 오직"
+        },
+        {
+          "id": "3-49-7",
+          "surface": "sattva",
+          "lemma": "sattva",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "사트바(맑음)"
+        }
+      ]
+    },
+    {
+      "sutra": 50,
+      "iast": "tad-vairāgyād api doṣa-bīja-kṣaye kaivalyam",
+      "tokens": [
+        {
+          "id": "3-50-1",
+          "surface": "dosa-bija-ksaye",
+          "lemma": "dosa-bija-ksaye",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "결함의 씨앗이 소멸함에",
+          "etymology_ko": "dosa 결함 + bija 씨 + ksaya 소멸"
+        },
+        {
+          "id": "3-50-2",
+          "surface": "kaivalyam",
+          "lemma": "kaivalyam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "해탈, 독존",
+          "etymology_ko": "kevala 홀로"
+        },
+        {
+          "id": "3-50-3",
+          "surface": "api",
+          "lemma": "api",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "또한"
+        },
+        {
+          "id": "3-50-4",
+          "surface": "tad-vairagyat",
+          "lemma": "tad-vairagyat",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "그것(전지/주재)에 대한 초연으로부터",
+          "etymology_ko": "vairagya 무집착"
+        }
+      ]
+    },
+    {
+      "sutra": 51,
+      "iast": "sthāny-upanimantraṇe saṅga-smayākaraṇaṃ punar aniṣṭa-prasaṅgāt",
+      "tokens": [
+        {
+          "id": "3-51-1",
+          "surface": "prasangat",
+          "lemma": "prasangat",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "부착/결합으로부터, 뒤따름으로부터",
+          "etymology_ko": "prasanga 연루/결합"
+        },
+        {
+          "id": "3-51-2",
+          "surface": "sthanih",
+          "lemma": "sthanih",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "(천상)존재들, ‘자리의 주재자들’",
+          "etymology_ko": "sthana 자리"
+        },
+        {
+          "id": "3-51-3",
+          "surface": "akaranam",
+          "lemma": "akaranam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "하지 말아야 함, 원인이 됨(을 만들지 말라)",
+          "etymology_ko": "a- 부정 + karana 원인"
+        },
+        {
+          "id": "3-51-4",
+          "surface": "punah",
+          "lemma": "punah",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "다시"
+        },
+        {
+          "id": "3-51-5",
+          "surface": "upanimantrane",
+          "lemma": "upanimantrane",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "초대/권유에서, 유혹에서",
+          "etymology_ko": "upa 가까이 + nimantrana 초청"
+        },
+        {
+          "id": "3-51-6",
+          "surface": "anista",
+          "lemma": "anista",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "불선, 바람직하지 않음"
+        },
+        {
+          "id": "3-51-7",
+          "surface": "sanga",
+          "lemma": "sanga",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "집착, 결합"
+        },
+        {
+          "id": "3-51-8",
+          "surface": "smaya",
+          "lemma": "smaya",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "교만, 자만"
+        }
+      ]
+    },
+    {
+      "sutra": 52,
+      "iast": "kṣaṇa-tat-kramayoḥ saṃyamād vivekajaṃ jñānam",
+      "tokens": [
+        {
+          "id": "3-52-1",
+          "surface": "vivekajah",
+          "lemma": "vivekajah",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "분별로부터 생긴",
+          "etymology_ko": "viveka 분별 + ja 태어난"
+        },
+        {
+          "id": "3-52-2",
+          "surface": "tat-krama",
+          "lemma": "tat-krama",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "그(순간)의 연속/순서",
+          "etymology_ko": "krama 순서"
+        },
+        {
+          "id": "3-52-3",
+          "surface": "jnanam",
+          "lemma": "jnanam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "지혜, 앎"
+        },
+        {
+          "id": "3-52-4",
+          "surface": "ksana",
+          "lemma": "ksana",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "순간"
+        },
+        {
+          "id": "3-52-5",
+          "surface": "samyamat",
+          "lemma": "samyamat",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "삼야마로부터"
+        }
+      ]
+    },
+    {
+      "sutra": 53,
+      "iast": "jāti-lakṣaṇa-deśair anyatānavacchedāt tulyayos tataḥ pratipattiḥ",
+      "tokens": [
+        {
+          "id": "3-53-1",
+          "surface": "jati",
+          "lemma": "jati",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "출생/종류"
+        },
+        {
+          "id": "3-53-2",
+          "surface": "laksana",
+          "lemma": "laksana",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "특징/표지"
+        },
+        {
+          "id": "3-53-3",
+          "surface": "tulyayoh",
+          "lemma": "tulyayoh",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "같아 보이는 둘의(쌍수 속격)"
+        },
+        {
+          "id": "3-53-4",
+          "surface": "pratipattih",
+          "lemma": "pratipattih",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "올바른 인식/판단, 알아차림",
+          "etymology_ko": "prati + pad 이해하다"
+        },
+        {
+          "id": "3-53-5",
+          "surface": "tatah",
+          "lemma": "tatah",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "그로부터"
+        },
+        {
+          "id": "3-53-6",
+          "surface": "anyata",
+          "lemma": "anyata",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "구별됨, 다름"
+        },
+        {
+          "id": "3-53-7",
+          "surface": "anavacchedat",
+          "lemma": "anavacchedat",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "제한(구분)되지 않음으로부터",
+          "etymology_ko": "an- 부정 + ava + chid"
+        },
+        {
+          "id": "3-53-8",
+          "surface": "desa",
+          "lemma": "desa",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "장소"
+        }
+      ]
+    },
+    {
+      "sutra": 54,
+      "iast": "tārakaṃ sarva-viṣayaṃ sarvathāviṣayam akramaṃ ceti vivekajaṃ jñānam",
+      "tokens": [
+        {
+          "id": "3-54-1",
+          "surface": "ca",
+          "lemma": "ca",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "그리고"
+        },
+        {
+          "id": "3-54-2",
+          "surface": "tarakam",
+          "lemma": "tarakam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "구제하는, 건너게 하는, 별(처럼 인도하는)",
+          "etymology_ko": "tara 건너다/구하다"
+        },
+        {
+          "id": "3-54-3",
+          "surface": "vivekajam",
+          "lemma": "vivekajam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "분별에서 난"
+        },
+        {
+          "id": "3-54-4",
+          "surface": "visayam",
+          "lemma": "visayam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "대상(범위)"
+        },
+        {
+          "id": "3-54-5",
+          "surface": "sarva-visayam",
+          "lemma": "sarva-visayam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "모든 대상을 아우르는"
+        },
+        {
+          "id": "3-54-6",
+          "surface": "akrama",
+          "lemma": "akrama",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "순서 없음, 즉각적"
+        },
+        {
+          "id": "3-54-7",
+          "surface": "sarvatha",
+          "lemma": "sarvatha",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "모든 방식으로"
+        },
+        {
+          "id": "3-54-8",
+          "surface": "jnanam",
+          "lemma": "jnanam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "앎"
+        },
+        {
+          "id": "3-54-9",
+          "surface": "iti",
+          "lemma": "iti",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "이렇게"
+        }
+      ]
+    },
+    {
+      "sutra": 55,
+      "iast": "sattva-puruṣayoḥ śuddhi-sāmye kaivalyam iti",
+      "tokens": [
+        {
+          "id": "3-55-1",
+          "surface": "purusayoh",
+          "lemma": "purusayoh",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "푸루샤(의식)"
+        },
+        {
+          "id": "3-55-2",
+          "surface": "suddhi",
+          "lemma": "suddhi",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "청정"
+        },
+        {
+          "id": "3-55-3",
+          "surface": "kaivalyam",
+          "lemma": "kaivalyam",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "해탈, 독존"
+        },
+        {
+          "id": "3-55-4",
+          "surface": "iti",
+          "lemma": "iti",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "이렇게"
+        },
+        {
+          "id": "3-55-5",
+          "surface": "samye",
+          "lemma": "samye",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "동일/평등함에서",
+          "etymology_ko": "samya 같음"
+        },
+        {
+          "id": "3-55-6",
+          "surface": "sattva",
+          "lemma": "sattva",
+          "pos": "",
+          "grammar": {},
+          "meaning_ko": "사트바"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VY52JZTHJG"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-VY52JZTHJG');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Yoga Sutras - The Light of Yoga</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Inter:wght@100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Noto+Serif+KR:wght@200..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#D4AF37", // Champagne Gold
+                        "primary-dark": "#C5A059",
+                        "primary-light": "#ebd59b",
+                        "background-light": "#FAFAFA", // Pristine off-white
+                        "background-paper": "#F7F5F0", // Premium light cream
+                        "text-main": "#333333", // Deep grey for text readability
+                        "text-muted": "#666666",
+                        "gold-accent": "#D4AF37",
+                        "ink": "#161618" // Rich onyx/charcoal
+                    },
+                    fontFamily: {
+                        "display": ["'Crimson Pro'", "'Noto Serif KR'", "serif"],
+                        "serif": ["'Crimson Pro'", "'Noto Serif KR'", "serif"],
+                        "kr-serif": ["'Noto Serif KR'", "serif"],
+                        "sans": ["'Inter'", "'Pretendard'", "sans-serif"],
+                    },
+                    backgroundImage: {
+                        'parchment': "linear-gradient(to bottom, rgba(250,250,250,0.98), rgba(247,245,240,0.95)), url('https://www.transparenttextures.com/patterns/cream-paper.png')",
+                    },
+                    boxShadow: {
+                        'gold-glow': '0 0 30px -10px rgba(212, 175, 55, 0.4)',
+                        'gold-glow-lg': '0 0 50px -15px rgba(212, 175, 55, 0.5)',
+                        'inset-gold': 'inset 0 0 0 1px rgba(212, 175, 55, 0.25)',
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .text-gold-gradient {
+            background: linear-gradient(to bottom, #ebd59b 0%, #D4AF37 50%, #C5A059 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .border-gold-gradient {
+            border-image: linear-gradient(to right, transparent, #D4AF37, transparent) 1;
+        }
+
+        .ornament-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            margin: 2.5rem 0;
+        }
+
+        .ornament-divider::before,
+        .ornament-divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            margin: 0 1.5rem;
+        }
+
+        .ornament-icon {
+            color: #D4AF37;
+            font-size: 1.5rem;
+            opacity: 0.8;
+        }
+
+        .glass-panel {
+            background: rgba(250, 250, 250, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .dark .glass-panel {
+            background: rgba(22, 22, 24, 0.7);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+    </style>
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body
+    class="text-text-main antialiased min-h-screen flex flex-col items-center selection:bg-primary/20 selection:text-ink bg-parchment font-display overflow-y-auto transition-opacity duration-700 opacity-0"
+    style="opacity: 0;">
+    <script>
+        document.fonts.ready.then(function () {
+            // Wait for next frame to ensure rendering is prepped using the correct font
+            requestAnimationFrame(function () {
+                document.body.style.opacity = '1';
+                document.body.classList.remove('opacity-0');
+            });
+        });
+    </script>
+
+    <!-- 비밀번호 게이트 오버레이 -->
+    <div id="password-gate"
+        class="fixed inset-0 z-[100] flex items-center justify-center bg-[#fdfbf7] dark:bg-[#1a1814] transition-opacity duration-700">
+        <div class="w-full max-w-md p-8 text-center space-y-8">
+            <div class="flex flex-col items-center gap-4">
+                <div class="size-16 rounded-full bg-primary/10 flex items-center justify-center text-primary-dark">
+                    <span class="material-symbols-outlined text-4xl">lock</span>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-serif text-primary-dark font-bold italic tracking-tight">Access Restricted
+                    </h2>
+                    <p class="text-[10px] text-text-muted font-display tracking-[0.2em] uppercase mt-1">Light of Yoga
+                    </p>
+                </div>
+            </div>
+
+            <form id="password-form" class="space-y-6" onsubmit="checkPassword(event)">
+                <div class="relative group">
+                    <input type="password" id="app-password" placeholder="Enter Password"
+                        class="w-full bg-white/50 backdrop-blur-sm border 1px solid rgba(212, 175, 55, 0.2) rounded-xl px-4 py-4 text-center text-xl tracking-[0.5em] focus:ring-4 focus:ring-primary/10 focus:border-primary/50 outline-none transition-all placeholder:tracking-widest placeholder:text-sm placeholder:text-text-muted/60 font-serif"
+                        autofocus autocomplete="off">
+                    <div id="password-error"
+                        class="hidden absolute -bottom-6 left-0 right-0 text-[10px] text-red-500 font-bold uppercase tracking-wider">
+                        Incorrect password.
+                    </div>
+                </div>
+                <button type="submit"
+                    class="w-full bg-ink text-primary-light hover:text-white font-medium py-4 rounded-xl shadow-[0_4px_15px_-3px_rgba(212,175,55,0.2)] hover:shadow-gold-glow transition-all active:scale-[0.98] font-sans flex items-center justify-center gap-3 uppercase tracking-[0.2em] text-sm border border-primary/20 hover:border-primary/50">
+                    Enter Gateway
+                    <span class="material-symbols-outlined text-xl">vaping_rooms</span>
+                </button>
+            </form>
+
+            <div class="pt-2">
+                <p class="text-xs text-text-muted mt-4 font-serif italic opacity-70">
+                    문의 : <a href="mailto:roadsea@naver.com"
+                        class="text-primary-dark hover:underline">roadsea@naver.com</a>
+                </p>
+            </div>
+
+            <p class="text-[9px] text-text-muted/40 uppercase tracking-[0.2em] font-display">
+                Dedicated to the timeless wisdom of Patanjali
+            </p>
+        </div>
+    </div>
+    <script>
+        (function () {
+            try {
+                var p = '0228';
+                var l = localStorage.getItem('yoga_gate_auth');
+                var c = document.cookie.split('; ').find(function (r) { return r.trim().startsWith('yoga_gate_auth=') });
+                var cv = c ? c.split('=')[1] : null;
+                if (l === p || cv === p) {
+                    var g = document.getElementById('password-gate');
+                    if (g) { g.style.display = 'none'; g.classList.add('hidden'); }
+                    document.body.classList.remove('overflow-hidden');
+                    var ctt = document.getElementById('main-content') || document.getElementById('landing-page');
+                    if (ctt) { ctt.classList.remove('invisible'); ctt.classList.add('opacity-100'); }
+                }
+            } catch (e) { }
+        })();
+    </script>
+
+    <!-- 메인 콘텐츠 래퍼 -->
+    <div id="landing-page" class="w-full h-full flex flex-col items-center justify-center transition-all duration-500">
+        <div class="w-full h-1 bg-gradient-to-r from-transparent via-primary/40 to-transparent fixed top-0 z-50"></div>
+        <header class="w-full pt-12 pb-6 flex flex-col items-center justify-center relative z-10">
+            <div class="flex flex-col items-center gap-4 mb-4 relative z-10">
+                <span class="material-symbols-outlined text-4xl text-primary opacity-80">local_library</span>
+                <div class="text-center">
+                    <h1
+                        class="text-3xl md:text-4xl font-display font-medium tracking-[0.15em] text-slate-900 text-[#1a1814] uppercase drop-shadow-md">
+                        Yoga Sūtras</h1>
+                    <p class="text-sm font-serif italic text-primary-dark tracking-widest mt-1">Patañjali</p>
+                </div>
+            </div>
+            <nav class="flex flex-wrap items-center justify-center gap-3 md:gap-8 mt-4 px-4 w-full">
+                <a class="text-primary-dark hover:text-primary transition-colors text-base md:text-lg font-medium italic relative group cursor-pointer"
+                    onclick="openCompendium()">
+                    Compendium
+                    <span
+                        class="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <span class="text-primary/30 text-[10px] md:text-xs">◆</span>
+                <a class="text-primary-dark hover:text-primary transition-colors text-base md:text-lg font-medium italic relative group cursor-pointer"
+                    onclick="openLexicon()">
+                    Lexicon
+                    <span
+                        class="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <span class="text-primary/30 text-[10px] md:text-xs">◆</span>
+                <a class="text-primary-dark hover:text-primary transition-colors text-base md:text-lg font-medium italic relative group cursor-pointer"
+                    onclick="openCommentaries()">
+                    Commentaries
+                    <span
+                        class="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full"></span>
+                </a>
+            </nav>
+        </header>
+        <main class="flex-grow w-full max-w-4xl mx-auto px-6 flex flex-col items-center pt-8 pb-24">
+            <div class="ornament-divider max-w-lg mx-auto opacity-60">
+                <span class="material-symbols-outlined ornament-icon">spa</span>
+            </div>
+            <div class="w-full max-w-[560px] mx-auto mb-16 relative z-10">
+                <div
+                    class="relative bg-white shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(212,175,55,0.15)] transition-all duration-500 rounded-[1.2rem] w-full border border-primary/10">
+                    <div class="flex flex-col md:flex-row items-center w-full md:min-h-[90px]">
+                        <!-- Chapter Section -->
+                        <div class="w-full md:flex-1 relative px-6 md:pl-8 md:pr-6 group/chap cursor-pointer py-4"
+                            id="custom-chap-select" onclick="toggleCustomDropdown(event, 'chap-dropdown')">
+                            <label
+                                class="block text-[11px] font-sans font-bold tracking-[0.2em] text-[#A68A56] mb-1 uppercase cursor-pointer pointer-events-none">Chapter</label>
+                            <div class="text-ink font-serif text-[16px] md:text-[17px] cursor-pointer group-hover/chap:text-primary transition-colors pointer-events-none"
+                                id="chap-display">Select a Chapter</div>
+                            <!-- Custom Dropdown Menu -->
+                            <div id="chap-dropdown"
+                                class="absolute left-0 right-0 md:right-auto top-full mt-2 lg:mt-4 w-full md:w-[260px] bg-white rounded-xl shadow-[0_10px_40px_-5px_rgba(0,0,0,0.15)] border border-[#E8E1D5] opacity-0 invisible transition-all duration-300 z-50 overflow-hidden transform origin-top scale-95">
+                                <div class="max-h-[280px] overflow-y-auto custom-scrollbar">
+                                    <div class="px-5 py-3.5 hover:bg-[#FAF8F5] cursor-pointer text-ink font-serif text-[15px] border-b border-[#F2EBE1] last:border-0 transition-colors"
+                                        onclick="selectCustomChapter(event, '1', '1. 합일의 문제')">1. 합일의 문제</div>
+                                    <div class="px-5 py-3.5 hover:bg-[#FAF8F5] cursor-pointer text-ink font-serif text-[15px] border-b border-[#F2EBE1] last:border-0 transition-colors"
+                                        onclick="selectCustomChapter(event, '2', '2. 합일의 단계')">2. 합일의 단계</div>
+                                    <div class="px-5 py-3.5 hover:bg-[#FAF8F5] cursor-pointer text-ink font-serif text-[15px] border-b border-[#F2EBE1] last:border-0 transition-colors"
+                                        onclick="selectCustomChapter(event, '3', '3. 합일의 성취와 그 결과')">3. 합일의 성취와 그 결과
+                                    </div>
+                                    <div class="px-5 py-3.5 hover:bg-[#FAF8F5] cursor-pointer text-ink font-serif text-[15px] transition-colors"
+                                        onclick="selectCustomChapter(event, '4', '4. 깨달음')">4. 깨달음</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Divider -->
+                        <div
+                            class="w-full h-px md:w-px md:h-12 bg-gradient-to-r md:bg-gradient-to-b from-transparent via-[#E8E1D5] to-transparent">
+                        </div>
+
+                        <!-- Verse Section -->
+                        <div class="w-full md:flex-1 relative px-6 md:pl-8 md:pr-6 group/verse cursor-pointer py-4"
+                            id="custom-sutra-select" onclick="toggleCustomDropdown(event, 'verse-dropdown')">
+                            <label
+                                class="block text-[11px] font-sans font-bold tracking-[0.2em] text-[#A68A56] mb-1 uppercase cursor-pointer pointer-events-none">Verse</label>
+                            <div class="text-[#999] font-serif text-[16px] md:text-[17px] cursor-pointer transition-colors pointer-events-none"
+                                id="sutra-display">Select Chapter First</div>
+                            <!-- Custom Dropdown Menu -->
+                            <div id="verse-dropdown"
+                                class="absolute left-0 right-0 md:left-6 md:right-auto top-full mt-2 lg:mt-4 w-full md:w-[220px] bg-white rounded-xl shadow-[0_10px_40px_-5px_rgba(0,0,0,0.15)] border border-[#E8E1D5] opacity-0 invisible transition-all duration-300 z-50 overflow-hidden transform origin-top scale-95">
+                                <div class="max-h-[280px] overflow-y-auto custom-scrollbar"
+                                    id="sutra-options-container">
+                                    <div class="px-5 py-4 text-[#999] font-serif text-[14px] text-center italic">Select
+                                        a Chapter First</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="grid grid-cols-1 md:grid-cols-2 gap-px bg-gradient-to-b from-transparent via-primary/10 to-transparent w-full max-w-3xl border-t border-b border-primary/10">
+                <a class="group relative p-12 hover:bg-white/40 transition-colors duration-700 flex flex-col items-center text-center cursor-pointer border-r border-primary/5 last:border-r-0 md:border-r"
+                    href="chapter.html?id=1" onclick="navigateToChapter(event, 'chapter.html?id=1')">
+                    <div class="mb-5 opacity-50 group-hover:opacity-100 transition-opacity duration-700">
+                        <span class="material-symbols-outlined text-4xl text-primary">psychology</span>
+                    </div>
+                    <div class="space-y-3">
+                        <span
+                            class="text-xs font-bold font-sans tracking-[0.3em] text-primary/90 uppercase block">Chapter
+                            I</span>
+                        <h2
+                            class="text-3xl font-kr-serif font-bold text-ink group-hover:text-primary transition-colors duration-500">
+                            합일의 문제</h2>
+                        <h3 class="text-lg font-display text-primary-dark uppercase tracking-widest mt-1">Samādhi Pāda
+                        </h3>
+                        <p
+                            class="text-sm text-text-muted font-kr-serif leading-relaxed break-keep break-words pt-2 mt-2 border-t border-primary/10">
+                            의식의 몰입에 관하여
+                        </p>
+                    </div>
+                    <div class="mt-8 w-12 h-px bg-primary/30 group-hover:w-24 transition-all duration-700"></div>
+                </a>
+                <a class="group relative p-12 hover:bg-white/40 transition-colors duration-700 flex flex-col items-center text-center cursor-pointer"
+                    href="chapter.html?id=2" onclick="navigateToChapter(event, 'chapter.html?id=2')">
+                    <div class="mb-5 opacity-50 group-hover:opacity-100 transition-opacity duration-700">
+                        <span class="material-symbols-outlined text-4xl text-primary">self_improvement</span>
+                    </div>
+                    <div class="space-y-3">
+                        <span
+                            class="text-xs font-bold font-sans tracking-[0.3em] text-primary/90 uppercase block">Chapter
+                            II</span>
+                        <h2
+                            class="text-3xl font-kr-serif font-bold text-ink group-hover:text-primary transition-colors duration-500">
+                            합일의 단계</h2>
+                        <h3 class="text-lg font-display text-primary-dark uppercase tracking-widest mt-1">Sādhana Pāda
+                        </h3>
+                        <p
+                            class="text-sm text-text-muted font-kr-serif leading-relaxed break-keep break-words pt-2 mt-2 border-t border-primary/10">
+                            수행의 실천에 관하여
+                        </p>
+                    </div>
+                    <div class="mt-8 w-12 h-px bg-primary/30 group-hover:w-24 transition-all duration-700"></div>
+                </a>
+                <a class="group relative p-12 hover:bg-white/40 transition-colors duration-700 flex flex-col items-center text-center cursor-pointer border-r border-primary/5 last:border-r-0 md:border-r md:border-t border-t border-primary/5"
+                    href="chapter.html?id=3" onclick="navigateToChapter(event, 'chapter.html?id=3')">
+                    <div class="mb-5 opacity-50 group-hover:opacity-100 transition-opacity duration-700">
+                        <span class="material-symbols-outlined text-4xl text-primary">wb_twilight</span>
+                    </div>
+                    <div class="space-y-3">
+                        <span
+                            class="text-xs font-bold font-sans tracking-[0.3em] text-primary/90 uppercase block">Chapter
+                            III</span>
+                        <h2
+                            class="text-3xl font-kr-serif font-bold text-ink group-hover:text-primary transition-colors duration-500">
+                            합일의 성취와 그 결과</h2>
+                        <h3 class="text-lg font-display text-primary-dark uppercase tracking-widest mt-1">Vibhūti Pāda
+                        </h3>
+                        <p
+                            class="text-sm text-text-muted font-kr-serif leading-relaxed break-keep break-words pt-2 mt-2 border-t border-primary/10">
+                            초자연적 능력과 성취에 관하여
+                        </p>
+                    </div>
+                    <div class="mt-8 w-12 h-px bg-primary/30 group-hover:w-24 transition-all duration-700"></div>
+                </a>
+                <a class="group relative p-12 hover:bg-white/40 transition-colors duration-700 flex flex-col items-center text-center cursor-pointer md:border-t border-t border-primary/5"
+                    href="chapter.html?id=4" onclick="navigateToChapter(event, 'chapter.html?id=4')">
+                    <div class="mb-5 opacity-50 group-hover:opacity-100 transition-opacity duration-700">
+                        <span class="material-symbols-outlined text-4xl text-primary">all_inclusive</span>
+                    </div>
+                    <div class="space-y-3">
+                        <span
+                            class="text-xs font-bold font-sans tracking-[0.3em] text-primary/90 uppercase block">Chapter
+                            IV</span>
+                        <h2
+                            class="text-3xl font-kr-serif font-bold text-ink group-hover:text-primary transition-colors duration-500">
+                            깨달음</h2>
+                        <h3 class="text-lg font-display text-primary-dark uppercase tracking-widest mt-1">Kaivalya Pāda
+                        </h3>
+                        <p
+                            class="text-sm text-text-muted font-kr-serif leading-relaxed break-keep break-words pt-2 mt-2 border-t border-primary/10">
+                            절대적 자유와 해탈에 관하여
+                        </p>
+                    </div>
+                    <div class="mt-6 w-8 h-px bg-primary/20 group-hover:w-16 transition-all duration-500"></div>
+                </a>
+            </div>
+            <div class="mt-16 text-center">
+                <p class="text-sm font-kr-serif text-text-muted/60 max-w-md mx-auto">
+                    "요가란 마음의 작용을 소멸시키는 것이다." — Sutra 1.2
+                </p>
+            </div>
+        </main>
+        <footer class="w-full border-t border-primary/10 bg-background-paper/30 py-4">
+            <div
+                class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-display tracking-widest text-primary/60 uppercase">
+                <span>Scholarly Archive v2.0</span>
+                <div class="flex gap-6">
+                    <a class="hover:text-primary-dark transition-colors" href="#">About</a>
+                    <a class="hover:text-primary-dark transition-colors" href="#">Sources</a>
+                    <a class="hover:text-primary-dark transition-colors" href="#">Contact</a>
+                </div>
+            </div>
+        </footer>
+        <div class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden -z-20">
+            <div
+                class="absolute top-[10%] left-[20%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-[100px] opacity-60">
+            </div>
+            <div
+                class="absolute bottom-[10%] right-[20%] w-[30%] h-[30%] bg-gold-accent/5 rounded-full blur-[80px] opacity-40">
+            </div>
+        </div>
+    </div>
+    <!-- Compendium 모달 -->
+    <div id="compendium-modal" class="fixed inset-0 z-50 hidden opacity-0 transition-opacity duration-500">
+        <!-- 배경 딤 처리 -->
+        <div class="absolute inset-0 bg-ink/30 backdrop-blur-sm" onclick="closeCompendium()"></div>
+
+        <!-- 콘텐츠 영역 -->
+        <div class="absolute inset-0 flex items-center justify-center p-4">
+            <div
+                class="bg-[#fcfaf7] dark:bg-ink w-full max-w-2xl max-h-[80vh] rounded-2xl shadow-gold-glow-lg relative flex flex-col border border-primary/20 overflow-hidden">
+                <!-- 내부 헤더 -->
+                <div
+                    class="flex items-center justify-between p-6 border-b border-primary/10 bg-white/50 dark:bg-ink/50 backdrop-blur-md">
+                    <h2 class="text-3xl font-kr-serif text-primary-dark font-bold">Compendium</h2>
+                    <button onclick="closeCompendium()"
+                        class="text-primary/50 hover:text-primary-dark transition-colors">
+                        <span class="material-symbols-outlined text-2xl">close</span>
+                    </button>
+                </div>
+
+                <!-- 스크롤 가능 영역 -->
+                <div
+                    class="overflow-y-auto p-8 space-y-6 text-text-main font-kr-serif leading-relaxed text-lg no-scrollbar break-keep break-words dark:text-gray-200">
+                    <p>
+                        요가수트라는 흔히 ‘수행의 부록’처럼 오해되기도 하지만, 실제로는 수행의 핵심 원리와 실천 단계가 가장 압축적으로 담긴 <strong
+                            class="text-primary-dark font-medium">정수(精髓)</strong>입니다.
+                    </p>
+                    <p>
+                        바가바드기타가 넓은 지형을 보여주는 경전이라면, 요가수트라는 그 길을 실제로 걷게 하는 <strong
+                            class="text-primary-dark font-medium">훈련의 지도</strong>에 가깝습니다. 짧은 문장 속에 수행의 요체가 함축되어 있기 때문에,
+                        내용이 적어 보인다는 이유로 결코 가볍게 읽을 수 없습니다.
+                    </p>
+                    <p>
+                        또한 요가수트라는 단지 사상이나 철학이 아니라, 인간 의식이 성숙해가는 과정 속에서 전달된 수행의 결정체라는 관점으로도 이해될 수 있습니다. <span
+                            class="text-text-muted text-base italic">(이 글에서 제시되는 연대 배치는 일반 문헌의 정설이라기보다 하나의 관점적 설명임을 전제로
+                            합니다.)</span>
+                    </p>
+                    <p>
+                        중요한 것은 “정확한 연대”가 아니라, 요가수트라를 <strong class="text-primary-dark font-medium">수행 전통의 흐름 속에서 어떻게 읽을
+                            것인가</strong>입니다. 그 관점이 생기면, 요가수트라가 무엇을 계승하고 무엇을 넘어서는지, 그리고 인간 의식의 준비 과정에서 어떤 역할을 하는지 더 입체적으로
+                        보이기 시작합니다.
+                    </p>
+
+                    <div class="space-y-4 bg-primary/5 p-6 rounded-lg border-l-4 border-primary/30 my-8">
+                        <h3 class="font-kr-serif text-primary-dark font-bold text-sm uppercase tracking-widest mb-2">공부의
+                            세 가지 원칙</h3>
+                        <ul class="space-y-3 text-base">
+                            <li class="flex gap-3">
+                                <span class="text-primary-dark font-bold shrink-0">1.</span>
+                                <span><strong class="font-bold">실습 중심</strong>: 한 줄 한 줄이 ‘실천을 위한 지침’이라는 전제에서
+                                    출발합니다.</span>
+                            </li>
+                            <li class="flex gap-3">
+                                <span class="text-primary-dark font-bold shrink-0">2.</span>
+                                <span><strong class="font-bold">검증 중심</strong>: 어떤 해석도 맹신하지 않고, 삶과 수행 속에서 확인합니다.</span>
+                            </li>
+                            <li class="flex gap-3">
+                                <span class="text-primary-dark font-bold shrink-0">3.</span>
+                                <span><strong class="font-bold">균형의 길</strong>: 몸을 버리거나 현실을 도피하지 않습니다. 물질적 삶을 온전히 사용하면서도
+                                    영적 원리를 살아내는 길을 지향합니다.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <p>
+                        요가 수행에서 사람은 쉽게 두 극단으로 흐르기 쉽습니다.
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 text-text-muted pl-2">
+                        <li>“현실이 우선이니 수행은 나중에”라는 식으로 영적 기회를 스스로 왜곡하거나,</li>
+                        <li>반대로 “깨달음을 위해 몸과 삶을 희생하겠다”는 불균형으로 치닫기도 합니다.</li>
+                    </ul>
+                    <p>
+                        요가수트라는 이 둘을 넘어서는 <strong class="text-primary-dark font-medium">더 높은 선택</strong>—현실을 파괴하지 않으면서도
+                        수행의 문을 놓치지 않는 길—을 요구합니다. 그 길에 필요한 것은 강철 같은 의지와 올바른 지식, 그리고 흔들리지 않는 확신입니다.
+                    </p>
+                    <div class="italic opacity-80 border-l-4 border-primary/30 pl-4 py-1 mt-6">
+                        이 사이트는 요가수트라를 읽는 데서 끝내지 않고, 여러분이 실제로 삶에서 연습하고 체험하며 “내 것으로” 만들 수 있도록 안내하는 학습 공간이 되겠습니다.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lexicon 모달 -->
+    <div id="lexicon-modal" class="fixed inset-0 z-50 hidden opacity-0 transition-opacity duration-500">
+        <!-- 배경 딤 처리 -->
+        <div class="absolute inset-0 bg-ink/30 backdrop-blur-sm" onclick="closeLexicon()"></div>
+
+        <!-- 콘텐츠 영역 -->
+        <div class="absolute inset-0 flex items-center justify-center p-4">
+            <div
+                class="bg-[#fcfaf7] dark:bg-ink w-full max-w-2xl max-h-[80vh] rounded-2xl shadow-gold-glow-lg relative flex flex-col border border-primary/20 overflow-hidden">
+                <!-- 내부 헤더 -->
+                <div
+                    class="flex items-center justify-between p-6 border-b border-primary/10 bg-white/50 dark:bg-ink/50 backdrop-blur-md">
+                    <h2 class="text-3xl font-kr-serif text-primary-dark font-bold">Lexicon</h2>
+                    <button onclick="closeLexicon()" class="text-primary/50 hover:text-primary-dark transition-colors">
+                        <span class="material-symbols-outlined text-2xl">close</span>
+                    </button>
+                </div>
+
+                <!-- 스크롤 가능 영역 -->
+                <div id="lexicon-content"
+                    class="overflow-y-auto p-8 space-y-4 text-text-main font-serif leading-relaxed text-lg no-scrollbar dark:text-gray-200">
+                    <!-- Dynamic Content -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Commentaries 모달 -->
+    <div id="commentaries-modal" class="fixed inset-0 z-50 hidden opacity-0 transition-opacity duration-500">
+        <!-- 배경 딤 처리 -->
+        <div class="absolute inset-0 bg-ink/30 backdrop-blur-sm" onclick="closeCommentaries()"></div>
+
+        <!-- 콘텐츠 영역 -->
+        <div class="absolute inset-0 flex items-center justify-center p-4">
+            <div
+                class="bg-[#fcfaf7] dark:bg-ink w-full max-w-2xl max-h-[80vh] rounded-2xl shadow-gold-glow-lg relative flex flex-col border border-primary/20 overflow-hidden">
+                <!-- 내부 헤더 -->
+                <div
+                    class="flex items-center justify-between p-6 border-b border-primary/10 bg-white/50 dark:bg-ink/50 backdrop-blur-md">
+                    <h2 class="text-3xl font-kr-serif text-primary-dark font-bold">My Reflections</h2>
+                    <button onclick="closeCommentaries()"
+                        class="text-primary/50 hover:text-primary-dark transition-colors">
+                        <span class="material-symbols-outlined text-2xl">close</span>
+                    </button>
+                </div>
+
+                <!-- 스크롤 영역 -->
+                <div id="commentaries-content"
+                    class="overflow-y-auto p-8 space-y-4 text-text-main font-serif leading-relaxed text-lg no-scrollbar dark:text-gray-200">
+                    <!-- Dynamic Content (User Notes) -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js" defer></script>
+    <script type="module" src="js/app.js" defer></script>
+    <script>
+        function navigateToChapter(e, url) {
+            e.preventDefault();
+            const container = document.getElementById('landing-page');
+            container.classList.add('opacity-0', 'scale-95');
+            setTimeout(() => {
+                window.location.href = url;
+            }, 500);
+        }
+
+        // Custom Dropdown Logic for Landing Page
+        const sutraCountsCustom = {
+            '1': 51,
+            '2': 55,
+            '3': 56,
+            '4': 34
+        };
+        let selectedCustomChapter = null;
+
+        function toggleCustomDropdown(event, id) {
+            event.stopPropagation();
+            const el = document.getElementById(id);
+            const isVisible = !el.classList.contains('invisible');
+
+            // Close all
+            const d1 = document.getElementById('chap-dropdown');
+            const d2 = document.getElementById('verse-dropdown');
+            if (d1) { d1.classList.add('invisible', 'opacity-0', 'scale-95'); d1.classList.remove('opacity-100', 'scale-100'); }
+            if (d2) { d2.classList.add('invisible', 'opacity-0', 'scale-95'); d2.classList.remove('opacity-100', 'scale-100'); }
+
+            if (!isVisible) {
+                el.classList.remove('invisible', 'opacity-0', 'scale-95');
+                el.classList.add('opacity-100', 'scale-100');
+            }
+        }
+
+        function selectCustomChapter(event, chapterId, chapterName) {
+            event.stopPropagation();
+            selectedCustomChapter = chapterId;
+            const chapDisplay = document.getElementById('chap-display');
+            if (chapDisplay) {
+                chapDisplay.textContent = chapterName;
+                chapDisplay.classList.remove('text-[#999]');
+                chapDisplay.classList.add('text-ink');
+            }
+
+            // Generate Sutra Options
+            const container = document.getElementById('sutra-options-container');
+            if (container) {
+                container.innerHTML = '';
+                const count = sutraCountsCustom[chapterId];
+                for (let i = 1; i <= count; i++) {
+                    const opt = document.createElement('div');
+                    opt.className = 'px-5 py-3 hover:bg-[#FAF8F5] cursor-pointer text-ink font-serif text-[15px] border-b border-[#F2EBE1] last:border-0 transition-colors';
+                    opt.textContent = `Sutra ${i}`;
+                    opt.onclick = (e) => selectCustomSutra(e, i);
+                    container.appendChild(opt);
+                }
+            }
+
+            const sutraDisplay = document.getElementById('sutra-display');
+            if (sutraDisplay) {
+                sutraDisplay.textContent = 'Select a Verse';
+                sutraDisplay.classList.remove('text-[#999]');
+                sutraDisplay.classList.add('text-ink');
+            }
+
+            const chapDropdown = document.getElementById('chap-dropdown');
+            if (chapDropdown) {
+                chapDropdown.classList.add('invisible', 'opacity-0', 'scale-95');
+                chapDropdown.classList.remove('opacity-100', 'scale-100');
+            }
+        }
+
+        function selectCustomSutra(event, sutraId) {
+            event.stopPropagation();
+            if (!selectedCustomChapter) return;
+            window.location.href = `chapter.html?chapter=${selectedCustomChapter}&sutra=${selectedCustomChapter}.${sutraId}`;
+        }
+
+        document.addEventListener('click', () => {
+            const d1 = document.getElementById('chap-dropdown');
+            const d2 = document.getElementById('verse-dropdown');
+            if (d1) { d1.classList.add('invisible', 'opacity-0', 'scale-95'); d1.classList.remove('opacity-100', 'scale-100'); }
+            if (d2) { d2.classList.add('invisible', 'opacity-0', 'scale-95'); d2.classList.remove('opacity-100', 'scale-100'); }
+        });
+    </script>
+</body>
+
+</html>
