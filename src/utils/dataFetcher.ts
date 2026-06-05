@@ -60,6 +60,23 @@ const commentaryByChapter: Record<number, Record<string, CommentaryBlock[]>> = {
     4: chapter4Commentary,
 };
 
+const getCommentaryBlocks = (chapterNum: number, paragraphId: string, paragraphNumber: number) => {
+    const chapterCommentary = commentaryByChapter[chapterNum];
+    if (!chapterCommentary) {
+        return undefined;
+    }
+
+    const fallbackKeys = [paragraphId, String(paragraphNumber), `${chapterNum}.${paragraphNumber}`];
+    for (const key of fallbackKeys) {
+        const blocks = chapterCommentary[key];
+        if (blocks?.length) {
+            return blocks;
+        }
+    }
+
+    return undefined;
+};
+
 const toNumber = (value: string | number | undefined, fallback = 0) => {
     const numeric = typeof value === 'number' ? value : Number.parseInt(String(value ?? ''), 10);
     return Number.isFinite(numeric) ? numeric : fallback;
@@ -67,7 +84,7 @@ const toNumber = (value: string | number | undefined, fallback = 0) => {
 
 const normalizeParagraph = (chapterNum: number, paragraph: ReadingSnapshot[number]['paragraphs'][number]): YogaSutra => {
     const sourceText = paragraph.text ?? { tibetan: '', pronunciation: '', english: '', korean: '' };
-    const chapterCommentary = commentaryByChapter[chapterNum]?.[paragraph.id];
+    const chapterCommentary = getCommentaryBlocks(chapterNum, paragraph.id, paragraph.paragraphNumber);
 
     return {
         id: paragraph.id,
