@@ -1,32 +1,32 @@
 # State
 
 ## Current Task
-Completed: fixed the commentary lookup so chapters 2 through 4 render the right-panel ODT commentary body correctly.
+Rework the lamp chapter/verse selector into a hierarchical accordion that surfaces higher-level headings like `제1편 삼사의 정의` and `1장. 상사의 바른방편`.
 
 ## Route
 Route A
 
 ## Writer Slot
-main: direct implementation
+main: direct-write
 
 ## Contract Freeze
 Frozen scope:
-- Make commentary lookup work for the chapter 2/3 verse-key format that is already stored in the generated data.
-- Keep the generated commentary files and generator script unchanged unless a small runtime fix requires it.
-- Do not alter the right-panel layout or verse routing.
+- Update only the chapter/verse selector UI in `lamp/src/App.tsx`.
+- Add hierarchical accordion behavior for title groups, chapter sections, and subheadings derived from the existing reading data.
+- Preserve the current routing and verse navigation behavior.
+- Do not touch unrelated app files, package files, or assets.
 
 Reason for Route A:
-- This is a single runtime lookup fix in one file.
+- The task is a focused single-file UI refactor with no cross-file contract changes, so it fits Route A.
 
 ## Write Sets
-- main: `STATE.md`, `MULTI_AGENT_LOG.md`
-- main: `src/utils/dataFetcher.ts`
+- main: `STATE.md`, `lamp/src/App.tsx`
 
 ## Reviewer
 Wegener
 
 ## Last Update
-2026-06-05 22:51:27 +09:00 - Fixed the commentary lookup to use chapter-local verse ordering for chapters 2 and 3, verified typecheck, and confirmed the key mapping matches the generated data.
+2026-06-06 09:41:00 +09:00 - Reworked the verse selector into a hierarchical accordion with heading groups and verse chips, then verified the production build.
 
 ## Open Review Item
 - None.
