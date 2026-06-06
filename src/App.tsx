@@ -247,26 +247,57 @@ const OutlineTree = ({
                             onToggleNode(node.id);
                         }}
                         className={[
-                            'flex w-full items-center gap-2 rounded-[1rem] border px-3 py-2.5 text-left transition-all duration-300',
-                            depth === 0 ? 'bg-white/55 dark:bg-white/6' : 'bg-white/40 dark:bg-white/4',
+                            'group flex w-full items-start gap-3 rounded-[1.15rem] border px-3 py-3 text-left transition-all duration-300',
+                            depth === 0
+                                ? 'border-gold-primary/18 bg-[linear-gradient(180deg,rgba(255,248,236,0.95)_0%,rgba(253,243,227,0.9)_100%)] dark:border-gold-light/18 dark:bg-[linear-gradient(180deg,rgba(38,31,20,0.95)_0%,rgba(25,21,16,0.92)_100%)]'
+                                : depth === 1
+                                    ? 'border-gold-border/14 bg-white/58 dark:border-dark-border/55 dark:bg-white/6'
+                                    : 'border-gold-border/12 bg-white/46 dark:border-dark-border/55 dark:bg-white/5',
                             isSelected
-                                ? 'border-gold-primary/25 text-gold-primary shadow-[0_12px_28px_-24px_rgba(0,0,0,0.5)] dark:border-gold-light/25 dark:text-gold-light'
-                                : 'border-gold-border/12 text-text-primary hover:border-gold-border/22 hover:bg-white/75 dark:border-dark-border/55 dark:text-dark-text-primary dark:hover:bg-white/8',
+                                ? 'border-gold-primary/30 text-gold-primary shadow-[0_12px_28px_-24px_rgba(0,0,0,0.5)] dark:border-gold-light/30 dark:text-gold-light'
+                                : 'border-gold-border/12 text-text-primary dark:text-dark-text-primary',
+                            depth === 0
+                                ? 'hover:border-gold-primary/28 hover:bg-[linear-gradient(180deg,rgba(255,250,242,0.98)_0%,rgba(252,244,232,0.95)_100%)] dark:hover:bg-[linear-gradient(180deg,rgba(48,40,28,0.98)_0%,rgba(32,27,20,0.96)_100%)]'
+                                : 'hover:border-gold-border/22 hover:bg-white/82 dark:hover:bg-white/8',
                         ].join(' ')}
-                        style={{ paddingLeft: `${0.9 + depth * 0.9}rem` }}
+                        style={{ marginLeft: `${depth * 0.35}rem` }}
                     >
-                        <span className="flex-1 text-[13px] font-semibold leading-snug tracking-[0.01em]">{node.label}</span>
+                        <div className="min-w-0 flex-1 space-y-1">
+                            <div className="flex min-w-0 items-center gap-2">
+                                <span
+                                    className={[
+                                        'inline-flex shrink-0 items-center rounded-full border px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.26em]',
+                                        depth === 0
+                                            ? 'border-gold-primary/20 bg-gold-primary/10 text-gold-primary dark:border-gold-light/18 dark:bg-gold-light/10 dark:text-gold-light'
+                                            : 'border-gold-border/12 bg-white/70 text-text-secondary dark:border-dark-border/55 dark:bg-white/8 dark:text-dark-text-secondary',
+                                    ].join(' ')}
+                                >
+                                    {depth === 0 ? '편' : depth === 1 ? '장' : '절'}
+                                </span>
+                                <span className={['min-w-0 flex-1 font-semibold leading-snug tracking-[0.01em]', depth === 0 ? 'text-[15px] sm:text-[16px]' : depth === 1 ? 'text-[13px] sm:text-[14px]' : 'text-[12px] sm:text-[13px]'].join(' ')}>
+                                    {node.label}
+                                </span>
+                            </div>
+                            {depth > 0 && node.pathLabel !== node.label ? (
+                                <div className="truncate text-[10px] font-medium tracking-[0.12em] text-text-secondary/62 dark:text-dark-text-secondary/62">
+                                    {node.pathLabel}
+                                </div>
+                            ) : null}
+                        </div>
                         {node.children.length > 0 ? (
-                            <ChevronDown
-                                className={`h-4 w-4 shrink-0 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
-                            />
+                            <ChevronDown className={`mt-0.5 h-4 w-4 shrink-0 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} />
                         ) : (
-                            <span className="h-2 w-2 shrink-0 rounded-full bg-gold-primary/25 dark:bg-gold-light/25" />
+                            <span
+                                className={[
+                                    'mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full',
+                                    isSelected ? 'bg-gold-primary dark:bg-gold-light' : 'bg-gold-primary/25 dark:bg-gold-light/25',
+                                ].join(' ')}
+                            />
                         )}
                     </button>
 
                     {isExpanded && node.children.length > 0 ? (
-                        <div className="space-y-2 border-l border-gold-border/12 pl-3 dark:border-dark-border/55">{renderNodes(node.children, depth + 1)}</div>
+                        <div className="space-y-2 border-l border-gold-border/12 pl-4 pt-1 dark:border-dark-border/55">{renderNodes(node.children, depth + 1)}</div>
                     ) : null}
 
                     {isSelected && draftVerseOptions.length > 0 ? (
@@ -333,7 +364,11 @@ const ContextAccordionPicker = ({
     const activeGroup = outline?.groups.find((group) => group.key === activeGroupKey) ?? outline?.groups[0] ?? null;
     const currentVerseLabel = verseNum ? `${verseNum}절` : '절 선택';
     const currentChapterLabel = activeOutlineEntry?.fullLabel ?? activeOutlineEntry?.shortLabel ?? (chapterNum ? `장 ${chapterNum}` : '장 선택');
-    const triggerChapterLabel = activeOutlineEntry?.shortLabel ?? activeOutlineEntry?.fullLabel ?? (chapterNum ? `장 ${chapterNum}` : '장 선택');
+    const triggerChapterLabel = currentChapterLabel;
+    const breadcrumbParts = currentChapterLabel
+        .split(' / ')
+        .map((part) => part.trim())
+        .filter(Boolean);
 
     useEffect(() => {
         setIsOpen(false);
@@ -355,6 +390,24 @@ const ContextAccordionPicker = ({
             setActiveGroupKey(outline.groups[0].key);
         }
     }, [activeGroupKey, outline]);
+
+    useEffect(() => {
+        if (!isOpen || !activeGroup || !outline) {
+            return;
+        }
+
+        const nextExpanded = new Set<string>();
+        activeGroup.nodes.forEach((node) => {
+            if (node.children.length > 0) {
+                nextExpanded.add(node.id);
+            }
+        });
+        if (activeOutlineEntry) {
+            activeOutlineEntry.ancestorIds.forEach((ancestorId) => nextExpanded.add(ancestorId));
+        }
+
+        setExpandedNodeIds(nextExpanded);
+    }, [activeGroup, activeOutlineEntry, isOpen, outline]);
 
     useEffect(() => {
         if (!isOpen || !outline?.groups.length || !chapterNum) {
@@ -467,6 +520,24 @@ const ContextAccordionPicker = ({
                     {currentChapterLabel} / {currentVerseLabel}
                 </span>
             </div>
+
+            {breadcrumbParts.length > 0 ? (
+                <div className="mb-3 flex flex-wrap gap-1.5">
+                    {breadcrumbParts.map((part, index) => (
+                        <span
+                            key={`${part}-${index}`}
+                            className={[
+                                'inline-flex items-center rounded-full border px-2.5 py-1 text-[9px] font-semibold tracking-[0.16em]',
+                                index === breadcrumbParts.length - 1
+                                    ? 'border-gold-primary/28 bg-gold-primary/10 text-gold-primary dark:border-gold-light/24 dark:bg-gold-light/10 dark:text-gold-light'
+                                    : 'border-gold-border/12 bg-white/58 text-text-secondary dark:border-dark-border/55 dark:bg-white/5 dark:text-dark-text-secondary',
+                            ].join(' ')}
+                        >
+                            {part}
+                        </span>
+                    ))}
+                </div>
+            ) : null}
 
             <div className="mb-3 flex flex-wrap gap-2">
                 {outline?.groups.map((group) => {
