@@ -26,7 +26,7 @@ Reason for Route A:
 Wegener
 
 ## Last Update
-2026-06-06 09:41:00 +09:00 - Reworked the verse selector into a hierarchical accordion with heading groups and verse chips, then verified the production build.
+2026-06-06 09:56:00 +09:00 - Tightened the hierarchy so one-level items no longer collapse into a fake `본문` child and moved verse chips inline under the selected chapter leaf.
 
 ## Open Review Item
 - None.

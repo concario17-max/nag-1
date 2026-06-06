@@ -106,7 +106,11 @@ const splitOutlineParts = (group: ReadingDataGroup, subchapter: ReadingDataSubch
         return [chapterName];
     }
 
-    if (titleParts.length === 1 && titleParts[0] !== chapterName) {
+    if (titleParts.length === 1) {
+        if (chapterName === '본문' || chapterName === titleParts[0]) {
+            return titleParts;
+        }
+
         return [...titleParts, chapterName];
     }
 
@@ -209,12 +213,20 @@ const OutlineTree = ({
     onSelectChapter,
     onToggleNode,
     activeChapterNumber,
+    draftVerseOptions,
+    draftChapterNum,
+    draftVerseNum,
+    onCommitSelection,
 }: {
     nodes: OutlineNode[];
     expandedNodeIds: Set<string>;
     onSelectChapter: (chapterNumber: number) => void;
     onToggleNode: (nodeId: string) => void;
     activeChapterNumber: number | null;
+    draftVerseOptions: ContextOption[];
+    draftChapterNum: string;
+    draftVerseNum: string;
+    onCommitSelection: (chapter: string, verse: string) => void;
 }) => {
     const renderNodes = (items: OutlineNode[], depth = 0) =>
         items.map((node) => {
@@ -255,6 +267,41 @@ const OutlineTree = ({
 
                     {isExpanded && node.children.length > 0 ? (
                         <div className="space-y-2 border-l border-gold-border/12 pl-3 dark:border-dark-border/55">{renderNodes(node.children, depth + 1)}</div>
+                    ) : null}
+
+                    {isSelected && draftVerseOptions.length > 0 ? (
+                        <div className="ml-4 space-y-2 rounded-[1rem] border border-gold-border/10 bg-white/45 p-3 dark:border-dark-border/55 dark:bg-white/5">
+                            <div className="flex items-center justify-between gap-2">
+                                <span className="text-[9px] font-semibold uppercase tracking-[0.24em] text-text-secondary/78 dark:text-dark-text-secondary/78">
+                                    절
+                                </span>
+                                <span className="truncate text-[10px] font-medium tracking-[0.12em] text-text-secondary/70 dark:text-dark-text-secondary/70">
+                                    {node.label}
+                                </span>
+                            </div>
+                            <div className="flex max-h-40 flex-wrap gap-2 overflow-y-auto pr-1">
+                                {draftVerseOptions.map((option) => (
+                                    <button
+                                        key={option.value}
+                                        type="button"
+                                        onClick={() => {
+                                            if (!draftChapterNum) {
+                                                return;
+                                            }
+                                            onCommitSelection(draftChapterNum, option.value);
+                                        }}
+                                        className={[
+                                            'rounded-full border px-3 py-1.5 text-[10px] font-semibold tracking-[0.14em] transition-all duration-300',
+                                            option.value === draftVerseNum
+                                                ? 'border-gold-primary/30 bg-gold-primary/10 text-gold-primary shadow-[0_10px_24px_-20px_rgba(0,0,0,0.45)] dark:border-gold-light/30 dark:bg-gold-light/12 dark:text-gold-light'
+                                                : 'border-gold-border/12 bg-white/62 text-text-secondary hover:border-gold-border/22 hover:bg-white/86 dark:border-dark-border/55 dark:bg-white/5 dark:text-dark-text-secondary dark:hover:bg-white/8',
+                                        ].join(' ')}
+                                    >
+                                        {option.label}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
                     ) : null}
                 </div>
             );
@@ -454,6 +501,13 @@ const ContextAccordionPicker = ({
                         onSelectChapter={selectChapter}
                         onToggleNode={toggleNode}
                         activeChapterNumber={activeChapterNumber}
+                        draftVerseOptions={draftVerseOptions}
+                        draftChapterNum={draftChapterNum}
+                        draftVerseNum={draftVerseNum}
+                        onCommitSelection={(chapter, verse) => {
+                            onCommitSelection(chapter, verse);
+                            setIsOpen(false);
+                        }}
                     />
                 ) : (
                     <div className="flex h-32 items-center justify-center rounded-[1.2rem] border border-dashed border-gold-border/14 bg-white/36 text-[10px] font-medium tracking-[0.22em] text-text-secondary/55 dark:border-dark-border/55 dark:bg-white/4 dark:text-dark-text-secondary/55">
@@ -462,44 +516,6 @@ const ContextAccordionPicker = ({
                 )}
             </div>
 
-            {draftChapterNum ? (
-                <div className="mt-3 border-t border-gold-border/12 pt-3 dark:border-dark-border/55">
-                    <div className="mb-2 flex items-center justify-between gap-2">
-                        <span className="text-[9px] font-semibold uppercase tracking-[0.24em] text-text-secondary/78 dark:text-dark-text-secondary/78">
-                            Verse
-                        </span>
-                        <span className="truncate text-[10px] font-medium tracking-[0.12em] text-text-secondary/70 dark:text-dark-text-secondary/70">
-                            {activeOutlineEntry?.fullLabel ?? `Chapter ${draftChapterNum}`}
-                        </span>
-                    </div>
-
-                    <div className="flex max-h-40 flex-wrap gap-2 overflow-y-auto pr-1">
-                        {draftVerseOptions.map((option) => {
-                            const isActive = option.value === draftVerseNum;
-
-                            return (
-                                <button
-                                    key={option.value}
-                                    type="button"
-                                    onClick={() => {
-                                        setDraftVerseNum(option.value);
-                                        onCommitSelection(draftChapterNum, option.value);
-                                        setIsOpen(false);
-                                    }}
-                                    className={[
-                                        'rounded-full border px-3 py-1.5 text-[10px] font-semibold tracking-[0.14em] transition-all duration-300',
-                                        isActive
-                                            ? 'border-gold-primary/30 bg-gold-primary/10 text-gold-primary shadow-[0_10px_24px_-20px_rgba(0,0,0,0.45)] dark:border-gold-light/30 dark:bg-gold-light/12 dark:text-gold-light'
-                                            : 'border-gold-border/12 bg-white/60 text-text-secondary hover:border-gold-border/22 hover:bg-white/82 dark:border-dark-border/55 dark:bg-white/5 dark:text-dark-text-secondary dark:hover:bg-white/8',
-                                    ].join(' ')}
-                                >
-                                    {option.label}
-                                </button>
-                            );
-                        })}
-                    </div>
-                </div>
-            ) : null}
         </div>
     ) : null;
 
