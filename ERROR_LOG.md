@@ -199,3 +199,15 @@ status: resolved
   summary: Typecheck failed on dynamic heading rendering and nullable chapter access
   details: `CommentaryMarkdown` used a JSX namespace path TS could not resolve, and `VerseView` narrowed `currentChapter` too loosely for strict null checks. Both issues were fixed before rerunning verification.
   status: resolved
+
+- time: 2026-06-05 23:24:09 +09:00
+  location: `npm install`
+  summary: PowerShell execution policy blocked `npm.ps1`
+  details: `npm install` failed before dependency installation because PowerShell could not load `C:\Program Files\nodejs\npm.ps1`. Use `npm.cmd` in this shell.
+  status: open
+
+- time: 2026-06-05 23:42:00 +09:00
+  location: `public/reading-snapshot.json`
+  summary: BOM-prefixed JSON broke ad hoc parsing during repository research
+  details: A direct Node `JSON.parse()` on the reading snapshot failed because the file begins with a BOM. The research flow switched to a BOM-stripping read path and completed successfully.
+  status: resolved
