@@ -186,19 +186,45 @@ Goal: synchronize the live app with the newly copied data source before any impl
 Goal: Thoroughly audit the repository structure, components, and data pipelines, compiling findings in `research.md`.
 
 ### 13.1 Directory Audit
-- [ ] List and classify all files under `src/`, `scripts/`, `public/`, and `dist/`.
-- [ ] Map out component dependencies and identify dead or unused codebase remnants.
+- [x] List and classify all files under `src/`, `scripts/`, `public/`, and `dist/`.
+- [x] Map out component dependencies and identify dead or unused codebase remnants.
 
 ### 13.2 Component and UI Analysis
-- [ ] Trace rendering hierarchies of the core shell (`AppShell`, `MainLayout`, `Header`, `Sidebar`).
-- [ ] Review `ContextAccordionPicker` and `OutlineTree` state flow.
-- [ ] Inspect verse-rendering components (`SutraContent`, `WordMeanings`, `TranslationSection`, `AudioPlayer`, `CommentaryContent`).
+- [x] Trace rendering hierarchies of the core shell (`AppShell`, `MainLayout`, `Header`, `Sidebar`).
+- [x] Review `ContextAccordionPicker` and `OutlineTree` state flow.
+- [x] Inspect verse-rendering components (`SutraContent`, `WordMeanings`, `TranslationSection`, `AudioPlayer`, `CommentaryContent`).
 
 ### 13.3 Data Flow and Parsing Pipelines
-- [ ] Trace data fetching, normalization, and caching of `/reading-data.json`.
-- [ ] Analyze script interactions (odt parser, smoke testing script, database synchronizers).
-- [ ] Review state providers (`UIContext`, `YogaDataContext`, `ThemeContext`).
+- [x] Trace data fetching, normalization, and caching of `/reading-data.json`.
+- [x] Analyze script interactions (odt parser, smoke testing script, database synchronizers).
+- [x] Review state providers (`UIContext`, `YogaDataContext`, `ThemeContext`).
 
 ### 13.4 Documentation Assembly
-- [ ] Compile comprehensive architectural review, data flow descriptions, and optimization targets into `research.md`.
-- [ ] Commit and push changes upon completion.
+- [x] Compile comprehensive architectural review, data flow descriptions, and optimization targets into `research.md`.
+- [x] Commit and push changes upon completion.
+
+## 14. Technical Debt and Architectural Improvement (Audio Removal & Legacy Cleanup)
+
+Goal: Clean up legacy components and logic, specifically removing the unused audio player stack since there are no audio files, and pruning unused Yoga metadata.
+
+### 14.1 Audio Code Removal
+- [ ] Delete `src/hooks/useAudio.ts`.
+- [ ] Delete `src/components/verse/AudioPlayer.tsx`.
+- [ ] Remove audio state, refs, effect hooks, and `<AudioPlayer>` rendering from `src/pages/VerseView.tsx`.
+- [ ] Remove `audio` field processing and serialization from `src/utils/dataFetcher.ts`.
+- [ ] Remove `audio` types from `src/types.ts` (`YogaSutra` definition).
+- [ ] Clean up any unused audio assets or script files (like `scripts/check_audio_mismatch.cjs`).
+
+### 14.2 Legacy Metadata & Script Pruning
+- [ ] Prune unused `YOGA_CHAPTERS_META` and associated constants from `src/constants.ts`.
+- [ ] Prune unused legacy script files from `scripts/` directory that are specific to the old Yoga Sutras app.
+
+### 14.3 Visual Theme Polish (Meta-Design)
+- [ ] Audit `src/index.css` to clean up any obsolete utility classes.
+- [ ] Adjust the primary theme variables to align completely with the "인위삼신행상명등론" design aesthetic.
+
+### 14.4 Verification and Smoke Tests
+- [ ] Run `npm run typecheck` to verify no broken imports or type mismatches exist.
+- [ ] Run `npm run test -- --run` to ensure all tests pass.
+- [ ] Run `npm run build` to confirm production build stability.
+- [ ] Run Playwright browser smoke test `npm run qa:browser` to verify core app usability.
