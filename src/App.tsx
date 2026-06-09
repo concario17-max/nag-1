@@ -527,30 +527,32 @@ const ContextAccordionPicker = ({
                 </div>
             ) : null}
 
-            <div className="mb-3 flex flex-wrap gap-2">
-                {outline?.groups.map((group) => {
-                    const isActive = group.key === activeGroupKey;
+            {outline?.groups && outline.groups.length > 1 ? (
+                <div className="mb-3 flex flex-wrap gap-2">
+                    {outline.groups.map((group) => {
+                        const isActive = group.key === activeGroupKey;
 
-                    return (
-                        <button
-                            key={group.key}
-                            type="button"
-                            onClick={() => {
-                                setActiveGroupKey(group.key);
-                                setExpandedNodeIds(new Set());
-                            }}
-                            className={[
-                                'rounded-full border px-3 py-1.5 text-[10px] font-semibold tracking-[0.14em] transition-all duration-300',
-                                isActive
-                                    ? 'border-gold-primary/35 bg-gold-primary/10 text-gold-primary shadow-[0_10px_24px_-20px_rgba(0,0,0,0.5)] dark:border-gold-light/30 dark:bg-gold-light/12 dark:text-gold-light'
-                                    : 'border-gold-border/12 bg-white/55 text-text-secondary hover:border-gold-border/22 hover:bg-white/78 dark:border-dark-border/55 dark:bg-white/5 dark:text-dark-text-secondary dark:hover:bg-white/8',
-                            ].join(' ')}
-                        >
-                            {group.label}
-                        </button>
-                    );
-                })}
-            </div>
+                        return (
+                            <button
+                                key={group.key}
+                                type="button"
+                                onClick={() => {
+                                    setActiveGroupKey(group.key);
+                                    setExpandedNodeIds(new Set());
+                                }}
+                                className={[
+                                    'rounded-full border px-3 py-1.5 text-[10px] font-semibold tracking-[0.14em] transition-all duration-300',
+                                    isActive
+                                        ? 'border-gold-primary/35 bg-gold-primary/10 text-gold-primary shadow-[0_10px_24px_-20px_rgba(0,0,0,0.5)] dark:border-gold-light/30 dark:bg-gold-light/12 dark:text-gold-light'
+                                        : 'border-gold-border/12 bg-white/55 text-text-secondary hover:border-gold-border/22 hover:bg-white/78 dark:border-dark-border/55 dark:bg-white/5 dark:text-dark-text-secondary dark:hover:bg-white/8',
+                                ].join(' ')}
+                            >
+                                {group.label}
+                            </button>
+                        );
+                    })}
+                </div>
+            ) : null}
 
             <div className="max-h-[min(56vh,460px)] overflow-y-auto pr-1">
                 {activeGroup?.nodes.length ? (
