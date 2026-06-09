@@ -1,185 +1,178 @@
-# Yoga Remediation Plan
+# 프로젝트 개선 및 교정 계획
 
-Updated: 2026-03-20
-Status: completed
-Source of truth: `research.md`
+업데이트: 2026-03-20
+상태: 완료
+단일 진실 공급원(Source of Truth): `research.md`
 
-This file tracks the full-project remediation pass requested after the latest repository-wide research review.
+이 파일은 리서치 검토 이후 요청된 프로젝트 전체 개선 패스의 작업 진행 상황을 추적함.
 
-## 1. Guardrails and sequencing
+## 1. 가이드라인 및 순서
 
-- [x] Freeze scope to code, documentation, QA, and content mismatches found in `research.md`.
-- [x] Avoid unrelated feature work during this pass.
-- [x] Keep runtime behavior stable unless a stronger fix is required.
-- [x] Execute work in this order:
-- [x] content and encoding cleanup
-- [x] stale documentation repair
-- [x] stale QA and browser smoke repair
-- [x] commentary and layout consistency cleanup
-- [x] final verification sweep
+- [x] 작업 범위를 `research.md`에서 발견된 코드, 문서, QA 및 콘텐츠 불일치로 제한
+- [x] 이번 패스 중 무관한 신규 기능 개발 지양
+- [x] 더 강력한 수정이 필요하지 않은 한 런타임 동작 안정성 유지
+- [x] 아래 순서대로 작업을 실행:
+  - [x] 콘텐츠 및 인코딩 정리
+  - [x] 만료된 문서 복구
+  - [x] 만료된 QA 및 브라우저 스모크 테스트 복구
+  - [x] 해설 및 레이아웃 일관성 정리
+  - [x] 최종 검증 스윕
 
-## 2. Encoding and content cleanup
+## 2. 인코딩 및 콘텐츠 정리
 
-- [x] Audit the active `src/` tree for remaining encoding-corrupted user-facing strings.
-- [x] Fix chapter metadata copy in `src/constants.ts`.
-- [x] Fix the sidebar title in `src/components/Sidebar.tsx`.
-- [x] Fix the sidebar empty state in `src/components/ui/SidebarMenu.tsx`.
-- [x] Fix translation section headings in `src/components/verse/TranslationSection.tsx`.
-- [x] Fix malformed and corrupted compendium copy in `src/components/CompendiumModal.tsx`.
-- [x] Fix commentary study prompt copy in `src/components/CommentarySidebar.tsx`.
-- [x] Normalize corrupted labels in active test fixtures.
+- [x] 사용자에게 노출되는 문자열 중 인코딩이 깨진 부분이 활성 `src/` 트리에 남아있는지 감사
+- [x] `src/constants.ts` 내의 장(chapter) 메타데이터 카피 수정
+- [x] `src/components/Sidebar.tsx` 내의 사이드바 제목 수정
+- [x] `src/components/ui/SidebarMenu.tsx` 내의 사이드바 빈 상태 카피 수정
+- [x] `src/components/verse/TranslationSection.tsx` 내의 번역 섹션 헤더 수정
+- [x] `src/components/CompendiumModal.tsx` 내의 깨진 compendium 카피 수정
+- [x] `src/components/CommentarySidebar.tsx` 내의 해설 학습 프롬프트 카피 수정
+- [x] 활성 테스트 픽스처 내의 깨진 라벨 정규화
 
-## 3. Metadata integrity
+## 3. 메타데이터 무결성
 
-- [x] Re-audit `YOGA_CHAPTERS_META`.
-- [x] Confirm Korean chapter names match the intended wording.
-- [x] Confirm English chapter names still match the runtime cards and sidebar labels.
-- [x] Confirm descriptions are readable and free from encoding artifacts.
-- [x] Reconfirm sutra counts match `public/data.json`.
+- [x] `YOGA_CHAPTERS_META` 재감사
+- [x] 한국어 장 이름이 의도한 자구와 일치하는지 확인
+- [x] 영어 장 이름이 런타임 카드 및 사이드바 라벨과 계속 일치하는지 확인
+- [x] 설명이 가독성 있고 인코딩 아티팩트가 없는지 확인
+- [x] 수트라(구절) 수가 `public/data.json`과 일치하는지 재확인
 
-## 4. Data loading and fallback quality
+## 4. 데이터 로딩 및 폴백 품질
 
-- [x] Re-review `src/utils/dataFetcher.ts` fetch-failure behavior.
-- [x] Replace silent `{}` fallback with a thrown load error.
-- [x] Surface provider load failures through `YogaDataContext`.
-- [x] Show load error UI on the landing page in `src/pages/ChapterList.tsx`.
-- [x] Show load error UI on the verse page in `src/pages/VerseView.tsx`.
-- [x] Add explicit lexicon load failure UI in `src/components/LexiconModal.tsx`.
-- [x] Update `src/utils/dataFetcher.test.ts` to reflect the stronger failure contract.
+- [x] `src/utils/dataFetcher.ts` 페치 실패 동작 재검토
+- [x] 자동 `{}` 폴백을 예외(load error) 발생으로 교체
+- [x] 프로바이더 로드 실패를 `YogaDataContext`를 통해 노출
+- [x] `src/pages/ChapterList.tsx` 랜딩 페이지에 로드 에러 UI 표시
+- [x] `src/pages/VerseView.tsx` 구절 페이지에 로드 에러 UI 표시
+- [x] `src/components/LexiconModal.tsx`에 명시적인 사전(lexicon) 로드 실패 UI 추가
+- [x] 더 강력해진 실패 계약을 반영하도록 `src/utils/dataFetcher.test.ts` 업데이트
 
-## 5. Commentary panel reality check
+## 5. 해설 패널 현실성 검증
 
-- [x] Reject the empty commentary shell as insufficient.
-- [x] Define a minimum viable study-guide contract for commentary.
-- [x] Implement chapter frame, key line, study prompts, and usage guidance in `src/components/CommentarySidebar.tsx`.
-- [x] Keep mobile and desktop commentary drawer behavior unchanged while improving content.
-- [x] Align documentation and QA expectations with the real commentary panel.
+- [x] 비어있는 해설 껍데기를 불충분한 것으로 보고 반려
+- [x] 해설을 위한 최소한의 실현 가능한 학습 가이드 계약 정의
+- [x] `src/components/CommentarySidebar.tsx`에 장 프레임, 핵심 구절, 학습 프롬프트 및 사용법 가이드 구현
+- [x] 모바일 및 데스크톱 해설 서랍 동작은 유지하면서 콘텐츠 품질 개선
+- [x] 실제 해설 패널에 맞춰 문서 및 QA 기대치 조율
 
-## 6. Documentation accuracy
+## 6. 문서 정확성
 
-- [x] Rewrite `README.md` to match the live app.
-- [x] Remove stale reflections references from `README.md`.
-- [x] Document the commentary-only right panel and current desktop frame rules.
-- [x] Confirm build and QA commands in `README.md` match `package.json`.
-- [x] Audit `docs/` for stale conflicting guidance.
-- [x] Mark `docs/리서치.md` as historical.
-- [x] Mark `docs/plan.md` as historical.
+- [x] 라이브 앱에 맞춰 `README.md` 재작성
+- [x] `README.md`에서 만료된 reflections 참조 제거
+- [x] 해설 전용 우측 패널 및 현재 데스크톱 프레임 규칙 문서화
+- [x] `README.md` 내의 빌드 및 QA 명령어가 `package.json`과 일치하는지 확인
+- [x] `docs/` 내에서 상충되는 만료된 가이드라인 감사
+- [x] `docs/리서치.md`를 역사적 기록으로 표시
+- [x] `docs/plan.md`를 역사적 기록으로 표시
 
-## 7. Browser smoke QA repair
+## 7. 브라우저 스모크 QA 복구
 
-- [x] Audit `scripts/browser_smoke.mjs` against the live UI.
-- [x] Remove stale reflections and `textarea` assumptions.
-- [x] Rewrite the smoke flow around:
-- [x] landing page navigation
-- [x] verse route loading
-- [x] desktop commentary availability and persistence
-- [x] mobile sidebar open and route selection
-- [x] mobile commentary drawer open and close
-- [x] Fix the storage-reset bug in the smoke script so reload-based persistence checks stay valid.
+- [x] 라이브 UI에 맞춰 `scripts/browser_smoke.mjs` 감사
+- [x] 만료된 reflections 및 `textarea` 가정 제거
+- [x] 아래 항목을 중심으로 스모크 흐름 재작성:
+  - [x] 랜딩 페이지 네비게이션
+  - [x] 구절 라우트 로딩
+  - [x] 데스크톱 해설 사용 가능 여부 및 영속성
+  - [x] 모바일 사이드바 오픈 및 라우트 선택
+  - [x] 모바일 해설 서랍 오픈 및 클로즈
+- [x] 새로고침 기반 영속성 체크가 유효하도록 스모크 스크립트의 스토리지 리셋 버그 수정
 
-## 8. Layout and shared-frame follow-up
+## 8. Layout 및 공유 프레임 후속 조치
 
-- [x] Reconfirm the desktop frame still uses:
-- [x] `20 / 60 / 20`
-- [x] `0 / 60 / 40`
-- [x] `20 / 80 / 0`
-- [x] `0 / 100 / 0`
-- [x] Verify main-panel expansion still works when commentary is hidden.
-- [x] Verify commentary gap fixes remain intact.
-- [x] Keep reading-column padding readable after the earlier gap repair.
-- [x] Add a targeted test for `desktopVerseLayout.ts`.
+- [x] 데스크톱 프레임이 아래 구조를 계속 사용하는지 재확인:
+  - [x] `20 / 60 / 20`
+  - [x] `0 / 60 / 40`
+  - [x] `20 / 80 / 0`
+  - [x] `0 / 100 / 0`
+- [x] 해설이 숨겨져 있을 때 메인 패널 확장 기능이 정상 작동하는지 확인
+- [x] 해설 간격 수정사항이 온전히 유지되는지 확인
+- [x] 간격 수정 이후에도 본문 열 패딩의 가독성 유지
+- [x] `desktopVerseLayout.ts`에 대한 전용 테스트 추가
 
-## 9. Verification
+## 9. 검증
 
-- [x] Run `npm run typecheck`.
-- [x] Run `npm run test -- --run`.
-- [x] Run `npm run build`.
-- [x] Run `npm run qa:browser`.
+- [x] `npm run typecheck` 실행
+- [x] `npm run test -- --run` 실행
+- [x] `npm run build` 실행
+- [x] `npm run qa:browser` 실행
 
-## 10. Closeout
+## 10. 마감
 
-- [x] Update `research.md` to reflect the remediated repository state.
-- [x] Rewrite `plan.md` so completion status is readable and current.
-- [x] Keep historical notes in `docs/` but remove them as active guidance.
-- [x] Record final scope and verification status in repository docs.
+- [x] 수정된 저장소 상태를 반영하여 `research.md` 업데이트
+- [x] 완료 상태가 명확하고 최신이 되도록 `plan.md` 재작성
+- [x] `docs/` 내 역사적 메모는 보존하되 활성 가이드라인에서는 제외
+- [x] 최종 범위 및 검증 상태를 저장소 문서에 기록
 
-## 11. Chapter 4 Commentary Import
+## 11. 4장 해설 데이터 임포트
 
-- [ ] Inspect `요가수트라 해설_4. 깨달음.odt` structure and confirm verse boundaries before generating any new data file.
-- [ ] Extract chapter 4 commentary into a new `src/data/chapter4Commentary.ts` file using the shared `CommentaryBlock` / `CommentaryTable` structure.
-- [ ] Preserve real tables as `table` blocks instead of flattening them into paragraphs.
-- [ ] Preserve numbered list items so the shared sidebar can render `1. 2. 3.` markers rather than collapsing them into dot bullets.
-- [ ] Remove non-content artifacts from the ODT import:
-- [ ] `Plaintext` markers
-- [ ] `Online Mode` / `Offline Mode` lines
-- [ ] `참조 출처` / `Verified Sources`
-- [ ] search-strategy and web-search meta labels
-- [ ] other trailing reference/footer blocks that are not real commentary
-- [ ] Verify chapter 4 verse keys align with the source document and that no verse numbers are skipped like the earlier missing chapter 2 verse 4 issue.
-- [ ] Add chapter 4 support to the shared lookup in `src/components/CommentarySidebar.tsx` while keeping chapter 1/2/3 behavior unchanged.
-- [ ] Keep the existing inline heading rule so the first title shows next to the `4.x` verse number and is not duplicated in the block list.
-- [ ] Run a focused encoding audit on the generated chapter 4 file before merging, because the current `src/data/chapter3Commentary.ts` shows mojibake and the same generation path could repeat that corruption.
-- [ ] Run `npm.cmd run typecheck`.
-- [ ] Run `npm.cmd run build`.
-- [ ] Smoke-check a few representative chapter 4 verses after import:
-- [ ] one verse with a table
-- [ ] one verse with numbered list items
-- [ ] one verse with a trailing reference block removed
+- [ ] 신규 데이터 파일을 생성하기 전에 `요가수트라 해설_4. 깨달음.odt` 구조를 검사하고 구절 경계를 확인한다.
+- [ ] 공통 `CommentaryBlock` / `CommentaryTable` 구조를 사용하여 4장 해설 데이터를 `src/data/chapter4Commentary.ts` 신규 파일로 추출한다.
+- [ ] 실제 테이블 데이터는 문단으로 쪼개지 않고 `table` 블록 구조를 그대로 보존한다.
+- [ ] 번호 매겨진 목록 항목은 점(dot) 글머리기호로 축소되지 않도록 그대로 번역하여 사이드바에서 `1. 2. 3.` 마커가 정상 렌더링되게 한다.
+- [ ] ODT 임포트 결과물에서 아래와 같은 무관한 아티팩트를 제거한다:
+  - [ ] `Plaintext` 마커
+  - [ ] `Online Mode` / `Offline Mode` 관련 라인
+  - [ ] `참조 출처` / `Verified Sources`
+  - [ ] 검색 전략 및 웹 검색 메타 라벨
+  - [ ] 기타 실제 해설 텍스트가 아닌 하단 참조/푸터 블록
+- [ ] 4장 구절 키가 소스 문서와 일치하는지 확인하고, 이전 2장 4절 누락 사태와 같이 누락된 구절 번호가 없는지 검증한다.
+- [ ] 1/2/3장의 기존 동작은 변경하지 않고 `src/components/CommentarySidebar.tsx` 내 공통 룩업 테이블에 4장 지원을 추가한다.
+- [ ] 인라인 제목 규칙을 유지하여 첫 번째 타이틀이 `4.x` 구절 번호 옆에만 표시되고 블록 리스트에서 중복 표시되지 않도록 한다.
+- [ ] 머지하기 전에 생성된 4장 파일의 인코딩 감사를 면밀히 수행한다. (현재 3장 해설 파일의 한글 깨짐 현상이 반복되는 것을 차단)
+- [ ] `npm.cmd run typecheck` 실행
+- [ ] `npm.cmd run build` 실행
+- [ ] 임포트 완료 후 대표적인 4장 구절들을 스모크 체크한다:
+  - [ ] 테이블이 포함된 구절 1개
+  - [ ] 번호 매겨진 목록 항목이 포함된 구절 1개
+  - [ ] 하단 참조 블록이 깔끔하게 제거된 구절 1개
 
-## 12. Data Synchronization Pass
+## 12. 데이터 동기화 패스
 
-Goal: synchronize the live app with the newly copied data source before any implementation work starts.
+목표: 구현 작업을 시작하기 전에 신규 데이터 소스와 라이브 앱을 동기화한다.
 
-### 12.1 Source Audit
+### 12.1 소스 감사
+- [ ] 이 작업 공간에 복사된 정확한 외부 소스 세트를 식별한다.
+- [ ] 복사된 데이터를 `src/utils/dataFetcher.ts`에서 사용하는 활성 런타임 계약과 비교한다.
+- [ ] 신규 데이터 세트에 대해 권한을 가진 모든 파일 리스트를 작성한다.
+- [ ] 어떤 파일이 표준 입력인지, 파생 출력인지, 혹은 레거시 잔재인지 표시한다.
 
-- [ ] Identify the exact external source set that was copied into this workspace.
-- [ ] Compare the copied data against the active runtime contract used by `src/utils/dataFetcher.ts`.
-- [ ] List every file that is authoritative for the new data set.
-- [ ] Mark which files are canonical inputs, derived outputs, or legacy leftovers.
+### 12.2 스키마 및 데이터 셰이프 검토
+- [ ] 신규 데이터 셰이프를 `src/types.ts`와 비교 분석한다.
+- [ ] 장, 절, 번역, 발음 및 해설 필드가 일치하는지 확인한다.
+- [ ] `word_meanings`가 여전히 현재 배열 형태로 깔끔하게 정규화되는지 확인한다.
+- [ ] `src/constants.ts` 내부의 장 메타데이터가 복사된 소스와 일치하는지 확인한다.
 
-### 12.2 Schema and Shape Review
+### 12.3 런타임 데이터 흐름
+- [ ] `public/data.json`을 런타임 소스로 유지할지, 아니면 재생성/대체할지 결정한다.
+- [ ] `dist/data.json`을 빌드 아티팩트로만 처리할지 결정한다.
+- [ ] 개발 서버, 프로덕션 빌드 및 브라우저 스모크 흐름이 모두 동일한 에셋 경로를 바라보고 있는지 확인한다.
+- [ ] `src/context/YogaDataContext.tsx` 및 `src/utils/dataFetcher.ts`에서 이전 데이터 세트에 의존하는 캐시 가정을 식별한다.
 
-- [ ] Diff the new data shape against `src/types.ts`.
-- [ ] Check whether chapter, verse, translation, pronunciation, and commentary fields still line up.
-- [ ] Confirm whether `word_meanings` still normalizes cleanly into the current array shape.
-- [ ] Verify whether chapter metadata in `src/constants.ts` still matches the copied source.
+### 12.4 콘텐츠 일관성 정렬
+- [ ] 복사된 데이터를 랜딩 페이지의 장 카드 정보와 비교한다.
+- [ ] 복사된 데이터를 구절 라우트 표준화 및 범위 라벨과 비교한다.
+- [ ] 복사된 데이터를 좌측 사이드바 읽기 가이드와 비교한다.
+- [ ] 복사된 데이터를 해설 사이드바 콘텐츠 맵과 비교한다.
+- [ ] 복사된 데이터를 학습만화 에셋 매핑 정보와 비교한다.
+- [ ] 복사된 데이터를 `public/lexicon.json` 및 사전 관련 UI와 비교한다.
 
-### 12.3 Runtime Data Flow
+### 12.5 에셋 및 파이프라인 체크
+- [ ] 복사된 데이터에 맞춰 MP3 파일 경로 이름 변경이 필요한지 확인한다.
+- [ ] 학습만화 이미지 키가 장/절 넘버링과 잘 매핑되어 있는지 확인한다.
+- [ ] `scripts/generate_data.ps1`이 원본 텍스트 파일로부터 여전히 런타임 데이터를 재생성할 수 있는지 확인한다.
+- [ ] `data.js`와 같은 보조 생성 파일을 재생성해야 하는지 또는 제거해야 하는지 확인한다.
 
-- [ ] Decide whether `public/data.json` remains the runtime source or needs to be regenerated/replaced.
-- [ ] Check whether `dist/data.json` should be treated as a build artifact only.
-- [ ] Confirm whether the dev server, production build, and browser smoke flow all resolve the same asset path.
-- [ ] Identify any cached assumptions in `src/context/YogaDataContext.tsx` and `src/utils/dataFetcher.ts` that depend on the old data set.
+### 12.6 검증 계획
+- [ ] 데이터 계약이 확정된 후 typecheck를 구동한다.
+- [ ] 데이터 로딩, 구절 범위 판단, 네비게이션 및 데스크톱 레이아웃을 검증하는 유닛 테스트를 실행한다.
+- [ ] 데이터 동기화 작업 이후 실제 UI 셀렉터를 대상으로 타겟 스모크 패스를 실행한다.
+- [ ] 작업이 중단되거나 차단될 경우 새로 발견된 불일치를 `ERROR_LOG.md`에 기록한다.
 
-### 12.4 Content Alignment
-
-- [ ] Compare the copied data against the landing page chapter cards.
-- [ ] Compare the copied data against verse route canonicalization and range labels.
-- [ ] Compare the copied data against the left sidebar reading guide.
-- [ ] Compare the copied data against the commentary sidebar content map.
-- [ ] Compare the copied data against the learning comic asset mapping.
-- [ ] Compare the copied data against `public/lexicon.json` and any lexicon-related UI.
-
-### 12.5 Asset and Pipeline Check
-
-- [ ] Verify whether any MP3 paths need renaming to match the copied data.
-- [ ] Verify whether the learning comic image keys still align with chapter/verse numbering.
-- [ ] Verify whether `scripts/generate_data.ps1` can still reproduce the runtime data from source files.
-- [ ] Verify whether any auxiliary generated files such as `data.js` need regeneration or removal.
-
-### 12.6 Validation Plan
-
-- [ ] Run typecheck after the data contract is finalized.
-- [ ] Run unit tests that cover data loading, verse range resolution, navigation, and desktop layout.
-- [ ] Run a targeted smoke pass against the actual UI selectors after any data sync work.
-- [ ] Record any newly discovered mismatches in `ERROR_LOG.md` if the work is interrupted or blocked.
-
-### 12.7 Decision Gate
-
-- [ ] Freeze the new canonical data source.
-- [ ] Freeze the exact files that must be regenerated versus preserved.
-- [ ] Freeze the list of UI surfaces that will need to be updated.
-- [ ] Only then start implementation in a separate pass.
+### 12.7 최종 검토 관문 (Decision Gate)
+- [ ] 신규 표준 데이터 소스를 확정한다.
+- [ ] 재생성해야 할 파일과 보존해야 할 파일을 명확하게 격리하고 확정한다.
+- [ ] 업데이트가 필요한 UI 화면 리스트를 확정한다.
+- [ ] 위 검토 단계가 끝난 이후에만 별도의 패스로 구현을 시작한다.
 
 ## 13. 상세 디렉토리 및 흐름 분석 Pass
 
