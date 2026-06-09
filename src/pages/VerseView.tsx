@@ -1,10 +1,8 @@
-﻿import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Image as ImageIcon } from 'lucide-react';
 import { useYogaData } from '../hooks/useYogaData';
-import { useAudio } from '../hooks/useAudio';
 import { SutraContent } from '../components/verse/SutraContent';
-import { AudioPlayer } from '../components/verse/AudioPlayer';
 import { TranslationSection } from '../components/verse/TranslationSection';
 import { WordMeanings } from '../components/verse/WordMeanings';
 import { SutraNavigation } from '../components/verse/SutraNavigation';
@@ -189,26 +187,10 @@ const CommentaryContent = ({ chapterNum, verseNum, commentaryText, fallbackTitle
 const VerseView = () => {
     const { chapterNum, verseNum } = useParams<{ chapterNum: string; verseNum: string }>();
     const navigate = useNavigate();
-    const audioRef = useRef<HTMLAudioElement>(null);
     const { activeVerseContentMode } = useUI();
     const isCommentaryMode = activeVerseContentMode === 'commentary';
 
     const { allChapters, loading, error, getVerseInRange, chapters } = useYogaData();
-
-    const {
-        isPlaying,
-        currentTime,
-        duration,
-        togglePlay,
-        handleTimeUpdate,
-        handleLoadedMetadata,
-        handleAudioEnded,
-        reset,
-        seek,
-        formatTime,
-        progressPercent,
-        playbackError,
-    } = useAudio(audioRef);
 
     useEffect(() => {
         if (!chapterNum || !verseNum || !allChapters) {
@@ -229,8 +211,7 @@ const VerseView = () => {
         if (scrollContainer) {
             scrollContainer.scrollTo(0, 0);
         }
-        reset();
-    }, [chapterNum, verseNum, reset]);
+    }, [chapterNum, verseNum]);
 
     useEffect(() => {
         const scrollContainer = document.getElementById('main-scroll-container');
@@ -274,8 +255,6 @@ const VerseView = () => {
     }
 
     const verseNumber = verseData.verse ?? Number.parseInt(verseData.id.split('.')[1], 10);
-    const audioSrc = verseData.audio ?? null;
-    const hasAudio = Boolean(audioSrc);
     const verseNavigationControls =
         currentIndex >= 0 ? (
             <SutraNavigation onPrev={handlePrev} onNext={handleNext} isPrevDisabled={isFirstVerse} isNextDisabled={isLastVerse} />
@@ -305,31 +284,7 @@ const VerseView = () => {
                                             <WordMeanings meanings={verseData.word_meanings} />
                                         </motion.div>
 
-                                        {hasAudio ? (
-                                            <>
-                                                <audio
-                                                    ref={audioRef}
-                                                    src={audioSrc ?? undefined}
-                                                    onTimeUpdate={handleTimeUpdate}
-                                                    onLoadedMetadata={handleLoadedMetadata}
-                                                    onEnded={handleAudioEnded}
-                                                    className="hidden"
-                                                />
 
-                                                <motion.div variants={itemVariants}>
-                                                    <AudioPlayer
-                                                        isPlaying={isPlaying}
-                                                        togglePlay={togglePlay}
-                                                        currentTime={currentTime}
-                                                        duration={duration}
-                                                        progressPercent={progressPercent}
-                                                        formatTime={formatTime}
-                                                        onSeek={seek}
-                                                        playbackError={playbackError}
-                                                    />
-                                                </motion.div>
-                                            </>
-                                        ) : null}
 
                                         <motion.div variants={itemVariants}>
                                             <TranslationSection

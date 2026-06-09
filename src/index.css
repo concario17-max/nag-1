@@ -1,9 +1,10 @@
 @import "tailwindcss";
 
 @theme {
-    --color-primary: #8f6413;
-    --color-primary-dark: #6f4d0f;
-    --color-primary-light: #bf9430;
+    /* 티벳 사원 및 승려 가사 느낌의 딥 버건디 톤 적용 */
+    --color-primary: #800c14;
+    --color-primary-dark: #5c080d;
+    --color-primary-light: #ad1f2b;
     --color-background-light: #faf6ef;
     --color-background-paper: #f2ebdf;
     --color-shell-canvas: #f5efe4;
@@ -102,14 +103,6 @@
 
     .text-sanskrit-accent {
         color: var(--color-sanskrit-accent);
-    }
-
-    .bg-sanskrit-accent {
-        background-color: var(--color-sanskrit-accent);
-    }
-
-    .border-sanskrit-accent {
-        border-color: var(--color-sanskrit-accent);
     }
 
     .glass-panel {
