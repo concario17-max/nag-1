@@ -180,3 +180,25 @@ Goal: synchronize the live app with the newly copied data source before any impl
 - [ ] Freeze the exact files that must be regenerated versus preserved.
 - [ ] Freeze the list of UI surfaces that will need to be updated.
 - [ ] Only then start implementation in a separate pass.
+
+## 13. Deep Directory and Flow Analysis Pass
+
+Goal: Thoroughly audit the repository structure, components, and data pipelines, compiling findings in `research.md`.
+
+### 13.1 Directory Audit
+- [ ] List and classify all files under `src/`, `scripts/`, `public/`, and `dist/`.
+- [ ] Map out component dependencies and identify dead or unused codebase remnants.
+
+### 13.2 Component and UI Analysis
+- [ ] Trace rendering hierarchies of the core shell (`AppShell`, `MainLayout`, `Header`, `Sidebar`).
+- [ ] Review `ContextAccordionPicker` and `OutlineTree` state flow.
+- [ ] Inspect verse-rendering components (`SutraContent`, `WordMeanings`, `TranslationSection`, `AudioPlayer`, `CommentaryContent`).
+
+### 13.3 Data Flow and Parsing Pipelines
+- [ ] Trace data fetching, normalization, and caching of `/reading-data.json`.
+- [ ] Analyze script interactions (odt parser, smoke testing script, database synchronizers).
+- [ ] Review state providers (`UIContext`, `YogaDataContext`, `ThemeContext`).
+
+### 13.4 Documentation Assembly
+- [ ] Compile comprehensive architectural review, data flow descriptions, and optimization targets into `research.md`.
+- [ ] Commit and push changes upon completion.
