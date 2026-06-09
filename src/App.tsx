@@ -291,12 +291,7 @@ const OutlineTree = ({
                     ) : null}
 
                     {isSelected && draftVerseOptions.length > 0 ? (
-                        <div className="ml-4 space-y-2 rounded-[1rem] border border-gold-border/10 bg-white/45 p-3 dark:border-dark-border/55 dark:bg-white/5">
-                            <div className="flex items-center justify-between gap-2">
-                                <span className="truncate text-[10px] font-medium tracking-[0.12em] text-text-secondary/70 dark:text-dark-text-secondary/70">
-                                    {node.label}
-                                </span>
-                            </div>
+                        <div className="ml-4 rounded-[1rem] border border-gold-border/10 bg-white/45 p-3 dark:border-dark-border/55 dark:bg-white/5">
                             <div className="flex max-h-40 flex-wrap gap-2 overflow-y-auto pr-1">
                                 {draftVerseOptions.map((option) => (
                                     <button
@@ -352,11 +347,7 @@ const ContextAccordionPicker = ({
     const currentVerseLabel = verseNum ? `${verseNum}절` : '절 선택';
     const currentChapterLabel = activeOutlineEntry?.fullLabel ?? activeOutlineEntry?.shortLabel ?? (chapterNum ? `장 ${chapterNum}` : '장 선택');
     const triggerChapterLabel = currentChapterLabel;
-    const breadcrumbParts = currentChapterLabel
-        .split(' / ')
-        .map((part) => part.trim())
-        .filter((part) => !part.includes('인위삼신'))
-        .filter(Boolean);
+
 
     useEffect(() => {
         setIsOpen(false);
@@ -509,23 +500,7 @@ const ContextAccordionPicker = ({
                 </span>
             </div>
 
-            {breadcrumbParts.length > 0 ? (
-                <div className="mb-3 flex flex-wrap gap-1.5">
-                    {breadcrumbParts.map((part, index) => (
-                        <span
-                            key={`${part}-${index}`}
-                            className={[
-                                'inline-flex items-center rounded-full border px-2.5 py-1 text-[9px] font-semibold tracking-[0.16em]',
-                                index === breadcrumbParts.length - 1
-                                    ? 'border-gold-primary/28 bg-gold-primary/10 text-gold-primary dark:border-gold-light/24 dark:bg-gold-light/10 dark:text-gold-light'
-                                    : 'border-gold-border/12 bg-white/58 text-text-secondary dark:border-dark-border/55 dark:bg-white/5 dark:text-dark-text-secondary',
-                            ].join(' ')}
-                        >
-                            {part}
-                        </span>
-                    ))}
-                </div>
-            ) : null}
+
 
             {outline?.groups && outline.groups.length > 1 ? (
                 <div className="mb-3 flex flex-wrap gap-2">
