@@ -355,7 +355,7 @@ const ContextAccordionPicker = ({
     const breadcrumbParts = currentChapterLabel
         .split(' / ')
         .map((part) => part.trim())
-        .filter((part) => part !== '인위삼신행상명등론')
+        .filter((part) => !part.includes('인위삼신'))
         .filter(Boolean);
 
     useEffect(() => {
