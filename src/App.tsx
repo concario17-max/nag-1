@@ -264,16 +264,6 @@ const OutlineTree = ({
                     >
                         <div className="min-w-0 flex-1 space-y-1">
                             <div className="flex min-w-0 items-center gap-2">
-                                <span
-                                    className={[
-                                        'inline-flex shrink-0 items-center rounded-full border px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.26em]',
-                                        depth === 0
-                                            ? 'border-gold-primary/20 bg-gold-primary/10 text-gold-primary dark:border-gold-light/18 dark:bg-gold-light/10 dark:text-gold-light'
-                                            : 'border-gold-border/12 bg-white/70 text-text-secondary dark:border-dark-border/55 dark:bg-white/8 dark:text-dark-text-secondary',
-                                    ].join(' ')}
-                                >
-                                    {depth === 0 ? '편' : depth === 1 ? '장' : '절'}
-                                </span>
                                 <span className={['min-w-0 flex-1 font-semibold leading-snug tracking-[0.01em]', depth === 0 ? 'text-[15px] sm:text-[16px]' : depth === 1 ? 'text-[13px] sm:text-[14px]' : 'text-[12px] sm:text-[13px]'].join(' ')}>
                                     {node.label}
                                 </span>
@@ -303,9 +293,6 @@ const OutlineTree = ({
                     {isSelected && draftVerseOptions.length > 0 ? (
                         <div className="ml-4 space-y-2 rounded-[1rem] border border-gold-border/10 bg-white/45 p-3 dark:border-dark-border/55 dark:bg-white/5">
                             <div className="flex items-center justify-between gap-2">
-                                <span className="text-[9px] font-semibold uppercase tracking-[0.24em] text-text-secondary/78 dark:text-dark-text-secondary/78">
-                                    절
-                                </span>
                                 <span className="truncate text-[10px] font-medium tracking-[0.12em] text-text-secondary/70 dark:text-dark-text-secondary/70">
                                     {node.label}
                                 </span>
@@ -368,6 +355,7 @@ const ContextAccordionPicker = ({
     const breadcrumbParts = currentChapterLabel
         .split(' / ')
         .map((part) => part.trim())
+        .filter((part) => part !== '인위삼신행상명등론')
         .filter(Boolean);
 
     useEffect(() => {
