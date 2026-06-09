@@ -181,50 +181,50 @@ Goal: synchronize the live app with the newly copied data source before any impl
 - [ ] Freeze the list of UI surfaces that will need to be updated.
 - [ ] Only then start implementation in a separate pass.
 
-## 13. Deep Directory and Flow Analysis Pass
+## 13. 상세 디렉토리 및 흐름 분석 Pass
 
-Goal: Thoroughly audit the repository structure, components, and data pipelines, compiling findings in `research.md`.
+목표: 저장소 구조, 컴포넌트, 데이터 파이프라인을 철저히 검토하고 분석 결과를 `research.md`에 작성한다.
 
-### 13.1 Directory Audit
-- [x] List and classify all files under `src/`, `scripts/`, `public/`, and `dist/`.
-- [x] Map out component dependencies and identify dead or unused codebase remnants.
+### 13.1 디렉토리 검사
+- [x] `src/`, `scripts/`, `public/`, `dist/` 내부의 모든 파일을 나열하고 분류한다.
+- [x] 컴포넌트 간의 의존성을 맵핑하고 사용되지 않는 코드를 식별한다.
 
-### 13.2 Component and UI Analysis
-- [x] Trace rendering hierarchies of the core shell (`AppShell`, `MainLayout`, `Header`, `Sidebar`).
-- [x] Review `ContextAccordionPicker` and `OutlineTree` state flow.
-- [x] Inspect verse-rendering components (`SutraContent`, `WordMeanings`, `TranslationSection`, `AudioPlayer`, `CommentaryContent`).
+### 13.2 컴포넌트 및 UI 분석
+- [x] 코어 쉘(`AppShell`, `MainLayout`, `Header`, `Sidebar`)의 렌더링 계층 구조를 추적한다.
+- [x] `ContextAccordionPicker` 및 `OutlineTree` 상태 흐름을 검토한다.
+- [x] 구절 렌더링 컴포넌트(`SutraContent`, `WordMeanings`, `TranslationSection`, `AudioPlayer`, `CommentaryContent`)를 조사한다.
 
-### 13.3 Data Flow and Parsing Pipelines
-- [x] Trace data fetching, normalization, and caching of `/reading-data.json`.
-- [x] Analyze script interactions (odt parser, smoke testing script, database synchronizers).
-- [x] Review state providers (`UIContext`, `YogaDataContext`, `ThemeContext`).
+### 13.3 데이터 흐름 및 파싱 파이프라인
+- [x] `/reading-data.json` 데이터 페칭, 정규화, 캐싱 구조를 파악한다.
+- [x] 스크립트 도구들(odt 파서, 스모크 테스트 스크립트, 데이터 동기화 도구)의 동작 방식을 분석한다.
+- [x] 전역 상태 프로바이더(`UIContext`, `YogaDataContext`, `ThemeContext`)를 검토한다.
 
-### 13.4 Documentation Assembly
-- [x] Compile comprehensive architectural review, data flow descriptions, and optimization targets into `research.md`.
-- [x] Commit and push changes upon completion.
+### 13.4 보고서 작성
+- [x] 종합 아키텍처 검토, 데이터 흐름 설명, 개선 목표를 `research.md`에 취합하여 작성한다.
+- [x] 작업 완료 후 커밋 및 푸시를 실행한다.
 
-## 14. Technical Debt and Architectural Improvement (Audio Removal & Legacy Cleanup)
+## 14. 기술 부채 및 아키텍처 개선 (오디오 파일 제거 및 레거시 정리)
 
-Goal: Clean up legacy components and logic, specifically removing the unused audio player stack since there are no audio files, and pruning unused Yoga metadata.
+목표: 프로젝트 내 오디오 파일이 없으므로 사용되지 않는 오디오 플레이어 관련 컴포넌트와 비즈니스 로직을 완전히 제거하고, 요가수트라 앱의 레거시 잔재 코드를 정돈한다.
 
-### 14.1 Audio Code Removal
-- [ ] Delete `src/hooks/useAudio.ts`.
-- [ ] Delete `src/components/verse/AudioPlayer.tsx`.
-- [ ] Remove audio state, refs, effect hooks, and `<AudioPlayer>` rendering from `src/pages/VerseView.tsx`.
-- [ ] Remove `audio` field processing and serialization from `src/utils/dataFetcher.ts`.
-- [ ] Remove `audio` types from `src/types.ts` (`YogaSutra` definition).
-- [ ] Clean up any unused audio assets or script files (like `scripts/check_audio_mismatch.cjs`).
+### 14.1 오디오 관련 코드 제거
+- [ ] `src/hooks/useAudio.ts` 파일 삭제
+- [ ] `src/components/verse/AudioPlayer.tsx` 파일 삭제
+- [ ] `src/pages/VerseView.tsx` 내부 오디오 상태, refs, 훅 호출 및 `<AudioPlayer>` 마크업/JSX 제거
+- [ ] `src/utils/dataFetcher.ts` 내 `audio` 필드 처리 및 직렬화 코드 제거
+- [ ] `src/types.ts` 내 `YogaSutra` 정의에서 `audio` 타입 제거
+- [ ] 사용되지 않는 오디오 매핑 검증 스크립트(`scripts/check_audio_mismatch.cjs`) 등 제거
 
-### 14.2 Legacy Metadata & Script Pruning
-- [ ] Prune unused `YOGA_CHAPTERS_META` and associated constants from `src/constants.ts`.
-- [ ] Prune unused legacy script files from `scripts/` directory that are specific to the old Yoga Sutras app.
+### 14.2 레거시 메타데이터 및 스크립트 정리
+- [ ] `src/constants.ts` 내부의 미사용 `YOGA_CHAPTERS_META` 및 관련 레거시 상수 제거
+- [ ] `scripts/` 폴더 내 요가수트라 전용 레거시 스크립트 파일들 정리
 
-### 14.3 Visual Theme Polish (Meta-Design)
-- [ ] Audit `src/index.css` to clean up any obsolete utility classes.
-- [ ] Adjust the primary theme variables to align completely with the "인위삼신행상명등론" design aesthetic.
+### 14.3 비주얼 테마 폴리싱 (메타 디자인)
+- [ ] `src/index.css`를 검토하여 더 이상 사용되지 않는 레거시 유틸리티 클래스 정돈
+- [ ] 테마 변수 설정을 "인위삼신행상명등론" 앱의 고유 디자인 아이덴티티에 완벽하게 부합하도록 조정
 
-### 14.4 Verification and Smoke Tests
-- [ ] Run `npm run typecheck` to verify no broken imports or type mismatches exist.
-- [ ] Run `npm run test -- --run` to ensure all tests pass.
-- [ ] Run `npm run build` to confirm production build stability.
-- [ ] Run Playwright browser smoke test `npm run qa:browser` to verify core app usability.
+### 14.4 검증 및 스모크 테스트
+- [ ] `npm run typecheck`를 실행하여 잘못된 임포트나 타입 불일치가 없는지 검증
+- [ ] `npm run test -- --run`을 실행하여 모든 유닛 테스트가 정상 통과하는지 확인
+- [ ] `npm run build`를 통해 빌드 안정성 확보
+- [ ] Playwright 브라우저 스모크 테스트(`npm run qa:browser`)를 구동하여 최종 앱 사용성에 문제가 없는지 확인
