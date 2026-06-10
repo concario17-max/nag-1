@@ -3,11 +3,10 @@ import React from 'react';
 interface MobileVerseGuideProps {
     chapterNum: string;
     verseNum: string;
-    englishText?: string;
     koreanText?: string;
 }
 
-export const MobileVerseGuide = React.memo(({ chapterNum, verseNum, englishText, koreanText }: MobileVerseGuideProps) => {
+export const MobileVerseGuide = React.memo(({ chapterNum, verseNum, koreanText }: MobileVerseGuideProps) => {
     // 좁은 가로 화면에서만 상단에 노출되는 미니 가이드 배너 (lg 이상에서는 숨김 처리)
     return (
         <section className="block w-full overflow-hidden rounded-[1.5rem] border border-gold-border/12 bg-shell-main p-4 shadow-[0_12px_24px_-16px_rgba(0,0,0,0.12)] dark:border-dark-border/45 dark:bg-[#14110e] lg:hidden">
@@ -20,28 +19,13 @@ export const MobileVerseGuide = React.memo(({ chapterNum, verseNum, englishText,
                 </span>
             </div>
             
-            <div className="mt-2.5 space-y-2">
-                {englishText && (
-                    <div className="border-l-2 border-gold-primary/20 pl-3 dark:border-l-2 dark:border-gold-light/20">
-                        <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-text-secondary/50 dark:text-dark-text-secondary/55">
-                            English
-                        </p>
-                        <p className="line-clamp-2 font-sans text-[12px] leading-relaxed text-text-primary/90 dark:text-dark-text-primary/90">
-                            {englishText}
-                        </p>
-                    </div>
-                )}
-                {koreanText && (
-                    <div className="border-l-2 border-gold-primary/20 pl-3 dark:border-l-2 dark:border-gold-light/20">
-                        <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-text-secondary/50 dark:text-dark-text-secondary/55">
-                            Korean
-                        </p>
-                        <p className="line-clamp-2 font-sans text-[12px] leading-relaxed text-text-secondary dark:text-dark-text-secondary">
-                            {koreanText}
-                        </p>
-                    </div>
-                )}
-            </div>
+            {koreanText && (
+                <div className="mt-2.5">
+                    <p className="font-sans text-[12.5px] leading-relaxed text-text-secondary dark:text-dark-text-secondary">
+                        {koreanText}
+                    </p>
+                </div>
+            )}
         </section>
     );
 });
