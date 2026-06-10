@@ -11,6 +11,7 @@ import { useSutraNavigation } from '../hooks/useSutraNavigation';
 import { useUI } from '../context/UIContext';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { CommentaryMarkdown } from '../components/commentary/CommentaryMarkdown';
+import { MobileVerseGuide } from '../components/verse/MobileVerseGuide';
 
 const learningComicImages = import.meta.glob('../../학습만화/*/*.png', {
     eager: true,
@@ -271,6 +272,12 @@ const VerseView = () => {
                 className="min-h-full flex flex-col justify-start py-4 text-text-primary transition-colors duration-500 dark:text-dark-text-primary sm:py-6 lg:justify-start"
             >
                 <div className="mx-auto flex w-full flex-col gap-5 px-4 sm:gap-7 sm:px-6 lg:px-8">
+                    <MobileVerseGuide
+                        chapterNum={chapterNum ?? ''}
+                        verseNum={verseNum ?? ''}
+                        englishText={verseData.translation_en ?? undefined}
+                        koreanText={verseData.translation_ham ?? verseData['3.korean-1'] ?? undefined}
+                    />
                     {!isCommentaryMode ? (
                         <motion.div variants={itemVariants}>
                             <div className="relative mx-auto w-full overflow-visible px-0">
