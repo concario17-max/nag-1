@@ -26,7 +26,7 @@ const CommentarySidebar = () => {
     const isOpen = activeRightPanel === 'commentary';
     const isDesktopOpen = activeDesktopRightPanel === 'commentary';
     const verseData = getVerseInRange(chapterNum, verseNum);
-    const commentaryTitle = extractCommentaryTitle(verseData?.commentary_en);
+    const commentaryTitle = extractCommentaryTitle(verseData?.commentary_ko);
 
     return (
         <SidebarLayout
@@ -54,14 +54,14 @@ const CommentarySidebar = () => {
                         {chapterNum}.{verseNum}
                     </span>
                     <span className="min-w-0 truncate text-base font-semibold tracking-normal text-text-primary dark:text-dark-text-primary">
-                        {commentaryTitle ?? verseData?.translation_en?.slice(0, 50) ?? ''}
+                        {commentaryTitle ?? verseData?.translation_ham?.slice(0, 50) ?? ''}
                     </span>
                 </div>
 
                 <div className="custom-scrollbar min-h-0 flex-1 overflow-y-auto pb-10 pr-2">
-                    {verseData?.commentary_en ? (
+                    {verseData?.commentary_ko ? (
                         <div className="space-y-4">
-                            <CommentaryMarkdown content={verseData.commentary_en} />
+                            <CommentaryMarkdown content={verseData.commentary_ko} />
                         </div>
                     ) : (
                         <div className="flex h-full items-center justify-center text-center text-sm text-text-secondary dark:text-dark-text-secondary">

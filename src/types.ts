@@ -38,20 +38,11 @@ export interface YogaSutra {
     id: string; // e.g., "1.1"
     chapter?: number;
     verse?: number;
-    audio?: string;
     iast?: string;
-    "6.bae_uu"?: string;
-    "8. ox"?: string;
     pronunciation: string;
     pronunciation_kr: string;
-    "2.english"?: string;
-    "5.bae_jik"?: string;
-    "9. ox-en"?: string;
     sanskrit: string;
-    "3.korean-1"?: string;
-    translation_en?: string;
-    commentary_en?: string;
-    korean_pronunciation?: string;
+    commentary_ko?: string;
     translation_ham?: string;
     translation_gil?: string;
     translation_jimong?: string;

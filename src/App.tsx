@@ -12,6 +12,7 @@ import { getDesktopVerseColumns } from './components/ui/desktopVerseLayout';
 import { useYogaData } from './hooks/useYogaData';
 
 const VerseView = lazy(() => import('./pages/VerseView'));
+const ChapterList = lazy(() => import('./pages/ChapterList'));
 
 type ContextOption = {
     value: string;
@@ -264,16 +265,6 @@ const OutlineTree = ({
                     >
                         <div className="min-w-0 flex-1 space-y-1">
                             <div className="flex min-w-0 items-center gap-2">
-                                <span
-                                    className={[
-                                        'inline-flex shrink-0 items-center rounded-full border px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.26em]',
-                                        depth === 0
-                                            ? 'border-gold-primary/20 bg-gold-primary/10 text-gold-primary dark:border-gold-light/18 dark:bg-gold-light/10 dark:text-gold-light'
-                                            : 'border-gold-border/12 bg-white/70 text-text-secondary dark:border-dark-border/55 dark:bg-white/8 dark:text-dark-text-secondary',
-                                    ].join(' ')}
-                                >
-                                    {depth === 0 ? '편' : depth === 1 ? '장' : '절'}
-                                </span>
                                 <span className={['min-w-0 flex-1 font-semibold leading-snug tracking-[0.01em]', depth === 0 ? 'text-[15px] sm:text-[16px]' : depth === 1 ? 'text-[13px] sm:text-[14px]' : 'text-[12px] sm:text-[13px]'].join(' ')}>
                                     {node.label}
                                 </span>
@@ -301,15 +292,7 @@ const OutlineTree = ({
                     ) : null}
 
                     {isSelected && draftVerseOptions.length > 0 ? (
-                        <div className="ml-4 space-y-2 rounded-[1rem] border border-gold-border/10 bg-white/45 p-3 dark:border-dark-border/55 dark:bg-white/5">
-                            <div className="flex items-center justify-between gap-2">
-                                <span className="text-[9px] font-semibold uppercase tracking-[0.24em] text-text-secondary/78 dark:text-dark-text-secondary/78">
-                                    절
-                                </span>
-                                <span className="truncate text-[10px] font-medium tracking-[0.12em] text-text-secondary/70 dark:text-dark-text-secondary/70">
-                                    {node.label}
-                                </span>
-                            </div>
+                        <div className="ml-4 rounded-[1rem] border border-gold-border/10 bg-white/45 p-3 dark:border-dark-border/55 dark:bg-white/5">
                             <div className="flex max-h-40 flex-wrap gap-2 overflow-y-auto pr-1">
                                 {draftVerseOptions.map((option) => (
                                     <button
@@ -365,10 +348,7 @@ const ContextAccordionPicker = ({
     const currentVerseLabel = verseNum ? `${verseNum}절` : '절 선택';
     const currentChapterLabel = activeOutlineEntry?.fullLabel ?? activeOutlineEntry?.shortLabel ?? (chapterNum ? `장 ${chapterNum}` : '장 선택');
     const triggerChapterLabel = currentChapterLabel;
-    const breadcrumbParts = currentChapterLabel
-        .split(' / ')
-        .map((part) => part.trim())
-        .filter(Boolean);
+
 
     useEffect(() => {
         setIsOpen(false);
@@ -521,48 +501,34 @@ const ContextAccordionPicker = ({
                 </span>
             </div>
 
-            {breadcrumbParts.length > 0 ? (
-                <div className="mb-3 flex flex-wrap gap-1.5">
-                    {breadcrumbParts.map((part, index) => (
-                        <span
-                            key={`${part}-${index}`}
-                            className={[
-                                'inline-flex items-center rounded-full border px-2.5 py-1 text-[9px] font-semibold tracking-[0.16em]',
-                                index === breadcrumbParts.length - 1
-                                    ? 'border-gold-primary/28 bg-gold-primary/10 text-gold-primary dark:border-gold-light/24 dark:bg-gold-light/10 dark:text-gold-light'
-                                    : 'border-gold-border/12 bg-white/58 text-text-secondary dark:border-dark-border/55 dark:bg-white/5 dark:text-dark-text-secondary',
-                            ].join(' ')}
-                        >
-                            {part}
-                        </span>
-                    ))}
+
+
+            {outline?.groups && outline.groups.length > 1 ? (
+                <div className="mb-3 flex flex-wrap gap-2">
+                    {outline.groups.map((group) => {
+                        const isActive = group.key === activeGroupKey;
+
+                        return (
+                            <button
+                                key={group.key}
+                                type="button"
+                                onClick={() => {
+                                    setActiveGroupKey(group.key);
+                                    setExpandedNodeIds(new Set());
+                                }}
+                                className={[
+                                    'rounded-full border px-3 py-1.5 text-[10px] font-semibold tracking-[0.14em] transition-all duration-300',
+                                    isActive
+                                        ? 'border-gold-primary/35 bg-gold-primary/10 text-gold-primary shadow-[0_10px_24px_-20px_rgba(0,0,0,0.5)] dark:border-gold-light/30 dark:bg-gold-light/12 dark:text-gold-light'
+                                        : 'border-gold-border/12 bg-white/55 text-text-secondary hover:border-gold-border/22 hover:bg-white/78 dark:border-dark-border/55 dark:bg-white/5 dark:text-dark-text-secondary dark:hover:bg-white/8',
+                                ].join(' ')}
+                            >
+                                {group.label}
+                            </button>
+                        );
+                    })}
                 </div>
             ) : null}
-
-            <div className="mb-3 flex flex-wrap gap-2">
-                {outline?.groups.map((group) => {
-                    const isActive = group.key === activeGroupKey;
-
-                    return (
-                        <button
-                            key={group.key}
-                            type="button"
-                            onClick={() => {
-                                setActiveGroupKey(group.key);
-                                setExpandedNodeIds(new Set());
-                            }}
-                            className={[
-                                'rounded-full border px-3 py-1.5 text-[10px] font-semibold tracking-[0.14em] transition-all duration-300',
-                                isActive
-                                    ? 'border-gold-primary/35 bg-gold-primary/10 text-gold-primary shadow-[0_10px_24px_-20px_rgba(0,0,0,0.5)] dark:border-gold-light/30 dark:bg-gold-light/12 dark:text-gold-light'
-                                    : 'border-gold-border/12 bg-white/55 text-text-secondary hover:border-gold-border/22 hover:bg-white/78 dark:border-dark-border/55 dark:bg-white/5 dark:text-dark-text-secondary dark:hover:bg-white/8',
-                            ].join(' ')}
-                        >
-                            {group.label}
-                        </button>
-                    );
-                })}
-            </div>
 
             <div className="max-h-[min(56vh,460px)] overflow-y-auto pr-1">
                 {activeGroup?.nodes.length ? (
@@ -688,7 +654,7 @@ const MainLayout = () => {
 
     return (
         <AppShell
-            header={isVerseView ? <Header title="보리도등론(菩提道燈論)" showSidebarToggle selectionControls={selectionControls} /> : undefined}
+            header={isVerseView ? <Header title="인위삼신행상명등론(因位三身行相明燈論)" showSidebarToggle selectionControls={selectionControls} /> : undefined}
             sidebar={isVerseView ? <Sidebar /> : undefined}
             isMobilePanelOpen={isVerseView && isSidebarOpen}
             desktopGridColumns={desktopGridColumns}
@@ -728,6 +694,7 @@ function App() {
             <Routes>
                 <Route element={<MainLayout />}>
                     <Route path="/" element={<DefaultVerseRedirect />} />
+                    <Route path="/chapters" element={<ChapterList />} />
                     <Route path="/chapter/:chapterNum/verse/:verseNum" element={<VerseView />} />
                 </Route>
             </Routes>

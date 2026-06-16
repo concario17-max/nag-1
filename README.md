@@ -1,6 +1,6 @@
-# Yoga
+# Three Bodies (因位三身行相明燈論)
 
-Yoga is a React-based reading app for the Yoga Sutras. It brings together Sanskrit text, pronunciation, multiple translations, word meanings, audio, and a commentary study panel in one interface.
+Three Bodies is a React-based reading app for the "因位三身行相明燈論" (Three Bodies) text. It brings together Tibetan source text, pronunciations, multiple Korean translations, word meanings, and a commentary study panel with learning comics in one interface.
 
 ## Stack
 
@@ -15,20 +15,19 @@ Yoga is a React-based reading app for the Yoga Sutras. It brings together Sanskr
 ## Project layout
 
 - `src/`: active application code
-- `public/`: runtime assets such as `data.json`, `lexicon.json`, and `mp3/`
-- `data-source/`: source text files, token mapping JSON, and archived data snapshots
-- `scripts/`: data generation, verification, and browser QA scripts
-- `legacy/`: archived pre-React implementation kept for reference
+- `public/`: runtime assets such as `reading-snapshot.json`, `reading-data.json`, and learning comic images (`학습만화/`)
+- `scripts/`: data extraction, verification, and browser QA scripts
 - `docs/`: supporting notes and historical reports
 
 ## Runtime data flow
 
-The app reads from `public/data.json`.
+The app reads from `/reading-snapshot.json` and `/reading-data.json`.
 
 - Loader: `src/utils/dataFetcher.ts`
 - Shared provider: `src/context/YogaDataContext.tsx`
-- Source generator: `scripts/generate_data.ps1`
-- Archived snapshot: `data-source/archive/data_updated_3_22_3_36.json`
+- Source generators:
+  - `scripts/export-reading-snapshot.mjs` (Extracts text to json snapshot)
+  - `scripts/export-commentary-from-odt.py` (Extracts ODT XML to typescript commentary modules)
 
 ## Local development
 
@@ -48,14 +47,29 @@ npm run build
 Browser smoke QA:
 
 ```bash
-npm run dev -- --host 127.0.0.1 --port 4174
-BASE_URL=http://127.0.0.1:4174 npm run qa:browser
+npm run dev -- --host 127.0.0.1 --port 4173
+BASE_URL=http://127.0.0.1:4173 npm run qa:browser
 ```
+
+### Windows Troubleshooting: PowerShell Execution Policy Block
+
+If you encounter an error stating that `npm.ps1 cannot be loaded because running scripts is disabled on this system` when running `npm` commands in PowerShell, use the following workarounds:
+
+1. **Bypass Execution Policy**:
+   Run the command with execution policy bypass option:
+   ```powershell
+   powershell -ExecutionPolicy Bypass -Command "npm run dev"
+   ```
+
+2. **Use Command Prompt**:
+   Use standard `cmd.exe` or call the command shim directly:
+   ```cmd
+   npm.cmd run dev
+   ```
 
 ## Current architecture notes
 
 - The live app is the React code under `src/`.
-- The password gateway has been removed. The app now opens directly.
 - Verse pages use a shared shell with a header, left chapter sidebar, and an optional right commentary panel.
 - Desktop verse layout uses a shared frame model:
   - left open + commentary open: `20 / 60 / 20`
@@ -64,19 +78,6 @@ BASE_URL=http://127.0.0.1:4174 npm run qa:browser
   - left closed + commentary closed: `0 / 100 / 0`
 - Desktop sidebar and right-panel preferences are stored in `localStorage`.
 - Data access is centralized through `YogaDataProvider`, which reduces repeated fetch logic across pages, panels, and modals.
-
-## Data pipeline
-
-Source texts live in `data-source/`. The main generation script is:
-
-- `scripts/generate_data.ps1`
-
-It parses the source `.txt` files and writes:
-
-- `data.js`
-- `public/data.json`
-
-More details are documented in `scripts/README.md`.
 
 ## Deployment
 
@@ -87,8 +88,7 @@ This is a static build.
 
 Before deployment:
 
-- confirm `public/data.json` is current
-- make sure the Cloudflare API token has `Pages Write` permission
+- confirm `public/reading-snapshot.json` is current
 - run `npm run typecheck`
 - run `npm run test -- --run`
 - run `npm run build`
@@ -96,7 +96,6 @@ Before deployment:
 
 ## Notes
 
-- `legacy/legacy_web/` is reference material, not the active app.
 - `research.md` contains the current deep architecture report for the repository.
 - `plan.md` tracks the remediation checklist and completion status for the current pass.
 - `reuse-guide.md` explains how to port the desktop layout system into another project.

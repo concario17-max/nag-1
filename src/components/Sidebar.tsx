@@ -139,7 +139,7 @@ const Sidebar = () => {
                                 Korean
                             </p>
                             <p className="whitespace-pre-line break-keep font-sans text-[15px] leading-[2] text-text-secondary/92 dark:text-dark-text-secondary/92 sm:text-[16px]">
-                                {verseData.translation_ham ?? verseData['5.bae_jik'] ?? ''}
+                                {verseData.translation_ham ?? ''}
                             </p>
                         </section>
                     </div>
