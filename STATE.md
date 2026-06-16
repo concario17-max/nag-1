@@ -1,32 +1,34 @@
 # State
 
 ## Current Task
-Rework the lamp chapter/verse selector so higher-level headings like `제1편 삼사의 정의` and `1장. 상사의 바른방편` are visually distinct and expandable as a real hierarchy.
+Implement Cloudflare Pages deployment setup for `lamp` so pushes build and deploy the static app through GitHub Actions or equivalent direct upload CI.
 
 ## Route
-Route A
+Route B
 
 ## Writer Slot
-main: direct-write
+main: planner-only
 
 ## Contract Freeze
 Frozen scope:
-- Update only the chapter/verse selector UI in `lamp/src/App.tsx`.
-- Add hierarchical accordion behavior and clearer visual hierarchy for title groups, chapter sections, and subheadings derived from the existing reading data.
-- Preserve the current routing and verse navigation behavior.
-- Do not touch unrelated app files, package files, or assets.
+- Add `lamp/wrangler.toml` for Pages with `pages_build_output_dir = "dist"`.
+- Add a GitHub Actions workflow under `lamp/.github/workflows/` that builds and deploys `dist` using `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN`.
+- Update `lamp/package.json` deployment metadata/scripts only as needed for Pages deployment.
+- Update `lamp/README.md` deployment instructions for Cloudflare Pages and required secrets.
+- Preserve all app runtime behavior and avoid unrelated app logic changes.
 
-Reason for Route A:
-- The task is a focused single-file UI refactor with no cross-file contract changes, so it fits Route A.
+Reason for Route B:
+- The task spans multiple deployment/config/documentation files and needs a frozen contract before implementation.
 
 ## Write Sets
-- main: `STATE.md`, `lamp/src/App.tsx`
+- main: `STATE.md`, `MULTI_AGENT_LOG.md`
+- worker_deploy: `lamp/wrangler.toml`, `lamp/.github/workflows/*`, `lamp/package.json`, `lamp/README.md`
 
 ## Reviewer
 Wegener
 
 ## Last Update
-2026-06-06 10:13:00 +09:00 - Added breadcrumb chips, stronger `편/장/절` styling, and default expansion so the hierarchy reads as distinct sections instead of one flat list.
+2026-06-06 11:15:00 +09:00 - Added Cloudflare Pages deployment config, GitHub Actions workflow, repo metadata fixes, and README deployment notes; build and typecheck passed.
 
 ## Open Review Item
 - None.

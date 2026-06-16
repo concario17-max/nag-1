@@ -1,127 +1,158 @@
-import { chapter1Commentary, type CommentaryBlock } from '../data/chapter1Commentary';
-import { chapter2Commentary } from '../data/chapter2Commentary';
-import { chapter3Commentary } from '../data/chapter3Commentary';
-import { chapter4Commentary } from '../data/chapter4Commentary';
-import { ReadingSnapshot, YogaChapter, YogaSutra } from '../types';
+import { YogaChapter, YogaSutra } from '../types';
 
 let cachedData: Record<number, YogaChapter> | null = null;
 let pendingRequest: Promise<Record<number, YogaChapter>> | null = null;
 
 const stripBom = (value: string) => (value.charCodeAt(0) === 0xfeff ? value.slice(1) : value);
 
-const formatCommentaryTable = (table: CommentaryBlock['table']) => {
-    if (!table || table.headers.length === 0) {
-        return '';
+type ReadingDataText = {
+    tibetan?: string;
+    pronunciation?: string;
+    english?: string;
+    korean?: string;
+};
+
+type ReadingDataParagraph = {
+    id: string;
+    title?: string;
+    paragraphNumber?: number;
+    chapterTitle?: string;
+    text?: ReadingDataText;
+};
+
+type ReadingDataSubchapter = {
+    id: string;
+    chapterName?: string;
+    title?: string;
+    tocHeadings?: string[];
+    tocActionLabel?: string;
+    paragraphs?: ReadingDataParagraph[];
+};
+
+type ReadingDataGroup = {
+    id: string;
+    chapterName?: string;
+    title?: string;
+    isGroup?: boolean;
+    subchapters?: ReadingDataSubchapter[];
+    paragraphs?: ReadingDataParagraph[];
+};
+
+type ReadingDataSnapshot = {
+    chapters?: ReadingDataGroup[];
+    flatParagraphs?: ReadingDataParagraph[];
+};
+
+const getLocalVerseNumber = (paragraph: ReadingDataParagraph, paragraphIndex: number) => {
+    const idParts = paragraph.id.split('.');
+    const localId = idParts[idParts.length - 1];
+    const localNumber = Number.parseInt(localId ?? '', 10);
+    if (Number.isFinite(localNumber)) {
+        return localNumber;
     }
 
-    const header = `| ${table.headers.map((cell) => cell.trim()).join(' | ')} |`;
-    const separator = `| ${table.headers.map(() => '---').join(' | ')} |`;
-    const rows = table.rows.map((row) => `| ${table.headers.map((_, index) => row[index]?.trim() ?? '').join(' | ')} |`);
-
-    return [header, separator, ...rows].join('\n');
-};
-
-const serializeCommentaryBlocks = (blocks?: CommentaryBlock[]) => {
-    if (!blocks?.length) {
-        return '';
+    if (typeof paragraph.paragraphNumber === 'number' && Number.isFinite(paragraph.paragraphNumber)) {
+        return paragraph.paragraphNumber;
     }
 
-    return blocks
-        .map((block, index) => {
-            const sections: string[] = [];
-            const headingLevel = index === 0 ? '#' : '##';
-
-            if (block.title?.trim()) {
-                sections.push(`${headingLevel} ${block.title.trim()}`);
-            }
-
-            if (block.paragraphs?.length) {
-                sections.push(...block.paragraphs.map((paragraph) => paragraph.trim()).filter(Boolean));
-            }
-
-            if (block.bullets?.length) {
-                sections.push(block.bullets.map((bullet) => `- ${bullet.trim()}`).join('\n'));
-            }
-
-            if (block.table) {
-                sections.push(formatCommentaryTable(block.table));
-            }
-
-            return sections.join('\n\n');
-        })
-        .filter(Boolean)
-        .join('\n\n');
+    return paragraphIndex + 1;
 };
 
-const commentaryByChapter: Record<number, Record<string, CommentaryBlock[]>> = {
-    1: chapter1Commentary,
-    2: chapter2Commentary,
-    3: chapter3Commentary,
-    4: chapter4Commentary,
+const getParagraphText = (paragraph: ReadingDataParagraph) => {
+    const english = paragraph.text?.english?.trim();
+    const korean = paragraph.text?.korean?.trim();
+    return english || korean || '';
 };
 
-const getCommentaryBlocks = (chapterNum: number, paragraphId: string, paragraphNumber: number, paragraphIndex: number) => {
-    const chapterCommentary = commentaryByChapter[chapterNum];
-    if (!chapterCommentary) {
+const serializeCommentarySection = (groupTitle: string, subchapter?: ReadingDataSubchapter) => {
+    if (!subchapter?.paragraphs?.length) {
         return undefined;
     }
 
-    const fallbackKeys = [paragraphId, String(paragraphIndex + 1), String(paragraphNumber), `${chapterNum}.${paragraphNumber}`];
-    for (const key of fallbackKeys) {
-        const blocks = chapterCommentary[key];
-        if (blocks?.length) {
-            return blocks;
-        }
+    const sections: string[] = [];
+    const heading = subchapter.chapterName?.trim() || subchapter.title?.trim() || groupTitle.trim();
+    if (heading) {
+        sections.push(`# ${heading}`);
     }
 
-    return undefined;
+    subchapter.paragraphs.forEach((paragraph) => {
+        const text = getParagraphText(paragraph);
+        if (text) {
+            sections.push(text);
+        }
+    });
+
+    return sections.filter(Boolean).join('\n\n');
 };
 
-const toNumber = (value: string | number | undefined, fallback = 0) => {
-    const numeric = typeof value === 'number' ? value : Number.parseInt(String(value ?? ''), 10);
-    return Number.isFinite(numeric) ? numeric : fallback;
+const buildCommentaryLookup = (snapshot: ReadingDataSnapshot) => {
+    const commentaryGroup = snapshot.chapters?.find((chapter) => chapter.id === 'commentary');
+    const commentarySubchapters = commentaryGroup?.subchapters ?? [];
+
+    return commentarySubchapters.reduce<Record<number, string>>((acc, subchapter, index) => {
+        const chapterNumber = index + 1;
+        const content = serializeCommentarySection(commentaryGroup?.title ?? commentaryGroup?.chapterName ?? 'Commentary', subchapter);
+        if (content) {
+            acc[chapterNumber] = content;
+        }
+        return acc;
+    }, {});
 };
 
 const normalizeParagraph = (
     chapterNum: number,
-    paragraph: ReadingSnapshot[number]['paragraphs'][number],
+    paragraph: ReadingDataParagraph,
     paragraphIndex: number,
+    commentaryText?: string,
 ): YogaSutra => {
     const sourceText = paragraph.text ?? { tibetan: '', pronunciation: '', english: '', korean: '' };
-    const chapterCommentary = getCommentaryBlocks(chapterNum, paragraph.id, paragraph.paragraphNumber, paragraphIndex);
+    const verseNumber = getLocalVerseNumber(paragraph, paragraphIndex);
 
     return {
-        id: paragraph.id,
+        id: `${chapterNum}.${verseNumber}`,
         chapter: chapterNum,
-        verse: paragraph.paragraphNumber,
+        verse: verseNumber,
         sanskrit: sourceText.tibetan ?? '',
         iast: sourceText.pronunciation ?? '',
         pronunciation: sourceText.pronunciation ?? '',
         pronunciation_kr: '',
         translation_en: sourceText.english || undefined,
         translation_ham: sourceText.korean || undefined,
-        commentary_en: serializeCommentaryBlocks(chapterCommentary) || undefined,
+        commentary_en: commentaryText || undefined,
         '2.english': sourceText.english || undefined,
         '3.korean-1': sourceText.korean || undefined,
     };
 };
 
-const normalizeChapter = (chapter: ReadingSnapshot[number]): YogaChapter => {
-    const chapterNum = toNumber(chapter.id);
-    const sutras = chapter.paragraphs.map((paragraph, index) => normalizeParagraph(chapterNum, paragraph, index));
+const normalizeSubchapter = (
+    chapterNum: number,
+    groupTitle: string,
+    groupName: string,
+    subchapter: ReadingDataSubchapter,
+    commentaryText?: string,
+): YogaChapter => {
+    const sutras = (subchapter.paragraphs ?? []).map((paragraph, index) => normalizeParagraph(chapterNum, paragraph, index, commentaryText));
 
     return {
         chapter: chapterNum,
         meta: {
             chapter: chapterNum,
-            name_korean: chapter.chapterName || `Chapter ${chapterNum}`,
-            name_english: chapter.title || chapter.chapterName || `Chapter ${chapterNum}`,
-            description: chapter.title || chapter.chapterName || '',
+            name_korean: subchapter.chapterName || groupName || `Chapter ${chapterNum}`,
+            name_english: subchapter.title || subchapter.chapterName || groupTitle || `Chapter ${chapterNum}`,
+            description: groupTitle || subchapter.chapterName || '',
             sutraCount: sutras.length,
         },
         sutras,
     };
 };
+
+const flattenSubchapters = (snapshot: ReadingDataSnapshot) =>
+    (snapshot.chapters ?? []).flatMap((group) =>
+        (group.subchapters ?? []).map((subchapter) => ({
+            group,
+            subchapter,
+        })),
+    );
 
 export const resetCache = () => {
     cachedData = null;
@@ -139,22 +170,32 @@ export const fetchYogaData = async (): Promise<Record<number, YogaChapter>> => {
 
     pendingRequest = (async () => {
         try {
-            const response = await fetch('/reading-snapshot.json');
+            const response = await fetch('/reading-data.json');
             if (!response.ok) {
-                throw new Error(`Failed to fetch reading snapshot: ${response.status}`);
+                throw new Error(`Failed to fetch reading data: ${response.status}`);
             }
 
-            const snapshot = JSON.parse(stripBom(await response.text())) as ReadingSnapshot;
-            const structuredData = snapshot.reduce<Record<number, YogaChapter>>((acc, chapter) => {
-                acc[toNumber(chapter.id)] = normalizeChapter(chapter);
+            const snapshot = JSON.parse(stripBom(await response.text())) as ReadingDataSnapshot;
+            const commentaryLookup = buildCommentaryLookup(snapshot);
+            const structuredData = flattenSubchapters(snapshot).reduce<Record<number, YogaChapter>>((acc, entry, index) => {
+                const chapterNumber = index + 1;
+                const commentaryIndex = chapterNumber <= 2 ? chapterNumber : chapterNumber - 2;
+                const commentaryText = commentaryLookup[commentaryIndex];
+                acc[chapterNumber] = normalizeSubchapter(
+                    chapterNumber,
+                    entry.group.title || entry.group.chapterName || '',
+                    entry.group.chapterName || entry.group.title || '',
+                    entry.subchapter,
+                    commentaryText,
+                );
                 return acc;
             }, {});
 
             cachedData = structuredData;
             return structuredData;
         } catch (error) {
-            console.error('Error fetching reading snapshot:', error);
-            throw error instanceof Error ? error : new Error('Unknown reading snapshot fetch failure');
+            console.error('Error fetching reading data:', error);
+            throw error instanceof Error ? error : new Error('Unknown reading data fetch failure');
         } finally {
             pendingRequest = null;
         }

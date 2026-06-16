@@ -199,3 +199,26 @@ status: resolved
   summary: Typecheck failed on dynamic heading rendering and nullable chapter access
   details: `CommentaryMarkdown` used a JSX namespace path TS could not resolve, and `VerseView` narrowed `currentChapter` too loosely for strict null checks. Both issues were fixed before rerunning verification.
   status: resolved
+
+- time: 2026-06-05 23:24:09 +09:00
+  location: `npm install`
+  summary: PowerShell execution policy blocked `npm.ps1`
+  details: `npm install` failed before dependency installation because PowerShell could not load `C:\Program Files\nodejs\npm.ps1`. Use `npm.cmd` in this shell.
+  status: open
+
+- time: 2026-06-05 23:24:40 +09:00
+  location: `npm test -- --run src/utils/dataFetcher.test.ts` / `npm run typecheck`
+  summary: Verification blocked by PowerShell execution policy again
+  details: Both commands failed before running because PowerShell refused to load `npm.ps1`. Re-run them via `npm.cmd` to validate the new reading-data adapter.
+  status: open
+
+- time: 2026-06-05 23:49:10 +09:00
+  location: `npm.cmd test -- --run src/utils/dataFetcher.test.ts` / `npm.cmd run typecheck`
+  summary: PowerShell execution-policy issue resolved with `npm.cmd`
+  details: The verification commands passed once they were re-run through `npm.cmd`, confirming the new reading-data normalization and chapter/verse mapping.
+  status: resolved
+## 2026-06-06 08:12 +09:00
+- location: `lamp`
+- summary: `npm run build` 실패 후 `npm install`로 의존성 재동기화
+- details: PowerShell 실행 정책 때문에 `npm run build`가 직접 실행되지 않았고, `npm.cmd run build`에서는 로컬/상위 `node_modules` 타입 불일치가 발생했다. `lamp`에서 `npm.cmd install`로 패키지를 재설치한 뒤 빌드가 통과했다.
+- status: resolved

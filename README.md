@@ -88,6 +88,7 @@ This is a static build.
 Before deployment:
 
 - confirm `public/data.json` is current
+- make sure the Cloudflare API token has `Pages Write` permission
 - run `npm run typecheck`
 - run `npm run test -- --run`
 - run `npm run build`
