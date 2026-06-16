@@ -98,11 +98,8 @@ const normalizeParagraph = (
         iast: sourceText.pronunciation ?? '',
         pronunciation: sourceText.pronunciation ?? '',
         pronunciation_kr: '',
-        translation_en: sourceText.english || undefined,
         translation_ham: sourceText.korean || undefined,
-        commentary_en: serializeCommentaryBlocks(chapterCommentary) || undefined,
-        '2.english': sourceText.english || undefined,
-        '3.korean-1': sourceText.korean || undefined,
+        commentary_ko: serializeCommentaryBlocks(chapterCommentary) || undefined,
     };
 };
 

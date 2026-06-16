@@ -275,7 +275,7 @@ const VerseView = () => {
                     <MobileVerseGuide
                         chapterNum={chapterNum ?? ''}
                         verseNum={verseNum ?? ''}
-                        koreanText={verseData.translation_ham ?? verseData['3.korean-1'] ?? undefined}
+                        koreanText={verseData.translation_ham ?? undefined}
                     />
                     {!isCommentaryMode ? (
                         <motion.div variants={itemVariants}>
@@ -294,11 +294,10 @@ const VerseView = () => {
 
                                         <motion.div variants={itemVariants}>
                                             <TranslationSection
-                                                english={verseData.translation_en}
-                                                ham={verseData.translation_ham ?? verseData['3.korean-1']}
-                                                gil={verseData.translation_gil ?? verseData['8. ox']}
+                                                ham={verseData.translation_ham}
+                                                gil={verseData.translation_gil}
                                                 jimong={verseData.translation_jimong}
-                                                suk={verseData.translation_suk ?? verseData['6.bae_uu'] ?? verseData['9. ox-en']}
+                                                suk={verseData.translation_suk}
                                             />
                                         </motion.div>
                                     </div>
@@ -311,12 +310,12 @@ const VerseView = () => {
                         <motion.div variants={itemVariants}>
                             <div className="relative mx-auto w-full overflow-visible px-0">
                                 <CommentaryContent
-                                    chapterNum={String(currentChapter.chapter)}
-                                    verseNum={String(verseNumber)}
-                                    commentaryText={verseData.commentary_en}
-                                    fallbackTitle={verseData.translation_en ?? null}
-                                    navigationControls={verseNavigationControls}
-                                />
+                                                    chapterNum={String(currentChapter.chapter)}
+                                                    verseNum={String(verseNumber)}
+                                                    commentaryText={verseData.commentary_ko}
+                                                    fallbackTitle={verseData.translation_ham ?? null}
+                                                    navigationControls={verseNavigationControls}
+                                                />
                             </div>
                         </motion.div>
                     ) : null}

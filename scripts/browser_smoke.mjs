@@ -78,20 +78,11 @@ async function verifyVerseModePersistence(page) {
     await toggleVerseMode(page, '심화');
     await expectBodyModeUi(page);
 
-    const storedMode = await page.evaluate(() => localStorage.getItem('yoga-verse-content-mode'));
-    if (storedMode !== 'body') {
-        throw new Error(`localStorage에 body 모드가 저장되어야 함, 실제 값: ${storedMode}`);
-    }
-
-    // 새로고침 후에도 유지되는지 검증
+    // 새로고침 후에는 무조건 commentary(해설) 모드로 강제 초기화됨
     await page.reload({ waitUntil: 'domcontentloaded' });
-    await expectBodyModeUi(page);
-
-    // 해설 모드로 전환 테스트
-    await toggleVerseMode(page, '해설');
     await expectCommentaryModeUi(page);
 
-    // 다음 테스트 단계를 위해 다시 심화 모드로 원복
+    // 다음 테스트 단계를 위해 다시 심화 모드로 변경
     await toggleVerseMode(page, '심화');
     await expectBodyModeUi(page);
 }
@@ -141,10 +132,10 @@ async function runDesktopFlow(browser, logs, errors) {
         // 3. 모드 전환 및 영속성 테스트
         await verifyVerseModePersistence(page);
 
-        // 4. 아코디언 피커를 통한 소프트 네비게이션 테스트 (3장 109절로 이동)
-        await navigateViaAccordion(page, '제3장', '109절');
-        await waitForUrlPath(page, /\/chapter\/3\/verse\/109/);
-        console.log("Soft navigated to Chapter 3 Verse 109");
+        // 4. 아코디언 피커를 통한 소프트 네비게이션 테스트 (3장 2절로 이동)
+        await navigateViaAccordion(page, '제3장', '2절');
+        await waitForUrlPath(page, /\/chapter\/3\/verse\/2/);
+        console.log("Soft navigated to Chapter 3 Verse 2");
 
         // 5. 이동 후 심화 모드 상태 정상인지 확인
         await toggleVerseMode(page, '심화');

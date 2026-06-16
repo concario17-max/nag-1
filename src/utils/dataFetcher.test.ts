@@ -41,9 +41,8 @@ describe('fetchYogaData', () => {
         expect(data[1]).toBeDefined();
         expect(data[1].meta.name_korean).toBe('1장 죽음');
         expect(data[1].sutras[0].sanskrit).toBe('Tibetan text');
-        expect(data[1].sutras[0].translation_en).toBe('English text');
         expect(data[1].sutras[0].translation_ham).toBe('Korean text');
-        expect(data[1].sutras[0].commentary_en).toMatch(/\S/);
+        expect(data[1].sutras[0].commentary_ko).toMatch(/\S/);
     });
 
     it('throws on fetch failure', async () => {

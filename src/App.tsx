@@ -12,6 +12,7 @@ import { getDesktopVerseColumns } from './components/ui/desktopVerseLayout';
 import { useYogaData } from './hooks/useYogaData';
 
 const VerseView = lazy(() => import('./pages/VerseView'));
+const ChapterList = lazy(() => import('./pages/ChapterList'));
 
 type ContextOption = {
     value: string;
@@ -693,6 +694,7 @@ function App() {
             <Routes>
                 <Route element={<MainLayout />}>
                     <Route path="/" element={<DefaultVerseRedirect />} />
+                    <Route path="/chapters" element={<ChapterList />} />
                     <Route path="/chapter/:chapterNum/verse/:verseNum" element={<VerseView />} />
                 </Route>
             </Routes>

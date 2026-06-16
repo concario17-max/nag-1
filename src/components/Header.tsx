@@ -15,7 +15,7 @@ interface HeaderProps {
 
 const Header = ({
     title = 'Bhagavad Gita',
-    targetUrl = '/',
+    targetUrl = '/chapters',
     showSidebarToggle = false,
     selectionControls,
     rightContent,
