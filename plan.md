@@ -221,3 +221,33 @@
 - [x] `npm run test -- --run`을 실행하여 모든 유닛 테스트가 정상 통과하는지 확인
 - [x] `npm run build`를 통해 빌드 안정성 확보
 - [x] Playwright 브라우저 스모크 테스트(`npm run qa:browser`)를 구동하여 최종 앱 사용성에 문제가 없는지 확인
+
+## 15. 문제점 수정 및 아키텍처 정밀화
+
+목표: research.md에서 도출된 4가지 주요 문제점을 순차적으로 해결하여 코드 품질과 접근성을 Meta-Design 수준으로 격상함
+
+### 15.1 ChapterList 라우팅 연결 및 데드코드 복구
+- [ ] `src/App.tsx` 내 라우터 정의에 `/chapters` 라우트를 추가하고 `ChapterList` 페이지 컴포넌트를 지연 로딩으로 연결함
+- [ ] 헤더(`src/components/Header.tsx`)의 `Flower2` 로고 클릭 시 이동하는 `targetUrl`을 기존 `/`에서 `/chapters`로 변경하여 사용자가 홈 화면(챕터 리스트)으로 자연스럽게 복귀할 수 있게 유도함
+- [ ] `ChapterList.tsx`와 하위 모달 컴포넌트(`CompendiumModal`, `LexiconModal`)의 런타임 렌더링 무결성을 체크함
+
+### 15.2 해설 데이터 필드명 시맨틱 개선 (`commentary_en` 리팩토링)
+- [ ] `src/types.ts` 내 `YogaSutra` 인터페이스에서 `commentary_en` 필드명을 한글 콘텐츠 성격에 맞게 `commentary_ko`로 변경함
+- [ ] `src/utils/dataFetcher.ts` 내 `normalizeParagraph` 매핑 시 `commentary_ko`로 매핑을 수정함
+- [ ] `src/pages/VerseView.tsx` 내의 해설 렌더링 전달부(`commentaryText={verseData.commentary_ko}`)의 바인딩을 리팩토링함
+- [ ] `src/context/UIContext.test.tsx` 등 관련 테스트 파일들의 목(mock) 데이터 스키마를 업데이트하여 타입 경고를 방지함
+
+### 15.3 Windows PowerShell 실행 제약 우회 대응
+- [ ] `package.json` 내의 스크립트 혹은 로컬 개발 가이드에 윈도우 환경 전용 `npm.cmd` 기반 실행 가이드 또는 자동 우회 스크립트 설정을 보강하여 빌드/테스트 파이프라인의 에러 빈도를 낮춤
+- [ ] 테스트 실행 및 빌드 명령어 구동 시 윈도우 개발자의 권한 차단을 방지할 수 있는 가이드라인을 프로젝트 문서에 명기함
+
+### 15.4 미사용 번역 필드 및 레거시 속성 정돈
+- [ ] `src/components/Sidebar.tsx` 내의 번역 표시부(`verseData.translation_ham ?? verseData['5.bae_jik'] ?? ''`)에서 실제 3body에 존재하지 않는 요가수트라 잔재 속성(`5.bae_jik`) 및 불필요한 폴백을 제거함
+- [ ] `src/types.ts`의 `YogaSutra` 인터페이스에 잔존하는 미사용 속성 필드들(`5.bae_jik`, `6.bae_uu`, `8. ox`, `9. ox-en`, `translation_en`, `2.english` 등)을 실 데이터인 티벳-한글 기반과 대조하여 정리함
+
+### 15.5 검증 및 최종 빌드 패스
+- [ ] `npm.cmd run typecheck` 혹은 `cmd /c npm run typecheck`를 실행하여 타입 정합성 검사
+- [ ] `powershell -ExecutionPolicy Bypass -Command "npm run test -- --run"`을 실행하여 모든 유닛 테스트가 통과하는지 확인
+- [ ] `npm.cmd run build` 실행하여 프로덕션 빌드 성공 확인
+- [ ] Playwright 브라우저 스모크 테스트(`cmd /c npm run qa:browser`)를 구동하여 최종 앱 사용성에 문제가 없는지 확인
+
