@@ -251,3 +251,31 @@
 - [ ] `npm.cmd run build` 실행하여 프로덕션 빌드 성공 확인
 - [ ] Playwright 브라우저 스모크 테스트(`cmd /c npm run qa:browser`)를 구동하여 최종 앱 사용성에 문제가 없는지 확인
 
+
+## 16. 낙함마디(Nag Hammadi) 데이터 이식 및 빌드 정상화 패스
+
+### 16.1 빌드 에러 해결 및 타입 규격 정비
+- [ ] `src/utils/dataFetcher.ts` 내 존재하지 않는 3body용 주석 모듈 `chapterXCommentary` 관련 임포트 전면 제거
+- [ ] `src/types.ts` 내 핵심 스키마 수정: `YogaSutra` 및 `YogaChapter`에 Coptic 원문과 English 번역 필드를 대응할 수 있도록 `CodexSection`, `CodexWork` 등의 타입 규격 신설
+- [ ] 정적 타입 검사 `npm run typecheck` 통과를 위한 묵시적 `any` 매개변수 에러 수정 및 임포트 경로 전면 튜닝
+
+### 16.2 런타임 데이터 흐름 연동 및 데이터 어댑터 구축
+- [ ] `codexData.js` 및 `codexIndex.js` 데이터를 로드하고 정형화해주는 전용 데이터 어댑터(`src/utils/codexDataAdapter.ts`) 설계
+- [ ] `public/reading-snapshot.json` 및 `reading-data.json`을 낙함마디 문서의 13개 코덱스 작품 구조에 맞춰 새로 생성하거나 혹은 데이터 로더 수준에서 동적으로 낙함마디 데이터를 반환하도록 가로채기 구현
+- [ ] `YogaDataContext` 및 `fetchYogaData`를 `CodexDataContext`로 시맨틱하게 변경하여 전역 상태로 Coptic, English 데이터 주입
+
+### 16.3 UI 컴포넌트 시맨틱 리팩토링 및 Coptic 폰트 적용
+- [ ] `src/pages/VerseView.tsx` 내의 구절 카드 UI 컴포넌트 리팩토링: 범어/티베트어 렌더링 영역을 Coptic 원문 및 English 번역 텍스트로 치환 및 필드 바인딩 갱신
+- [ ] `ContextAccordionPicker` 및 `OutlineTree` 메뉴가 낙함마디 문서의 Codex I ~ XIII 계층 구조를 트리 구조로 올바르게 표시하도록 렌더링 및 트리 파서 로직 개편
+- [ ] `src/index.css`를 검토하여 Coptic 특수 서체(`Noto Sans Coptic` 등)가 깨짐 없이 렌더링되도록 스타일 규칙 지정
+
+### 16.4 스모크 테스트 및 검증 도구 오작동 대응
+- [ ] `scripts/browser_smoke.mjs` 내 Playwright 테스트 시나리오를 낙함마디 라우트 규격에 맞춰 전면 개정
+- [ ] 기존 유닛 테스트 목(mock) 데이터를 신규 콥트어 문서 규격에 맞춰 동기화하여 테스트 실패율 Zero화 타겟팅
+
+### 16.5 레거시 리소스 및 가이드 정돈
+- [ ] 프로젝트 루트에 방치된 요가수트라 잔재 `data.js` 파일 전면 제거
+- [ ] `scripts/README.md` 내의 만료된 PowerShell 스크립트 실행 가이드라인을 Node.js 기반 CLI 혹은 정리된 명령어 체계로 갱신
+- [ ] 최종 `npm run typecheck`, `npm run test`, `npm run build` 무결성 검증
+
+
