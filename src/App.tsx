@@ -628,7 +628,7 @@ const MainLayout = () => {
 
     return (
         <AppShell
-            header={isVerseView ? <Header title="인위삼신행상명등론(因位三身行相明燈論)" showSidebarToggle selectionControls={selectionControls} /> : undefined}
+            header={isVerseView ? <Header title="나그함마디(Nag Hammadi)" showSidebarToggle selectionControls={selectionControls} /> : undefined}
             sidebar={isVerseView ? <Sidebar /> : undefined}
             isMobilePanelOpen={isVerseView && isSidebarOpen}
             desktopGridColumns={desktopGridColumns}
