@@ -1,10 +1,8 @@
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Image as ImageIcon } from 'lucide-react';
 import { useYogaData } from '../hooks/useYogaData';
-import { useAudio } from '../hooks/useAudio';
 import { SutraContent } from '../components/verse/SutraContent';
-import { AudioPlayer } from '../components/verse/AudioPlayer';
 import { TranslationSection } from '../components/verse/TranslationSection';
 import { WordMeanings } from '../components/verse/WordMeanings';
 import { SutraNavigation } from '../components/verse/SutraNavigation';
@@ -190,26 +188,10 @@ const CommentaryContent = ({ chapterNum, verseNum, commentaryText, fallbackTitle
 const VerseView = () => {
     const { chapterNum, verseNum } = useParams<{ chapterNum: string; verseNum: string }>();
     const navigate = useNavigate();
-    const audioRef = useRef<HTMLAudioElement>(null);
     const { activeVerseContentMode } = useUI();
     const isCommentaryMode = activeVerseContentMode === 'commentary';
 
     const { allChapters, loading, error, getVerseInRange, chapters } = useYogaData();
-
-    const {
-        isPlaying,
-        currentTime,
-        duration,
-        togglePlay,
-        handleTimeUpdate,
-        handleLoadedMetadata,
-        handleAudioEnded,
-        reset,
-        seek,
-        formatTime,
-        progressPercent,
-        playbackError,
-    } = useAudio(audioRef);
 
     useEffect(() => {
         if (!chapterNum || !verseNum || !allChapters) {
@@ -230,8 +212,7 @@ const VerseView = () => {
         if (scrollContainer) {
             scrollContainer.scrollTo(0, 0);
         }
-        reset();
-    }, [chapterNum, verseNum, reset]);
+    }, [chapterNum, verseNum]);
 
     useEffect(() => {
         const scrollContainer = document.getElementById('main-scroll-container');
@@ -275,8 +256,6 @@ const VerseView = () => {
     }
 
     const verseNumber = verseData.verse ?? Number.parseInt(verseData.id.split('.')[1], 10);
-    const audioSrc = verseData.audio ?? null;
-    const hasAudio = Boolean(audioSrc);
     const verseNavigationControls =
         currentIndex >= 0 ? (
             <SutraNavigation onPrev={handlePrev} onNext={handleNext} isPrevDisabled={isFirstVerse} isNextDisabled={isLastVerse} />
@@ -306,46 +285,16 @@ const VerseView = () => {
                                 <VersePanelCard label="VERSE" navigationControls={verseNavigationControls} contentClassName="px-3 py-4 sm:px-4 sm:py-5 lg:px-6 lg:py-6">
                                     <div className="space-y-5 sm:space-y-6">
                                         <motion.div variants={itemVariants}>
-                                            <SutraContent sanskrit={verseData.sanskrit} pronunciation={verseData.iast ?? verseData.pronunciation} pronunciationKr={verseData.pronunciation_kr} />
+                                            <SutraContent sanskrit={verseData.sanskrit} pronunciation="" pronunciationKr="" />
                                         </motion.div>
 
                                         <motion.div variants={itemVariants}>
                                             <WordMeanings meanings={verseData.word_meanings} />
                                         </motion.div>
 
-                                        {hasAudio ? (
-                                            <>
-                                                <audio
-                                                    ref={audioRef}
-                                                    src={audioSrc ?? undefined}
-                                                    onTimeUpdate={handleTimeUpdate}
-                                                    onLoadedMetadata={handleLoadedMetadata}
-                                                    onEnded={handleAudioEnded}
-                                                    className="hidden"
-                                                />
-
-                                                <motion.div variants={itemVariants}>
-                                                    <AudioPlayer
-                                                        isPlaying={isPlaying}
-                                                        togglePlay={togglePlay}
-                                                        currentTime={currentTime}
-                                                        duration={duration}
-                                                        progressPercent={progressPercent}
-                                                        formatTime={formatTime}
-                                                        onSeek={seek}
-                                                        playbackError={playbackError}
-                                                    />
-                                                </motion.div>
-                                            </>
-                                        ) : null}
-
                                         <motion.div variants={itemVariants}>
                                             <TranslationSection
-                                                english={verseData.translation_en}
-                                                ham={verseData.translation_ham ?? verseData['3.korean-1']}
-                                                gil={verseData.translation_gil ?? verseData['8. ox']}
-                                                jimong={verseData.translation_jimong}
-                                                suk={verseData.translation_suk ?? verseData['6.bae_uu'] ?? verseData['9. ox-en']}
+                                                ham={verseData.translation_ham}
                                             />
                                         </motion.div>
                                     </div>
@@ -360,8 +309,8 @@ const VerseView = () => {
                                 <CommentaryContent
                                     chapterNum={String(currentChapter.chapter)}
                                     verseNum={String(verseNumber)}
-                                    commentaryText={verseData.commentary_en}
-                                    fallbackTitle={verseData.translation_en ?? null}
+                                    commentaryText={verseData.commentary_ko}
+                                    fallbackTitle={verseData.translation_ham ?? null}
                                     navigationControls={verseNavigationControls}
                                 />
                             </div>
@@ -374,6 +323,3 @@ const VerseView = () => {
 };
 
 export default VerseView;
-
-
-

@@ -136,7 +136,7 @@ const Sidebar = () => {
                     <div className="space-y-3">
                         <section className="space-y-2 border-l border-black/5 pl-4 dark:border-white/7">
                             <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-text-secondary/52 dark:text-dark-text-secondary/60">
-                                Korean
+                                English
                             </p>
                             <p className="whitespace-pre-line break-keep font-sans text-[15px] leading-[2] text-text-secondary/92 dark:text-dark-text-secondary/92 sm:text-[16px]">
                                 {verseData.translation_ham ?? ''}

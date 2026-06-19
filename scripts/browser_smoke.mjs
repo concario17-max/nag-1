@@ -67,7 +67,6 @@ async function expectNoVisibleCommentaryPanel(page) {
 
 async function expectBodyModeUi(page) {
     const main = await getVisibleMain(page);
-    // VERSE 패널 헤더 라벨로 body 모드 진입 확인 (TranslationSection 라벨은 데이터 존재 여부에 의존하므로 불안정)
     const bodyMarker = main.getByText('VERSE', { exact: true });
     const commentaryMarker = main.getByText('COMMENTARY', { exact: true });
 
@@ -117,11 +116,19 @@ async function waitForHomeSelects(page) {
     await pickerButton.waitFor({ state: 'visible' });
 }
 
+const getChapterNameByValue = (value) => {
+    if (value === '1') return 'Prayer of Apostle Paul';
+    if (value === '2') return 'Apocryphon of James';
+    if (value === '3') return 'Gospel of Truth';
+    return `Chapter ${value}`;
+};
+
 async function goFromHomeToVerse(page, chapterValue, verseValue) {
     const pickerButton = page.locator('button[aria-haspopup="dialog"]:visible');
     await pickerButton.click();
 
-    const chapterHeader = page.locator('button').filter({ hasText: `제${chapterValue}장` });
+    const chapterText = getChapterNameByValue(chapterValue);
+    const chapterHeader = page.locator('button').filter({ hasText: chapterText });
     await chapterHeader.waitFor({ state: 'visible' });
     await chapterHeader.click();
 
@@ -138,7 +145,8 @@ async function selectVisibleHeaderChapter(page, chapterValue) {
     const pickerButton = page.locator('button[aria-haspopup="dialog"]:visible');
     await pickerButton.click();
 
-    const chapterHeader = page.locator('button').filter({ hasText: `제${chapterValue}장` });
+    const chapterText = getChapterNameByValue(chapterValue);
+    const chapterHeader = page.locator('button').filter({ hasText: chapterText });
     await chapterHeader.waitFor({ state: 'visible' });
     await chapterHeader.click();
 
@@ -148,7 +156,6 @@ async function selectVisibleHeaderChapter(page, chapterValue) {
 
     await page.waitForURL(`**/chapter/${chapterValue}/verse/1`);
     await pickerButton.waitFor({ state: 'visible' });
-    // body 모드 상태에서 VERSE 패널 헤더 라벨 노출 대기
     const main = await getVisibleMain(page);
     await main.getByText('VERSE', { exact: true }).waitFor({ state: 'visible' });
 }
@@ -157,33 +164,30 @@ async function waitForSidebarReadingCard(page) {
     const sidebarCard = page.locator('aside:visible, [role="complementary"]:visible, [data-sidebar]:visible, [data-drawer]:visible').first();
 
     await sidebarCard.waitFor({ state: 'visible' });
-    await sidebarCard.getByText('Chapter', { exact: true }).waitFor({ state: 'visible' });
-    await sidebarCard.getByText('03', { exact: true }).waitFor({ state: 'visible' });
-    await sidebarCard.getByText('Verse', { exact: true }).waitFor({ state: 'visible' });
-    await sidebarCard.getByText('09', { exact: true }).waitFor({ state: 'visible' });
-    await sidebarCard.getByText('Korean', { exact: true }).waitFor({ state: 'visible' });
+    await sidebarCard.getByText('Chapter', { exact: true }).first().waitFor({ state: 'visible' });
+    await sidebarCard.getByText('02', { exact: true }).first().waitFor({ state: 'visible' });
+    await sidebarCard.getByText('Verse', { exact: true }).first().waitFor({ state: 'visible' });
+    await sidebarCard.getByText('02', { exact: true }).first().waitFor({ state: 'visible' });
+    await sidebarCard.getByText('English', { exact: true }).first().waitFor({ state: 'visible' });
 }
 
 async function waitForTranslationLabels(page) {
-    // body 모드에서 VERSE 패널이 정상 렌더링되었는지 확인 (데이터 독립적 검증)
     const main = await getVisibleMain(page);
     await main.getByText('VERSE', { exact: true }).waitFor({ state: 'visible' });
-    await main.getByText('Word meanings', { exact: true }).waitFor({ state: 'visible' });
+    await main.getByText('Coptic Original', { exact: true }).waitFor({ state: 'visible' });
+    await main.getByText('English Translation', { exact: true }).waitFor({ state: 'visible' });
 }
 
 async function verifyVerseModeToggling(page) {
-    // 최초 진입 시 무조건 commentary(학습만화) 모드가 활성화되어 있어야 함
     await expectNoVisibleCommentaryPanel(page);
     await expectCommentaryModeUi(page);
 
-    // body(심화) 모드로 전환 동작 확인
     await toggleVerseMode(page, 1);
     await waitForVerseMode(page, 1);
 
     await expectNoVisibleCommentaryPanel(page);
     await expectBodyModeUi(page);
 
-    // 다시 commentary(학습만화) 모드로 무결 복귀 동작 확인
     await toggleVerseMode(page, 0);
     await waitForVerseMode(page, 0);
 
@@ -223,14 +227,13 @@ async function runDesktopFlow(browser, logs, errors) {
 
     await desktop.page.goto(`${baseUrl}/`, { waitUntil: 'networkidle' });
     await waitForHomeSelects(desktop.page);
-    await goFromHomeToVerse(desktop.page, '3', '9');
+    await goFromHomeToVerse(desktop.page, '2', '2');
     await waitForHomeSelects(desktop.page);
     await verifyVerseModeToggling(desktop.page);
 
     await ensureSidebarOpen(desktop.page);
     await waitForSidebarReadingCard(desktop.page);
 
-    // 번역가 라벨 검증을 위해 body(심화) 모드로 전환
     await toggleVerseMode(desktop.page, 1);
     await waitForVerseMode(desktop.page, 1);
 
@@ -245,11 +248,10 @@ async function runMobileFlow(browser, logs, errors) {
 
     await mobile.page.goto(`${baseUrl}/`, { waitUntil: 'networkidle' });
     await waitForHomeSelects(mobile.page);
-    await goFromHomeToVerse(mobile.page, '3', '9');
+    await goFromHomeToVerse(mobile.page, '2', '2');
     await waitForHomeSelects(mobile.page);
     await verifyVerseModeToggling(mobile.page);
 
-    // 번역가 라벨 검증을 위해 body(심화) 모드로 전환
     await toggleVerseMode(mobile.page, 1);
     await waitForVerseMode(mobile.page, 1);
 

@@ -35,7 +35,7 @@ export interface CompoundToken {
 }
 
 export interface YogaSutra {
-    id: string; // e.g., "1.1"
+    id: string; // e.g., "1.1" 또는 "codex-i.1-1"
     chapter?: number;
     verse?: number;
     iast?: string;
@@ -59,6 +59,11 @@ export interface ChapterMeta {
     name_english: string;
     description: string;
     sutraCount: number;
+    indexId?: string;
+    workId?: string;
+    sourceTitle?: string | null;
+    chapterName?: string;
+    title?: string;
 }
 
 export interface YogaChapter {
@@ -90,3 +95,51 @@ export interface ReadingSnapshotChapter {
 }
 
 export type ReadingSnapshot = ReadingSnapshotChapter[];
+
+// Raw Codex Data Types for loader mapping
+export interface IndexWorkEntry {
+    indexId: string;
+    workId: string;
+    chapterName: string;
+    title: string;
+    sourceTitle: string | null;
+}
+
+export interface IndexGroup {
+    id: string;
+    title: string;
+    works: IndexWorkEntry[];
+}
+
+export interface CodexRangeEndpoint {
+    page: number;
+    line: number;
+}
+
+export interface CodexRange {
+    start: CodexRangeEndpoint;
+    end: CodexRangeEndpoint;
+}
+
+export interface CodexDataSection {
+    title: string;
+    subtitle?: string;
+    heading: string;
+    rangeLabel: string;
+    range: CodexRange;
+    english: string;
+    coptic: string;
+}
+
+export interface CodexDataWork {
+    workId: string;
+    chapterName: string;
+    title: string;
+    sourceTitle: string | null;
+    sections: CodexDataSection[];
+}
+
+export interface RawCodexData {
+    toc: Array<{ workLabel: string; sourceTitle: string }>;
+    works: CodexDataWork[];
+}

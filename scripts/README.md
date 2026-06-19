@@ -1,41 +1,25 @@
-# Scripts
+# 스크립트 (Scripts)
 
-This directory contains the project scripts used for data generation, validation, and browser QA.
+이 디렉토리에는 브라우저 스모크 QA 및 테스트에 필요한 스크립트가 포함되어 있음
 
-## Inputs
-
-- source text files: `../data-source/`
-- token mapping JSON: `../data-source/han-json/`
-
-## Outputs
-
-- generated legacy bundle input: `../data.js`
-- generated runtime data: `../public/data.json`
-
-## Main scripts
-
-- `generate_data.ps1`
-  Builds `data.js` and `public/data.json` from the source text files.
-
-- `merge_tokens.ps1`
-  Merges token mapping results into the generated data structure.
-
-- `update_dictionary.ps1`
-- `update_dictionary.cjs`
-  Updates dictionary fields from source files.
-
-- `check_audio_mismatch.cjs`
-  Checks whether data entries and MP3 files are aligned.
-
-- `verify_data.cjs`
-- `verify_phase19.ps1`
-  Run targeted integrity checks on generated data.
+## 주요 스크립트 (Main Scripts)
 
 - `browser_smoke.mjs`
-  Playwright smoke test for desktop and mobile flows.
+  Playwright를 활용해 데스크톱 및 모바일 뷰어 동작의 무결성을 검증하는 스모크 테스트 스크립트
 
-## Notes
+## 실행 방법 및 문제 해결 (Execution and Troubleshooting)
 
-- The live React app reads `../public/data.json`.
-- `generate_data.ps1` is the canonical way to refresh runtime data.
-- Archived historical output is stored in `../data-source/archive/`.
+### 윈도우 환경 실행 권한 오류 해결
+윈도우 PowerShell 환경에서 보안 정책(`ExecutionPolicy`) 제한으로 인해 `npm` 스크립트 실행이 차단되는 경우, 아래 방법 중 하나를 선택해 해결 가능:
+
+1. **cmd 셸 사용 (권장)**
+   기본 PowerShell 대신 명령 프롬프트(cmd)에서 명령어를 실행:
+   ```cmd
+   cmd /c "npm run qa:browser"
+   ```
+
+2. **PowerShell 실행 정책 우회 실행**
+   스크립트 실행 권한을 일시적으로 우회하여 실행:
+   ```powershell
+   powershell -ExecutionPolicy Bypass -Command "npm run qa:browser"
+   ```

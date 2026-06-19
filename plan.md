@@ -227,55 +227,56 @@
 목표: research.md에서 도출된 4가지 주요 문제점을 순차적으로 해결하여 코드 품질과 접근성을 Meta-Design 수준으로 격상함
 
 ### 15.1 ChapterList 라우팅 연결 및 데드코드 복구
-- [ ] `src/App.tsx` 내 라우터 정의에 `/chapters` 라우트를 추가하고 `ChapterList` 페이지 컴포넌트를 지연 로딩으로 연결함
-- [ ] 헤더(`src/components/Header.tsx`)의 `Flower2` 로고 클릭 시 이동하는 `targetUrl`을 기존 `/`에서 `/chapters`로 변경하여 사용자가 홈 화면(챕터 리스트)으로 자연스럽게 복귀할 수 있게 유도함
-- [ ] `ChapterList.tsx`와 하위 모달 컴포넌트(`CompendiumModal`, `LexiconModal`)의 런타임 렌더링 무결성을 체크함
+- [x] `src/App.tsx` 내 라우터 정의에 `/chapters` 라우트를 추가하고 `ChapterList` 페이지 컴포넌트를 지연 로딩으로 연결함
+- [x] 헤더(`src/components/Header.tsx`)의 `Flower2` 로고 클릭 시 이동하는 `targetUrl`을 기존 `/`에서 `/chapters`로 변경하여 사용자가 홈 화면(챕터 리스트)으로 자연스럽게 복귀할 수 있게 유도함
+- [x] `ChapterList.tsx`와 하위 모달 컴포넌트(`CompendiumModal`, `LexiconModal`)의 런타임 렌더링 무결성을 체크함
 
 ### 15.2 해설 데이터 필드명 시맨틱 개선 (`commentary_en` 리팩토링)
-- [ ] `src/types.ts` 내 `YogaSutra` 인터페이스에서 `commentary_en` 필드명을 한글 콘텐츠 성격에 맞게 `commentary_ko`로 변경함
-- [ ] `src/utils/dataFetcher.ts` 내 `normalizeParagraph` 매핑 시 `commentary_ko`로 매핑을 수정함
-- [ ] `src/pages/VerseView.tsx` 내의 해설 렌더링 전달부(`commentaryText={verseData.commentary_ko}`)의 바인딩을 리팩토링함
-- [ ] `src/context/UIContext.test.tsx` 등 관련 테스트 파일들의 목(mock) 데이터 스키마를 업데이트하여 타입 경고를 방지함
+- [x] `src/types.ts` 내 `YogaSutra` 인터페이스에서 `commentary_en` 필드명을 한글 콘텐츠 성격에 맞게 `commentary_ko`로 변경함
+- [x] `src/utils/dataFetcher.ts` 내 `normalizeParagraph` 매핑 시 `commentary_ko`로 매핑을 수정함
+- [x] `src/pages/VerseView.tsx` 내의 해설 렌더링 전달부(`commentaryText={verseData.commentary_ko}`)의 바인딩을 리팩토링함
+- [x] `src/context/UIContext.test.tsx` 등 관련 테스트 파일들의 목(mock) 데이터 스키마를 업데이트하여 타입 경고를 방지함
 
 ### 15.3 Windows PowerShell 실행 제약 우회 대응
-- [ ] `package.json` 내의 스크립트 혹은 로컬 개발 가이드에 윈도우 환경 전용 `npm.cmd` 기반 실행 가이드 또는 자동 우회 스크립트 설정을 보강하여 빌드/테스트 파이프라인의 에러 빈도를 낮춤
-- [ ] 테스트 실행 및 빌드 명령어 구동 시 윈도우 개발자의 권한 차단을 방지할 수 있는 가이드라인을 프로젝트 문서에 명기함
+- [x] `package.json` 내의 스크립트 혹은 로컬 개발 가이드에 윈도우 환경 전용 `npm.cmd` 기반 실행 가이드 또는 자동 우회 스크립트 설정을 보강하여 빌드/테스트 파이프라인의 에러 빈도를 낮춤
+- [x] 테스트 실행 및 빌드 명령어 구동 시 윈도우 개발자의 권한 차단을 방지할 수 있는 가이드라인을 프로젝트 문서에 명기함
 
 ### 15.4 미사용 번역 필드 및 레거시 속성 정돈
-- [ ] `src/components/Sidebar.tsx` 내의 번역 표시부(`verseData.translation_ham ?? verseData['5.bae_jik'] ?? ''`)에서 실제 3body에 존재하지 않는 요가수트라 잔재 속성(`5.bae_jik`) 및 불필요한 폴백을 제거함
-- [ ] `src/types.ts`의 `YogaSutra` 인터페이스에 잔존하는 미사용 속성 필드들(`5.bae_jik`, `6.bae_uu`, `8. ox`, `9. ox-en`, `translation_en`, `2.english` 등)을 실 데이터인 티벳-한글 기반과 대조하여 정리함
+- [x] `src/components/Sidebar.tsx` 내의 번역 표시부(`verseData.translation_ham ?? verseData['5.bae_jik'] ?? ''`)에서 실제 3body에 존재하지 않는 요가수트라 잔재 속성(`5.bae_jik`) 및 불필요한 폴백을 제거함
+- [x] `src/types.ts`의 `YogaSutra` 인터페이스에 잔존하는 미사용 속성 필드들(`5.bae_jik`, `6.bae_uu`, `8. ox`, `9. ox-en`, `translation_en`, `2.english` 등)을 실 데이터인 티벳-한글 기반과 대조하여 정리함
 
 ### 15.5 검증 및 최종 빌드 패스
-- [ ] `npm.cmd run typecheck` 혹은 `cmd /c npm run typecheck`를 실행하여 타입 정합성 검사
-- [ ] `powershell -ExecutionPolicy Bypass -Command "npm run test -- --run"`을 실행하여 모든 유닛 테스트가 통과하는지 확인
-- [ ] `npm.cmd run build` 실행하여 프로덕션 빌드 성공 확인
-- [ ] Playwright 브라우저 스모크 테스트(`cmd /c npm run qa:browser`)를 구동하여 최종 앱 사용성에 문제가 없는지 확인
+- [x] `npm.cmd run typecheck` 혹은 `cmd /c npm run typecheck`를 실행하여 타입 정합성 검사
+- [x] `powershell -ExecutionPolicy Bypass -Command "npm run test -- --run"`을 실행하여 모든 유닛 테스트가 통과하는지 확인
+- [x] `npm.cmd run build` 실행하여 프로덕션 빌드 성공 확인
+- [x] Playwright 브라우저 스모크 테스트(`cmd /c npm run qa:browser`)를 구동하여 최종 앱 사용성에 문제가 없는지 확인
 
 
 ## 16. 낙함마디(Nag Hammadi) 데이터 이식 및 빌드 정상화 패스
 
 ### 16.1 빌드 에러 해결 및 타입 규격 정비
-- [ ] `src/utils/dataFetcher.ts` 내 존재하지 않는 3body용 주석 모듈 `chapterXCommentary` 관련 임포트 전면 제거
-- [ ] `src/types.ts` 내 핵심 스키마 수정: `YogaSutra` 및 `YogaChapter`에 Coptic 원문과 English 번역 필드를 대응할 수 있도록 `CodexSection`, `CodexWork` 등의 타입 규격 신설
-- [ ] 정적 타입 검사 `npm run typecheck` 통과를 위한 묵시적 `any` 매개변수 에러 수정 및 임포트 경로 전면 튜닝
+- [x] `src/utils/dataFetcher.ts` 내 존재하지 않는 3body용 주석 모듈 `chapterXCommentary` 관련 임포트 전면 제거
+- [x] `src/types.ts` 내 핵심 스키마 수정: `YogaSutra` 및 `YogaChapter`에 Coptic 원문과 English 번역 필드를 대응할 수 있도록 `CodexSection`, `CodexWork` 등의 타입 규격 신설
+- [x] 정적 타입 검사 `npm run typecheck` 통과를 위한 묵시적 `any` 매개변수 에러 수정 및 임포트 경로 전면 튜닝
 
 ### 16.2 런타임 데이터 흐름 연동 및 데이터 어댑터 구축
-- [ ] `codexData.js` 및 `codexIndex.js` 데이터를 로드하고 정형화해주는 전용 데이터 어댑터(`src/utils/codexDataAdapter.ts`) 설계
-- [ ] `public/reading-snapshot.json` 및 `reading-data.json`을 낙함마디 문서의 13개 코덱스 작품 구조에 맞춰 새로 생성하거나 혹은 데이터 로더 수준에서 동적으로 낙함마디 데이터를 반환하도록 가로채기 구현
-- [ ] `YogaDataContext` 및 `fetchYogaData`를 `CodexDataContext`로 시맨틱하게 변경하여 전역 상태로 Coptic, English 데이터 주입
+- [x] `codexData.js` 및 `codexIndex.js` 데이터를 로드하고 정형화해주는 전용 데이터 어댑터(`src/utils/codexDataAdapter.ts`) 설계
+- [x] `public/reading-snapshot.json` 및 `reading-data.json`을 낙함마디 문서의 13개 코덱스 작품 구조에 맞춰 새로 생성하거나 혹은 데이터 로더 수준에서 동적으로 낙함마디 데이터를 반환하도록 가로채기 구현
+- [x] `YogaDataContext` 및 `fetchYogaData`를 `CodexDataContext`로 시맨틱하게 변경하여 전역 상태로 Coptic, English 데이터 주입
 
 ### 16.3 UI 컴포넌트 시맨틱 리팩토링 및 Coptic 폰트 적용
-- [ ] `src/pages/VerseView.tsx` 내의 구절 카드 UI 컴포넌트 리팩토링: 범어/티베트어 렌더링 영역을 Coptic 원문 및 English 번역 텍스트로 치환 및 필드 바인딩 갱신
-- [ ] `ContextAccordionPicker` 및 `OutlineTree` 메뉴가 낙함마디 문서의 Codex I ~ XIII 계층 구조를 트리 구조로 올바르게 표시하도록 렌더링 및 트리 파서 로직 개편
-- [ ] `src/index.css`를 검토하여 Coptic 특수 서체(`Noto Sans Coptic` 등)가 깨짐 없이 렌더링되도록 스타일 규칙 지정
+- [x] `src/pages/VerseView.tsx` 내의 구절 카드 UI 컴포넌트 리팩토링: 범어/티베트어 렌더링 영역을 Coptic 원문 및 English 번역 텍스트로 치환 및 필드 바인딩 갱신
+- [x] `ContextAccordionPicker` 및 `OutlineTree` 메뉴가 낙함마디 문서의 Codex I ~ XIII 계층 구조를 트리 구조로 올바르게 표시하도록 렌더링 및 트리 파서 로직 개편
+- [x] `src/index.css`를 검토하여 Coptic 특수 서체(`Noto Sans Coptic` 등)가 깨짐 없이 렌더링되도록 스타일 규칙 지정
 
 ### 16.4 스모크 테스트 및 검증 도구 오작동 대응
-- [ ] `scripts/browser_smoke.mjs` 내 Playwright 테스트 시나리오를 낙함마디 라우트 규격에 맞춰 전면 개정
-- [ ] 기존 유닛 테스트 목(mock) 데이터를 신규 콥트어 문서 규격에 맞춰 동기화하여 테스트 실패율 Zero화 타겟팅
+- [x] `scripts/browser_smoke.mjs` 내 Playwright 테스트 시나리오를 낙함마디 라우트 규격에 맞춰 전면 개정
+- [x] 기존 유닛 테스트 목(mock) 데이터를 신규 콥트어 문서 규격에 맞춰 동기화하여 테스트 실패율 Zero화 타겟팅
 
 ### 16.5 레거시 리소스 및 가이드 정돈
-- [ ] 프로젝트 루트에 방치된 요가수트라 잔재 `data.js` 파일 전면 제거
-- [ ] `scripts/README.md` 내의 만료된 PowerShell 스크립트 실행 가이드라인을 Node.js 기반 CLI 혹은 정리된 명령어 체계로 갱신
-- [ ] 최종 `npm run typecheck`, `npm run test`, `npm run build` 무결성 검증
+- [x] 프로젝트 루트에 방치된 요가수트라 잔재 `data.js` 파일 전면 제거
+- [x] `scripts/README.md` 내의 만료된 PowerShell 스크립트 실행 가이드라인을 Node.js 기반 CLI 혹은 정리된 명령어 체계로 갱신
+- [x] 최종 `npm run typecheck`, `npm run test`, `npm run build` 무결성 검증
+
 
 

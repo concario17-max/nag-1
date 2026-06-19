@@ -11,6 +11,8 @@ import { AppShell } from './components/ui/AppShell';
 import { getDesktopVerseColumns } from './components/ui/desktopVerseLayout';
 import { useYogaData } from './hooks/useYogaData';
 
+import { codexIndex } from './data/codexIndex';
+
 const VerseView = lazy(() => import('./pages/VerseView'));
 const ChapterList = lazy(() => import('./pages/ChapterList'));
 
@@ -93,30 +95,10 @@ interface ContextAccordionPickerProps {
 
 const normalizeLabel = (value?: string) => value?.replace(/\s+/g, ' ').trim() ?? '';
 
-const splitOutlineParts = (group: ReadingDataGroup, subchapter: ReadingDataSubchapter) => {
-    const title = normalizeLabel(subchapter.title);
-    const chapterName = normalizeLabel(subchapter.chapterName);
-    const fallback = normalizeLabel(group.title || group.chapterName || subchapter.chapterName || subchapter.title);
-    const titleParts = title ? title.split(' / ').map(normalizeLabel).filter(Boolean) : [];
-
-    if (!chapterName) {
-        return titleParts.length > 0 ? titleParts : [fallback];
-    }
-
-    if (titleParts.length === 0) {
-        return [chapterName];
-    }
-
-    if (titleParts.length === 1) {
-        if (chapterName === '본문' || chapterName === titleParts[0]) {
-            return titleParts;
-        }
-
-        return [...titleParts, chapterName];
-    }
-
-    return titleParts;
+const splitOutlineParts = (_group: ReadingDataGroup, subchapter: ReadingDataSubchapter) => {
+    return [subchapter.chapterName || subchapter.title || ''];
 };
+
 
 const insertOutlineNode = (
     nodes: OutlineNode[],
@@ -575,6 +557,26 @@ const ContextAccordionPicker = ({
     );
 };
 
+const getReadingSnapshotFromIndex = (): ReadingDataSnapshot => {
+    const chapters: ReadingDataGroup[] = codexIndex.map((group) => {
+        const subchapters: ReadingDataSubchapter[] = group.works.map((work) => ({
+            id: work.indexId,
+            chapterName: work.chapterName,
+            title: work.title,
+        }));
+
+        return {
+            id: group.id,
+            chapterName: group.title,
+            title: group.title,
+            isGroup: true,
+            subchapters,
+        };
+    });
+
+    return { chapters };
+};
+
 const MainLayout = () => {
     const location = useLocation();
     const navigate = useNavigate();
@@ -582,39 +584,11 @@ const MainLayout = () => {
     const { chapters } = useYogaData();
     const isVerseView = location.pathname.includes('/chapter/') && location.pathname.includes('/verse/');
     const { isSidebarOpen, isDesktopSidebarOpen } = useUI();
-    const [readingSnapshot, setReadingSnapshot] = useState<ReadingDataSnapshot | null>(null);
+    const [readingSnapshot] = useState<ReadingDataSnapshot | null>(() => getReadingSnapshotFromIndex());
 
     const desktopGridColumns = isVerseView ? getDesktopVerseColumns(isDesktopSidebarOpen, false) : undefined;
     const currentChapterNumber = isVerseView && chapterNum ? Number.parseInt(chapterNum, 10) : null;
 
-    useEffect(() => {
-        let isActive = true;
-
-        const loadReadingSnapshot = async () => {
-            try {
-                const response = await fetch('/reading-data.json');
-                if (!response.ok) {
-                    throw new Error(`Failed to fetch reading data: ${response.status}`);
-                }
-
-                const snapshot = (await response.json()) as ReadingDataSnapshot;
-                if (isActive) {
-                    setReadingSnapshot(snapshot);
-                }
-            } catch (error) {
-                console.error('Error loading reading outline:', error);
-                if (isActive) {
-                    setReadingSnapshot(null);
-                }
-            }
-        };
-
-        void loadReadingSnapshot();
-
-        return () => {
-            isActive = false;
-        };
-    }, []);
 
     const verseOptionsByChapter = useMemo(
         () =>

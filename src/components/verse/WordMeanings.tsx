@@ -1,11 +1,16 @@
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-import { WordMeaning } from '../../types';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 
-interface WordMeaningsProps {
-    meanings?: WordMeaning;
+interface WordMeaningEntry {
+    word: string;
+    meaning: string;
 }
+
+interface WordMeaningsProps {
+    meanings?: WordMeaningEntry[];
+}
+
 
 const formatMeaning = (meaning: string) => {
     const etymologySeparator = ' < ';
@@ -80,7 +85,7 @@ export const WordMeanings = ({ meanings }: WordMeaningsProps) => {
                 {isOpen ? (
                     <motion.div initial="hidden" animate="visible" exit="exit" variants={containerVariants} className="overflow-hidden">
                         <div className="mt-4 grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-                            {meanings.map(({ word, meaning }, index: number) => (
+                            {meanings.map(({ word, meaning }: WordMeaningEntry, index: number) => (
                                 <motion.div key={`${word}-${index}`} variants={itemVariants} className="border-l border-gold-border/10 pl-4 dark:border-dark-border/45">
                                     <div className="flex flex-col gap-1">
                                         <span className="font-display text-[16px] italic text-gold-primary dark:text-gold-light">

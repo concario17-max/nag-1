@@ -1,126 +1,67 @@
-import { chapter1Commentary, type CommentaryBlock } from '../data/chapter1Commentary';
-import { chapter2Commentary } from '../data/chapter2Commentary';
-import { chapter3Commentary } from '../data/chapter3Commentary';
-import { chapter4Commentary } from '../data/chapter4Commentary';
-import { ReadingSnapshot, YogaChapter, YogaSutra } from '../types';
+import { codexIndex } from '../data/codexIndex';
+import { codexData } from '../data/codexData';
+import { YogaChapter, YogaSutra, CodexDataWork } from '../types';
 
 let cachedData: Record<number, YogaChapter> | null = null;
 let pendingRequest: Promise<Record<number, YogaChapter>> | null = null;
 
-const stripBom = (value: string) => (value.charCodeAt(0) === 0xfeff ? value.slice(1) : value);
+const buildChapters = (): Record<number, YogaChapter> => {
+    const chaptersMap: Record<number, YogaChapter> = {};
+    const worksList = codexData.works;
+    const worksMap = new Map<string, CodexDataWork>();
 
-const formatCommentaryTable = (table: CommentaryBlock['table']) => {
-    if (!table || table.headers.length === 0) {
-        return '';
+    for (const w of worksList) {
+        worksMap.set(w.workId, w);
     }
 
-    const header = `| ${table.headers.map((cell) => cell.trim()).join(' | ')} |`;
-    const separator = `| ${table.headers.map(() => '---').join(' | ')} |`;
-    const rows = table.rows.map((row) => `| ${table.headers.map((_, index) => row[index]?.trim() ?? '').join(' | ')} |`);
+    let chapterCounter = 1;
 
-    return [header, separator, ...rows].join('\n');
-};
+    for (const group of codexIndex) {
+        for (const entry of group.works) {
+            const matchedWork = worksMap.get(entry.workId);
+            const sutras: YogaSutra[] = [];
+            const currentChapterNum = chapterCounter;
 
-const serializeCommentaryBlocks = (blocks?: CommentaryBlock[]) => {
-    if (!blocks?.length) {
-        return '';
-    }
-
-    return blocks
-        .map((block, index) => {
-            const sections: string[] = [];
-            const headingLevel = index === 0 ? '#' : '##';
-
-            if (block.title?.trim()) {
-                sections.push(`${headingLevel} ${block.title.trim()}`);
+            if (matchedWork && matchedWork.sections) {
+                matchedWork.sections.forEach((section, index) => {
+                    sutras.push({
+                        id: `${entry.workId}.${index + 1}`,
+                        chapter: currentChapterNum,
+                        verse: index + 1,
+                        sanskrit: section.coptic,
+                        pronunciation: '',
+                        pronunciation_kr: '',
+                        translation_ham: section.english,
+                        commentary_ko: `# ${section.title || section.heading}\n\n**Range:** ${section.rangeLabel}\n\n${section.english}`,
+                    });
+                });
             }
 
-            if (block.paragraphs?.length) {
-                sections.push(...block.paragraphs.map((paragraph) => paragraph.trim()).filter(Boolean));
-            }
+            chaptersMap[currentChapterNum] = {
+                chapter: currentChapterNum,
+                meta: {
+                    chapter: currentChapterNum,
+                    indexId: entry.indexId,
+                    workId: entry.workId,
+                    chapterName: entry.chapterName,
+                    title: entry.title,
+                    sourceTitle: entry.sourceTitle,
+                    description: entry.sourceTitle || entry.title,
+                    name_korean: entry.chapterName,
+                    name_english: entry.title,
+                    sutraCount: sutras.length,
+                },
+                sutras,
+            };
 
-            if (block.bullets?.length) {
-                sections.push(block.bullets.map((bullet) => `- ${bullet.trim()}`).join('\n'));
-            }
-
-            if (block.table) {
-                sections.push(formatCommentaryTable(block.table));
-            }
-
-            return sections.join('\n\n');
-        })
-        .filter(Boolean)
-        .join('\n\n');
-};
-
-const commentaryByChapter: Record<number, Record<string, CommentaryBlock[]>> = {
-    1: chapter1Commentary,
-    2: chapter2Commentary,
-    3: chapter3Commentary,
-    4: chapter4Commentary,
-};
-
-const getCommentaryBlocks = (chapterNum: number, paragraphId: string, paragraphNumber: number, paragraphIndex: number) => {
-    const chapterCommentary = commentaryByChapter[chapterNum];
-    if (!chapterCommentary) {
-        return undefined;
-    }
-
-    const fallbackKeys = [paragraphId, String(paragraphIndex + 1), String(paragraphNumber), `${chapterNum}.${paragraphNumber}`];
-    for (const key of fallbackKeys) {
-        const blocks = chapterCommentary[key];
-        if (blocks?.length) {
-            return blocks;
+            chapterCounter += 1;
         }
     }
 
-    return undefined;
+    return chaptersMap;
 };
 
-const toNumber = (value: string | number | undefined, fallback = 0) => {
-    const numeric = typeof value === 'number' ? value : Number.parseInt(String(value ?? ''), 10);
-    return Number.isFinite(numeric) ? numeric : fallback;
-};
-
-const normalizeParagraph = (
-    chapterNum: number,
-    paragraph: ReadingSnapshot[number]['paragraphs'][number],
-    paragraphIndex: number,
-): YogaSutra => {
-    const sourceText = paragraph.text ?? { tibetan: '', pronunciation: '', english: '', korean: '' };
-    const chapterCommentary = getCommentaryBlocks(chapterNum, paragraph.id, paragraph.paragraphNumber, paragraphIndex);
-
-    return {
-        id: paragraph.id,
-        chapter: chapterNum,
-        verse: paragraph.paragraphNumber,
-        sanskrit: sourceText.tibetan ?? '',
-        iast: sourceText.pronunciation ?? '',
-        pronunciation: sourceText.pronunciation ?? '',
-        pronunciation_kr: '',
-        translation_ham: sourceText.korean || undefined,
-        commentary_ko: serializeCommentaryBlocks(chapterCommentary) || undefined,
-    };
-};
-
-const normalizeChapter = (chapter: ReadingSnapshot[number]): YogaChapter => {
-    const chapterNum = toNumber(chapter.id);
-    const sutras = chapter.paragraphs.map((paragraph, index) => normalizeParagraph(chapterNum, paragraph, index));
-
-    return {
-        chapter: chapterNum,
-        meta: {
-            chapter: chapterNum,
-            name_korean: chapter.chapterName || `Chapter ${chapterNum}`,
-            name_english: chapter.title || chapter.chapterName || `Chapter ${chapterNum}`,
-            description: chapter.title || chapter.chapterName || '',
-            sutraCount: sutras.length,
-        },
-        sutras,
-    };
-};
-
-export const resetCache = () => {
+export const resetCache = (): void => {
     cachedData = null;
     pendingRequest = null;
 };
@@ -134,24 +75,11 @@ export const fetchYogaData = async (): Promise<Record<number, YogaChapter>> => {
         return pendingRequest;
     }
 
-    pendingRequest = (async () => {
+    pendingRequest = (async (): Promise<Record<number, YogaChapter>> => {
         try {
-            const response = await fetch('/reading-snapshot.json');
-            if (!response.ok) {
-                throw new Error(`Failed to fetch reading snapshot: ${response.status}`);
-            }
-
-            const snapshot = JSON.parse(stripBom(await response.text())) as ReadingSnapshot;
-            const structuredData = snapshot.reduce<Record<number, YogaChapter>>((acc, chapter) => {
-                acc[toNumber(chapter.id)] = normalizeChapter(chapter);
-                return acc;
-            }, {});
-
+            const structuredData = buildChapters();
             cachedData = structuredData;
             return structuredData;
-        } catch (error) {
-            console.error('Error fetching reading snapshot:', error);
-            throw error instanceof Error ? error : new Error('Unknown reading snapshot fetch failure');
         } finally {
             pendingRequest = null;
         }
